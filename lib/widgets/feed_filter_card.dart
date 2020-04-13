@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thyevent/screens/feed_screen.dart';
 
 class FeedFilterCard extends StatelessWidget {
   final Icon cardLogo;
@@ -34,7 +33,7 @@ class FeedFilterCard extends StatelessWidget {
         ),
         onTap: () {
           // TODO: Implement the filters, now only pushing to Feed Screen
-          Navigator.pushNamed(context, FeedScreen.id);
+          Navigator.pop(context);
         },
       ),
     );

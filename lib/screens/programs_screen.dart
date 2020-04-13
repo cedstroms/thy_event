@@ -1,22 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CompaniesScreen extends StatelessWidget {
-  static const String id = 'companies_screen';
+class ProgramScreen extends StatelessWidget {
+  static const String id = 'program_screen';
 
   @override
   Widget build(BuildContext context) {
-    // TODO: build companies screen
+    // TODO: build program screen
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Companies',
+          'Program',
         ),
         centerTitle: true,
         leading: Icon(Icons.filter_list),
       ),
       body: Container(
-        child: Text('hej'),
+        child: Text('hej hopp gummisnopp '),
       ),
     );
   }
