@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/screens/feed_filter_screen.dart';
-import 'package:thyevent/screens/feed_screen.dart';
-import 'package:thyevent/screens/companies_screen.dart';
-import 'package:thyevent/widgets/navigation_bar_bottom.dart';
+import 'package:thyevent/feed_screen/screens/feed_filter_screen.dart';
+import 'package:thyevent/feed_screen/screens/feed_screen.dart';
+import 'package:thyevent/companies_screen/companies_screen.dart';
+import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
-import 'package:thyevent/screens/programs_screen.dart';
+import 'package:thyevent/program_screen/programs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,32 +14,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //initialRoute: FeedScreen.id,
       routes: {
-        //FeedScreen.id: (context) => FeedScreen(),
+        FeedScreen.id: (context) => FeedScreen(),
         FeedFilterScreen.id: (context) => FeedFilterScreen(),
-        //CompaniesScreen.id: (context) => CompaniesScreen(),
+        CompaniesScreen.id: (context) => CompaniesScreen(),
       },
       home: ChangeNotifierProvider<BottomNavigationBarProvider>(
-        child: BottomNavigationBarExample(),
+        child: NavigationBar(),
         create: (BuildContext context) => BottomNavigationBarProvider(),
       ),
     );
   }
 }
 
-class BottomNavigationBarExample extends StatefulWidget {
+class NavigationBar extends StatefulWidget {
   @override
-  _BottomNavigationBarExampleState createState() =>
-      _BottomNavigationBarExampleState();
+  _NavigationBarState createState() =>
+      _NavigationBarState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
+class _NavigationBarState extends State<NavigationBar> {
   var currentTab = [
     FeedScreen(),
     CompaniesScreen(),
     ProgramScreen(),
   ];
-  static String id = 'start_screen';
 
   @override
   Widget build(BuildContext context) {

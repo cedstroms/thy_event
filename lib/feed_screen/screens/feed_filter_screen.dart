@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thyevent/widgets/feed_filter_list.dart';
-import 'package:thyevent/main.dart';
+import 'package:thyevent/feed_screen/widgets/feed_filter_list.dart';
 
 class FeedFilterScreen extends StatelessWidget {
   static String id = 'feed_filter_screen';
@@ -11,6 +10,7 @@ class FeedFilterScreen extends StatelessWidget {
     // TODO: build feed filter screen
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           'Filter',
         ),
