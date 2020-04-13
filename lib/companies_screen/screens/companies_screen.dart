@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:thyevent/companies_screen/widgets/companies_list.dart';
 
 class CompaniesScreen extends StatelessWidget {
   static const String id = 'companies_screen';
@@ -15,8 +16,10 @@ class CompaniesScreen extends StatelessWidget {
         centerTitle: true,
         leading: Icon(Icons.filter_list),
       ),
+      backgroundColor: Color(0xffE9E9E9),
       body: Container(
-        child: Text('hej'),
+        margin: EdgeInsets.all(12),
+        child: CompaniesList(),
       ),
     );
   }

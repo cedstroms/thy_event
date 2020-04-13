@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thyevent/feed_screen/screens/feed_filter_screen.dart';
 import 'package:thyevent/feed_screen/screens/feed_screen.dart';
-import 'package:thyevent/companies_screen/companies_screen.dart';
+import 'package:thyevent/companies_screen/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/program_screen/programs_screen.dart';
