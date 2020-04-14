@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CompaniesCard extends StatelessWidget {
-  final Icon cardLogo;
+  final String cardLogo;
   final String cardTitle;
 
   CompaniesCard({this.cardLogo, this.cardTitle});
@@ -13,7 +13,11 @@ class CompaniesCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           CircleAvatar(
-            child: cardLogo,
+            child: Container(
+              child: Image.network(cardLogo),
+              margin: EdgeInsets.all(14),
+              color: Colors.transparent,
+            ),
             radius: 40,
             backgroundColor: Colors.white,
           ),

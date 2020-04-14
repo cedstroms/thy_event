@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FeedCard extends StatelessWidget {
-  final Icon cardLogo;
+  final String cardLogo;
   final String cardTitle;
   final String cardDate;
   final String cardContent;
@@ -19,7 +19,15 @@ class FeedCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ListTile(
-              leading: cardLogo,
+              leading: CircleAvatar(
+                child: Container(
+                  child: Image.network(cardLogo),
+                  margin: EdgeInsets.all(7),
+                  color: Colors.transparent,
+                ),
+                radius: 20,
+                backgroundColor: Colors.white,
+              ),
               title: Text(
                 cardTitle,
                 style: TextStyle(

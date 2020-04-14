@@ -28,7 +28,6 @@ class FeedScreen extends StatelessWidget {
           )
         ],
       ),
-      backgroundColor: Color(0xffE9E9E9),
       body: FeedList(),
     );
   }

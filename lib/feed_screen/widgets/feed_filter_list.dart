@@ -11,17 +11,17 @@ class FeedFilterList extends StatefulWidget {
 class _FeedFilterListState extends State<FeedFilterList> {
   List<FeedFilterItem> filters = [
     FeedFilterItem(
-      logo: Icon(Icons.home, size: 40),
+      logo: Icon(Icons.home, size: 40, color: Colors.blueAccent),
       title: 'Home',
       subtitle: 'Shows all posts unfiltered',
     ),
     FeedFilterItem(
-      logo: Icon(Icons.alternate_email, size: 40),
+      logo: Icon(Icons.alternate_email, size: 40, color: Colors.green),
       title: 'Official Statements',
       subtitle: 'Shows all statements by the arrangers',
     ),
     FeedFilterItem(
-      logo: Icon(Icons.star, size: 40),
+      logo: Icon(Icons.star, size: 40, color: Colors.yellow),
       title: 'Favourited',
       subtitle: 'Shows all posts from your favourited items',
     ),

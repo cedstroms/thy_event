@@ -12,7 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //initialRoute: FeedScreen.id,
+      theme: ThemeData.light().copyWith(
+        primaryColor: Colors.blueAccent,
+        accentColor: Colors.lightBlueAccent,
+        scaffoldBackgroundColor: Color(0xffE9E9E9),
+      ),
       routes: {
         FeedScreen.id: (context) => FeedScreen(),
         FeedFilterScreen.id: (context) => FeedFilterScreen(),

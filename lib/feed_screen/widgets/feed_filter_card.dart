@@ -66,7 +66,7 @@ class FeedFilterCardCompact extends StatelessWidget {
         trailing: Icon(
           Icons.star,
           size: 20,
-          color: Colors.black,
+          color: Colors.yellow,
         ),
       ),
     );

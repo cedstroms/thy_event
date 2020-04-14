@@ -16,7 +16,6 @@ class CompaniesScreen extends StatelessWidget {
         centerTitle: true,
         leading: Icon(Icons.filter_list),
       ),
-      backgroundColor: Color(0xffE9E9E9),
       body: Container(
         margin: EdgeInsets.all(12),
         child: CompaniesList(),
