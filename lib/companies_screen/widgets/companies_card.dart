@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:thyevent/companies_screen/screens/companies_info_screen.dart';
 
 class CompaniesCard extends StatelessWidget {
   final String cardLogo;
@@ -12,14 +14,21 @@ class CompaniesCard extends StatelessWidget {
       padding: EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
-          CircleAvatar(
-            child: Container(
-              child: Image.network(cardLogo),
-              margin: EdgeInsets.all(14),
-              color: Colors.transparent,
+          FlatButton(
+            onPressed: () {
+              Navigator.push(context,
+                  CupertinoPageRoute(
+                      builder: (context) => CompaniesInfoScreen()));
+            },
+            child: CircleAvatar(
+              child: Container(
+                child: Image.network(cardLogo),
+                margin: EdgeInsets.all(14),
+                color: Colors.transparent,
+              ),
+              radius: 38,
+              backgroundColor: Colors.white,
             ),
-            radius: 38,
-            backgroundColor: Colors.white,
           ),
           SizedBox(height: 6),
           Text(
