@@ -5,6 +5,7 @@ import 'package:thyevent/companies_screen/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/program_screen/programs_screen.dart';
+import 'package:thyevent/map_screen/map_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,6 +42,7 @@ class _NavigationBarState extends State<NavigationBar> {
     FeedScreen(),
     CompaniesScreen(),
     ProgramScreen(),
+    MapScreen(),
   ];
 
   @override
