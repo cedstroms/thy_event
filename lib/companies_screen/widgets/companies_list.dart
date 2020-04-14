@@ -11,24 +11,48 @@ class CompaniesList extends StatefulWidget {
 class _CompaniesListState extends State<CompaniesList> {
   List<CompaniesItem> companies = [
     CompaniesItem(
-      logo: 'https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fwww.kindpng.com%2Fpicc%2Fm%2F371-3711608_ericsson-logo-telecommunications-three-diagonal-lines-logo-hd.png&sp=34587936c14dc303d6ba0f4dafe96107',
+      logo: 'assets/images/ericsson_logo.svg',
       company: 'Ericsson',
     ),
     CompaniesItem(
-      logo: 'https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fwww.ekocentrum.se%2Fassets%2FSKF-Logo-S01__PBM-copy.jpg&sp=f223098c496f959526d7e448db93f03e',
+      logo: 'assets/images/skf_logo.svg',
       company: 'SKF',
     ),
     CompaniesItem(
-      logo: 'https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fcached-images.bonnier.news%2Fswift%2Fbilder%2Fmedia%2Fcaebf3908a9a3748851da878290ebb85.jpg&sp=444a4e82c3ed3cab94a13b70f8daa234',
-      company: 'SBAB',
+      logo: 'assets/images/abb_logo.svg',
+      company: 'ABB',
     ),
     CompaniesItem(
-      logo: 'https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F53%2FH%2526M-Logo.svg%2F1200px-H%2526M-Logo.svg.png&sp=c35fa7c0885e5b7eab59137590148a99',
+      logo: 'assets/images/hm_logo.svg',
       company: 'H&M',
     ),
     CompaniesItem(
-      logo: 'https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fsebgroup.com%2Fglobalassets%2Fdownload-logotype%2Fseb_k_45mm150dpi.jpg&sp=6e233856e40a779eec9ab12da05f31de',
+      logo: 'assets/images/seb_logo.svg',
       company: 'SEB',
+    ),
+    CompaniesItem(
+      logo: 'assets/images/cisco_logo.svg',
+      company: 'Cisco',
+    ),
+    CompaniesItem(
+      logo: 'assets/images/ibm_logo.svg',
+      company: 'IBM',
+    ),
+    CompaniesItem(
+      logo: 'assets/images/mtr_logo.svg',
+      company: 'MTR',
+    ),
+    CompaniesItem(
+      logo: 'assets/images/nasdaq_logo.svg',
+      company: 'NASDAQ',
+    ),
+    CompaniesItem(
+      logo: 'assets/images/ncc_logo.svg',
+      company: 'NCC',
+    ),
+    CompaniesItem(
+      logo: 'assets/images/sandvik_logo.svg',
+      company: 'Sandvik',
     ),
   ];
 

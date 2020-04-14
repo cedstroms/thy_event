@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FeedCard extends StatelessWidget {
   final String cardLogo;
@@ -21,7 +22,7 @@ class FeedCard extends StatelessWidget {
             ListTile(
               leading: CircleAvatar(
                 child: Container(
-                  child: Image.network(cardLogo),
+                  child: SvgPicture.asset(cardLogo),
                   margin: EdgeInsets.all(7),
                   color: Colors.transparent,
                 ),
