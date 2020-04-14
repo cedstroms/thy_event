@@ -18,10 +18,10 @@ class CompaniesCard extends StatelessWidget {
               margin: EdgeInsets.all(14),
               color: Colors.transparent,
             ),
-            radius: 40,
+            radius: 38,
             backgroundColor: Colors.white,
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 6),
           Text(
             cardTitle,
             style: TextStyle(

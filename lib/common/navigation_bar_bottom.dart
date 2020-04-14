@@ -16,6 +16,7 @@ class NavigationBarBottom extends StatelessWidget {
       showUnselectedLabels: true,
       selectedItemColor: Colors.blueAccent,
       unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.format_list_bulleted),
