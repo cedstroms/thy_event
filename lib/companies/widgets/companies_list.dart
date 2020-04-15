@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thyevent/companies_screen/models/companies_item.dart';
-import 'package:thyevent/companies_screen/widgets/companies_card.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:thyevent/companies/widgets/companies_card.dart';
+import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CompaniesList extends StatefulWidget {
   @override
@@ -9,7 +11,7 @@ class CompaniesList extends StatefulWidget {
 }
 
 class _CompaniesListState extends State<CompaniesList> {
-  List<CompaniesItem> companies = [
+  List<CompaniesItem> companiesData = [
     CompaniesItem(
       logo: 'assets/images/ericsson_logo.svg',
       company: 'Ericsson',
@@ -58,14 +60,15 @@ class _CompaniesListState extends State<CompaniesList> {
 
   @override
   Widget build(BuildContext context) {
+    final companies = Provider.of<QuerySnapshot>(context);
     return GridView.builder(
-      itemCount: companies.length,
+      itemCount: companiesData.length,
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemBuilder: (context, index) {
         return CompaniesCard(
-          cardLogo: companies[index].logo,
-          cardTitle: companies[index].company,
+          cardLogo: companiesData[index].logo,
+          cardTitle: companiesData[index].company,
         );
       },
     );

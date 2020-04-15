@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed_screen/screens/feed_filter_screen.dart';
-import 'package:thyevent/feed_screen/widgets/feed_list.dart';
+import 'package:thyevent/feed/screens/feed_filter_screen.dart';
+import 'package:thyevent/feed/widgets/feed_list.dart';
 
 class FeedScreen extends StatelessWidget {
   static String id = 'feed_screen';

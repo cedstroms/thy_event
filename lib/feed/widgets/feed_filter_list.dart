@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed_screen/models/feed_filter_item.dart';
-import 'package:thyevent/feed_screen/widgets/feed_filter_card.dart';
+import 'package:thyevent/feed/models/feed_filter_item.dart';
+import 'package:thyevent/feed/widgets/feed_filter_card.dart';
 
 class FeedFilterList extends StatefulWidget {
   @override

@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   provider: ^4.0.5
   flutter_svg: ^0.17.4
+  cloud_firestore: ^0.12.9+4
 
 dev_dependencies:
   flutter_test:

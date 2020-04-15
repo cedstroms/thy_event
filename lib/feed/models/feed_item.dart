@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class FeedItem {
   final String logo;
   final String author;
