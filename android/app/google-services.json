@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "407783530920",
+    "firebase_url": "https://thy-event.firebaseio.com",
+    "project_id": "thy-event",
+    "storage_bucket": "thy-event.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407783530920:android:e141e092ad9bed531dbd9d",
+        "android_client_info": {
+          "package_name": "com.example.thyevent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407783530920-77hjspc7ecct1u2fo0ef60l1nn9fcah1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATddR7W9Sykp2_t5KMTVVrcYEtHpxvcgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407783530920-77hjspc7ecct1u2fo0ef60l1nn9fcah1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
