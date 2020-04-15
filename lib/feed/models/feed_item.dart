@@ -1,8 +1,7 @@
 class FeedItem {
-  final String logo;
-  final String author;
-  final String date;
-  final String content;
+  final String feedAuthor;
+  final String feedDate;
+  final String feedContent;
 
-  FeedItem({this.logo, this.author, this.date, this.content});
+  FeedItem({this.feedAuthor, this.feedDate, this.feedContent});
 }

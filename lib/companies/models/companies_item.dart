@@ -1,6 +1,6 @@
 class CompaniesItem {
-  final String logo;
-  final String company;
+  final String companyLogo;
+  final String companyName;
 
-  CompaniesItem({this.logo, this.company});
+  CompaniesItem({this.companyLogo, this.companyName});
 }
