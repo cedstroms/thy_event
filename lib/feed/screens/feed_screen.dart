@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/feed/screens/feed_filter_screen.dart';
+import 'package:thyevent/feed/screens/settings_screen.dart';
 import 'package:thyevent/feed/widgets/feed_list.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
@@ -29,7 +30,15 @@ class FeedScreen extends StatelessWidget {
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.settings),
+              child: IconButton(
+                  icon: Icon(Icons.settings),
+                onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context)=> SettingsScreen()),
+                    );
+                }
+              ),
             )
           ],
         ),
