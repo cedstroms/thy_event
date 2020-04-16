@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
+        //ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
       ],
