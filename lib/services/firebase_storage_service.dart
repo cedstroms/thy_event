@@ -10,16 +10,16 @@ class DatabaseService {
   final CollectionReference companiesCollection =
       Firestore.instance.collection('companies');
 
-  // feed collection reference
-  final CollectionReference feedCollection =
-  Firestore.instance.collection('feed');
+  // feed collection query
+  final Query feedCollection =
+  Firestore.instance.collection('feed').orderBy('date', descending: true);
 
   // companies list from snapshot
   List<CompaniesItem> _companiesListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
-          companyName: doc.data['name'] ?? 'empty',
+          companyName: doc.data['name'] ?? '',
         );
       },
     ).toList();
@@ -30,9 +30,9 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
-          feedAuthor: doc.data['company_id'].toString() ?? 'empty',
-          feedContent: doc.data['content'] ?? 'empty',
-          feedDate: doc.data['date'].toDate().toString() ?? 'empty',
+          feedAuthor: doc.data['company_name'] ?? '',
+          feedContent: doc.data['content'] ?? '',
+          feedDate: doc.data['date'].toDate().toString() ?? '',
         );
       },
     ).toList();

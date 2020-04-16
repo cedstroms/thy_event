@@ -25,11 +25,6 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.lightBlueAccent,
           scaffoldBackgroundColor: Color(0xffE9E9E9),
         ),
-        routes: {
-          FeedScreen.id: (context) => FeedScreen(),
-          FeedFilterScreen.id: (context) => FeedFilterScreen(),
-          CompaniesScreen.id: (context) => CompaniesScreen(),
-        },
         home: NavigationBar(),
       ),
     );
