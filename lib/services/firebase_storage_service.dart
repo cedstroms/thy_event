@@ -20,6 +20,7 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
+          companyLogo: doc.data['logo'] ?? '',
           companyName: doc.data['name'] ?? '',
         );
       },
@@ -32,6 +33,7 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
+          feedLogo: doc.data['logo'] ?? '',
           feedAuthor: doc.data['company_name'] ?? '',
           feedContent: doc.data['content'] ?? '',
           feedDate: doc.data['date'].toDate().toString() ?? '',

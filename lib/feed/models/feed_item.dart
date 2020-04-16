@@ -1,7 +1,8 @@
 class FeedItem {
+  final String feedLogo;
   final String feedAuthor;
   final String feedDate;
   final String feedContent;
 
-  FeedItem({this.feedAuthor, this.feedDate, this.feedContent});
+  FeedItem({this.feedLogo, this.feedAuthor, this.feedDate, this.feedContent});
 }

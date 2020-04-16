@@ -19,7 +19,7 @@ class _CompaniesListState extends State<CompaniesList> {
       SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemBuilder: (context, index) {
         return CompaniesCard(
-          cardLogo: 'assets/images/ericsson_logo.svg',
+          cardLogo: companies[index].companyLogo,
           cardTitle: companies[index].companyName,
         );
       },
