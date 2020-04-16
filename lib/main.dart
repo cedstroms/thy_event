@@ -7,31 +7,25 @@ import 'package:provider/provider.dart';
 import 'package:thyevent/program/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
 import 'package:thyevent/program/widgets/program_data.dart';
-import 'package:thyevent/services/firebase_storage_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProgramData(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
+        ChangeNotifierProvider<BottomNavigationBarProvider>(
+            create: (BuildContext context) => BottomNavigationBarProvider()),
+      ],
       child: MaterialApp(
         theme: ThemeData.light().copyWith(
           primaryColor: Colors.blueAccent,
           accentColor: Colors.lightBlueAccent,
           scaffoldBackgroundColor: Color(0xffE9E9E9),
         ),
-        routes: {
-          FeedScreen.id: (context) => FeedScreen(),
-          FeedFilterScreen.id: (context) => FeedFilterScreen(),
-          CompaniesScreen.id: (context) => CompaniesScreen(),
-        },
-        home: ChangeNotifierProvider<BottomNavigationBarProvider>(
-          child: NavigationBar(),
-          create: (BuildContext context) => BottomNavigationBarProvider(),
-        ),
+        home: NavigationBar(),
       ),
     );
   }
