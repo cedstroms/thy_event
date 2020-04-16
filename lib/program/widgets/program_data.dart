@@ -35,7 +35,6 @@ class ProgramData extends ChangeNotifier {
 
   int get tabCount {
     List tabList = [];
-    int tabCounter = 0;
     for (int i = 0; i < programs.length; i++) {
       tabList.add(programs[i].numberTab);
     }
