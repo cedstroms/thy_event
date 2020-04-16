@@ -18,7 +18,7 @@ class _FeedListState extends State<FeedList> {
       itemCount: feed.length,
       itemBuilder: (context, index) {
         return FeedCard(
-          cardLogo: 'assets/images/ericsson_logo.svg',
+          cardLogo: feed[index].feedLogo,
           cardTitle: feed[index].feedAuthor,
           cardDate: feed[index].feedDate,
           cardContent: feed[index].feedContent,

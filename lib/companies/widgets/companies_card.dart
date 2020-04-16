@@ -23,7 +23,7 @@ class CompaniesCard extends StatelessWidget {
             },
             child: CircleAvatar(
               child: Container(
-                child: SvgPicture.asset(cardLogo),
+                child: SvgPicture.network(cardLogo),
                 margin: EdgeInsets.all(14),
                 color: Colors.transparent,
               ),
