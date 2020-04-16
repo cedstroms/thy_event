@@ -26,6 +26,7 @@ dependencies:
   provider: ^4.0.5
   flutter_svg: ^0.17.4
   cloud_firestore: ^0.12.9+4
+  mobile_popup: ^1.2.0
 
 dev_dependencies:
   flutter_test:

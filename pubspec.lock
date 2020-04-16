@@ -123,6 +123,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.8"
+  mobile_popup:
+    dependency: "direct main"
+    description:
+      name: mobile_popup
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   nested:
     dependency: transitive
     description:
