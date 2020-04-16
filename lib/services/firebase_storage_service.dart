@@ -3,9 +3,16 @@ import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 
 class DatabaseService {
+
+  // companies and feed join collection
+
   // companies collection reference
   final CollectionReference companiesCollection =
       Firestore.instance.collection('companies');
+
+  // feed collection reference
+  final CollectionReference feedCollection =
+  Firestore.instance.collection('feed');
 
   // companies list from snapshot
   List<CompaniesItem> _companiesListFromSnapshot(QuerySnapshot snapshot) {
@@ -18,15 +25,6 @@ class DatabaseService {
     ).toList();
   }
 
-  // get companies stream
-  Stream<List<CompaniesItem>> get companies {
-    return companiesCollection.snapshots().map(_companiesListFromSnapshot);
-  }
-
-  // feed collection reference
-  final CollectionReference feedCollection =
-      Firestore.instance.collection('feed');
-
   // feed list from snapshot
   List<FeedItem> _feedListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
@@ -38,6 +36,11 @@ class DatabaseService {
         );
       },
     ).toList();
+  }
+
+  // get companies stream
+  Stream<List<CompaniesItem>> get companies {
+    return companiesCollection.snapshots().map(_companiesListFromSnapshot);
   }
 
   // get feed stream

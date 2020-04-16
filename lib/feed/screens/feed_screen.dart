@@ -35,7 +35,8 @@ class FeedScreen extends StatelessWidget {
                 onPressed: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context)=> SettingsScreen()),
+                      CupertinoPageRoute(
+                          builder: (context) => SettingsScreen()),
                     );
                 }
               ),

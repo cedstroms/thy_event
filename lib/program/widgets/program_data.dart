@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/program/models/program_Item.dart';
+import 'package:thyevent/program/models/program_item.dart';
 
 class ProgramData extends ChangeNotifier {
   List<ProgramItem> programs = [
