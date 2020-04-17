@@ -8,7 +8,12 @@ class MapScreen extends StatelessWidget {
         title: Text('Map'),
       ),
       body: Container(
-
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage('https://d38trduahtodj3.cloudfront.net/images.ashx?t=ig&rid=GreeleyStampede&i=2019_Greeley_Stampede_park_map_061219(1).png'),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
