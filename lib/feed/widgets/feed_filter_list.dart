@@ -53,12 +53,21 @@ class _FeedFilterListState extends State<FeedFilterList> {
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Color(0xffDCDCDC)),
-                top: BorderSide(color: Color(0xffDCDCDC))),
+            border: Border(
+              bottom: BorderSide(color: Theme
+                  .of(context)
+                  .dividerColor),
+              top: BorderSide(color: Theme
+                  .of(context)
+                  .dividerColor),
+            ),
           ),
           child: Padding(
             padding: EdgeInsets.only(left: 16.0, top: 4.0, bottom: 4.0),
-            child: Text('COMPANIES', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),),
+            child: Text(
+              'COMPANIES',
+              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+            ),
           ),
         ),
         ListView.separated(

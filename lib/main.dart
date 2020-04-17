@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thyevent/common/theme.dart';
 import 'package:thyevent/feed/screens/feed_screen.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
@@ -16,20 +17,21 @@ class MyApp extends StatelessWidget {
         //ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
+        ChangeNotifierProvider<ThemeChanger>(
+          create: (BuildContext context) => ThemeChanger(ThemeData.dark()),),
       ],
-      child: MaterialApp(
-        theme: ThemeData.light().copyWith(
-          primaryColor: Colors.blueAccent,
-          accentColor: Colors.lightBlueAccent,
-          scaffoldBackgroundColor: Color(0xffE9E9E9),
-          dividerTheme: DividerThemeData(
-            space: 0,
-            thickness: 1,
-            color: Color(0xffDCDCDC),
-          ),
-        ),
-        home: NavigationBar(),
-      ),
+      child: MaterialAppWithTheme(),
+    );
+  }
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+    return MaterialApp(
+      theme: theme.getTheme(),
+      home: NavigationBar(),
     );
   }
 }

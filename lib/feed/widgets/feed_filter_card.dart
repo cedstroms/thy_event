@@ -10,7 +10,9 @@ class FeedFilterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme
+          .of(context)
+          .cardColor,
       child: ListTile(
         enabled: true,
         leading: feedFilter.logo,
@@ -45,7 +47,9 @@ class FeedFilterCardCompact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme
+          .of(context)
+          .cardColor,
       child: ListTile(
         enabled: true,
         dense: true,

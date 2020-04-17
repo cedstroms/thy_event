@@ -6,6 +6,7 @@ class MapScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Map'),
+        centerTitle: true,
       ),
       body: Container(
         decoration: BoxDecoration(
