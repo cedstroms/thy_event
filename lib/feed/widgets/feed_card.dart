@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mobile_popup/mobile_popup.dart';
 
 class FeedCard extends StatelessWidget {
   final String cardLogo;
@@ -40,11 +39,7 @@ class FeedCard extends StatelessWidget {
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
                 onPressed: (){
-                  showMobilePopup(
-                    context: context,
-                  builder: (context)=> MobilePopUp(
-                    title: 'Hello there',
-                  ));
+                  //popup?
                 },
               ),
             ),

@@ -7,6 +7,14 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Map'),
       ),
+      body: Container(
+
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          print('hej');
+        },
+      ),
     );
   }
 }
