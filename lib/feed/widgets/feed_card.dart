@@ -23,7 +23,7 @@ class FeedCard extends StatelessWidget {
             ListTile(
               leading: CircleAvatar(
                 child: Container(
-                  child: SvgPicture.asset(cardLogo),
+                  child: SvgPicture.network(cardLogo),
                   margin: EdgeInsets.all(7),
                   color: Colors.transparent,
                 ),
