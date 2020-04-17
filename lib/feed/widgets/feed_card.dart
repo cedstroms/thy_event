@@ -36,7 +36,12 @@ class FeedCard extends StatelessWidget {
                 ),
               ),
               subtitle: Text(cardDate),
-              trailing: Icon(Icons.more_horiz),
+              trailing: IconButton(
+                icon: Icon(Icons.more_horiz),
+                onPressed: (){
+                  //popup?
+                },
+              ),
             ),
             Text(
               cardContent,
