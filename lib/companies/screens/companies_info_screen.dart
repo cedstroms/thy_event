@@ -37,7 +37,8 @@ class CompaniesInfoScreen extends StatelessWidget {
               CompaniesInfoCard(header: 'About Us', content: 'raves'),
               CompaniesInfoCard(header: 'Links', content: 'Facebook, LinkedIn'),
               CompaniesInfoCard(header: 'Tags', content: 'Haschtags'),
-              // make feeds relevant appear CompaniesInfoCard(header: feed,)
+              // make feeds relevant appear
+              //CompaniesInfoCard(header: feed,)
             ],
           ),
         ),
