@@ -43,33 +43,30 @@ class _FeedFilterListState extends State<FeedFilterList> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        ListView.builder(
+        ListView.separated(
+          separatorBuilder: (context, index) => Divider(),
           shrinkWrap: true,
           itemCount: filters.length,
           itemBuilder: (context, index) {
-            return FeedFilterCard(
-              cardLogo: filters[index].logo,
-              cardTitle: filters[index].title,
-              cardSubtitle: filters[index].subtitle,
-            );
+            return FeedFilterCard(filters[index]);
           },
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Color(0xffDCDCDC))),
+            border: Border(bottom: BorderSide(color: Color(0xffDCDCDC)),
+                top: BorderSide(color: Color(0xffDCDCDC))),
           ),
           child: Padding(
             padding: EdgeInsets.only(left: 16.0, top: 4.0, bottom: 4.0),
             child: Text('COMPANIES', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),),
           ),
         ),
-        ListView.builder(
+        ListView.separated(
+          separatorBuilder: (context, index) => Divider(),
           shrinkWrap: true,
           itemCount: filtersCompact.length,
           itemBuilder: (context, index) {
-            return FeedFilterCardCompact(
-              cardTitle: filtersCompact[index].title,
-            );
+            return FeedFilterCardCompact(filtersCompact[index]);
           },
         ),
       ],

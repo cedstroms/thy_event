@@ -11,6 +11,7 @@ class SettingsScreen extends StatelessWidget {
         title: Text(
           'Settings'
         ),
+        centerTitle: true,
       ),
       body: Container(
         child: SettingsList(),

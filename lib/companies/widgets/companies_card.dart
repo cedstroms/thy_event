@@ -16,6 +16,8 @@ class CompaniesCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FlatButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onPressed: () {
               Navigator.push(context,
                   CupertinoPageRoute(

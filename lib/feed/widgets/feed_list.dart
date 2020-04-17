@@ -13,16 +13,10 @@ class _FeedListState extends State<FeedList> {
   @override
   Widget build(BuildContext context) {
     final feed = Provider.of<List<FeedItem>>(context) ?? [];
-
     return ListView.builder(
       itemCount: feed.length,
       itemBuilder: (context, index) {
-        return FeedCard(
-          cardLogo: feed[index].feedLogo,
-          cardTitle: feed[index].feedAuthor,
-          cardDate: feed[index].feedDate,
-          cardContent: feed[index].feedContent,
-        );
+        return FeedCard(feed[index]);
       },
     );
   }

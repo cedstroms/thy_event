@@ -22,6 +22,11 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.blueAccent,
           accentColor: Colors.lightBlueAccent,
           scaffoldBackgroundColor: Color(0xffE9E9E9),
+          dividerTheme: DividerThemeData(
+            space: 0,
+            thickness: 1,
+            color: Color(0xffDCDCDC),
+          ),
         ),
         home: NavigationBar(),
       ),
