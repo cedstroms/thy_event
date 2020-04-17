@@ -18,10 +18,7 @@ class _CompaniesListState extends State<CompaniesList> {
       gridDelegate:
       SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemBuilder: (context, index) {
-        return CompaniesCard(
-          cardLogo: companies[index].companyLogo,
-          cardTitle: companies[index].companyName,
-        );
+        return CompaniesCard(company: companies[index]);
       },
     );
   }
