@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/program/models/program_item.dart';
-import 'package:thyevent/program/widgets/program_data.dart';
 import 'package:thyevent/program/widgets/program_list.dart';
-import 'package:thyevent/program/widgets/tab_list_creator.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 
 class ProgramScreen extends StatelessWidget {

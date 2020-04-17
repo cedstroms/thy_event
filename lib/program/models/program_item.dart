@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ProgramItem {
   final String startTime;
@@ -17,10 +15,3 @@ class ProgramItem {
       this.numberTab,
       this.tabTitle});
 }
-
-//class TabItem {
-//  final String title;
-//  final int numberTab;
-//
-//  TabItem({this.numberTab, this.title});
-//}

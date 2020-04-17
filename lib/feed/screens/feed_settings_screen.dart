@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed/models/feed_filter_item.dart';
 import 'package:thyevent/feed/widgets/settings_list.dart';
 
 
