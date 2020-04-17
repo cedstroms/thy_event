@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/program/models/program_item.dart';
+import 'package:intl/intl.dart';
 
 class DatabaseService {
   // companies and feed join collection
@@ -14,9 +15,12 @@ class DatabaseService {
   final Query feedCollection =
       Firestore.instance.collection('feed').orderBy('date', descending: true);
 
+  // Program collection reference, finds the collection in firebase database.
+  final Query programCollection =
+      Firestore.instance.collection('program').orderBy('start_time');
+
   // companies list from snapshot
   List<CompaniesItem> _companiesListFromSnapshot(QuerySnapshot snapshot) {
-    print(snapshot.documents);
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
@@ -29,14 +33,16 @@ class DatabaseService {
 
   // feed list from snapshot
   List<FeedItem> _feedListFromSnapshot(QuerySnapshot snapshot) {
-    print(snapshot.documents);
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
           feedLogo: doc.data['logo'] ?? '',
           feedAuthor: doc.data['company_name'] ?? '',
           feedContent: doc.data['content'] ?? '',
-          feedDate: doc.data['date'].toDate().toString() ?? '',
+          feedDate: DateFormat.Hm()
+                  .add_MMMMEEEEd()
+                  .format(doc.data['date'].toDate()) ??
+              '',
         );
       },
     ).toList();
@@ -52,18 +58,16 @@ class DatabaseService {
     return feedCollection.snapshots().map(_feedListFromSnapshot);
   }
 
-  // Program collection reference  Mandus start
-  final CollectionReference programCollection =
-      Firestore.instance.collection('program');
-
-  // program list from snapshot
+  // Program list from snapshot
   List<ProgramItem> _programListFromSnapshot(QuerySnapshot snapshot) {
-    print(snapshot.documents);
     return snapshot.documents.map(
       (doc) {
+        // returns the data that is in the collection.
         return ProgramItem(
-          startTime: doc.data['start_time'].toDate().toString() ?? '',
-          stopTime: doc.data['stop_time'].toDate().toString() ?? '',
+          startTime:
+              DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
+          stopTime:
+              DateFormat.Hm().format(doc.data['stop_time'].toDate()) ?? '',
           title: doc.data['title'] ?? '',
           subTitle: doc.data['sub_title'] ?? '',
           numberTab: doc.data['number_tab'] ?? 0,
