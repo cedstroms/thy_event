@@ -18,7 +18,20 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<ThemeChanger>(
-          create: (BuildContext context) => ThemeChanger(ThemeData.dark()),),
+          create: (BuildContext context) =>
+              ThemeChanger(
+                ThemeData.light().copyWith(
+                  primaryColor: Colors.blueAccent,
+                  accentColor: Colors.lightBlueAccent,
+                  scaffoldBackgroundColor: Color(0xffE9E9E9),
+                  dividerTheme: DividerThemeData(
+                    space: 0,
+                    thickness: 1,
+                    color: Color(0xffDCDCDC),
+                  ),
+                ),
+              ),
+        ),
       ],
       child: MaterialAppWithTheme(),
     );
