@@ -16,7 +16,7 @@ class ProgramCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              startTime,
+              '$startTime',
               style: TextStyle(color: Colors.black),
             ),
             SizedBox(
