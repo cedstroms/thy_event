@@ -25,7 +25,7 @@ class FeedCard extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.only(right: 10.0),
               onPressed: (){
-                // TODO länka till information screen
+                // TODO länka till company information screen
                 print('hallå där');
               },
               child: ListTile(

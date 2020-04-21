@@ -9,7 +9,6 @@ class ThemeSwitch extends StatefulWidget {
 }
 
 class _ThemeSwitchState extends State<ThemeSwitch> {
-  //final Function isToggled;
   bool value = false;
 
   @override

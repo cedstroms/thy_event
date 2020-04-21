@@ -6,6 +6,10 @@ import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/program/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+
+import 'companies/models/companies_item.dart';
+import 'companies/models/companies_item.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +21,8 @@ class MyApp extends StatelessWidget {
         //ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
+        ChangeNotifierProvider<CompaniesProvider>(
+            create: (BuildContext context) => CompaniesProvider()),
         ChangeNotifierProvider<ThemeChanger>(
           create: (BuildContext context) =>
               ThemeChanger(
