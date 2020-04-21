@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:thyevent/program/models/program_item.dart';
-
-class TabCard extends StatelessWidget {
-  final ProgramItem program;
-  TabCard(this.program);
-  @override
-  Widget build(BuildContext context) {
-    return Tab(
-      text: '$program.tabTitle',
-    );
-  }
-}
+//import 'package:flutter/material.dart';
+//
+//class TabCard extends StatelessWidget {
+//  final String cardTitle;
+//  final int cardNumberTab;
+//  TabCard({this.cardNumberTab, this.cardTitle});
+//  @override
+//  Widget build(BuildContext context) {
+//    return Tab(
+//      text: cardTitle,
+//    );
+//  }
+//}

@@ -4,16 +4,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/feed/widgets/feed_list.dart';
 import 'package:provider/provider.dart';
+import 'package:thyevent/companies/screens/companies_info_screen.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
 
 class FeedCard extends StatelessWidget {
   final FeedItem feed;
   final Function onPressedCallbackShowMore;
 
   FeedCard({this.feed, this.onPressedCallbackShowMore});
+
   @override
   Widget build(BuildContext context) {
-//    final showMoreProvider =
-//        Provider.of<ShowLessShowMore>(context, listen: false);
     return Container(
       margin: EdgeInsets.only(bottom: 16.0),
       color: Theme.of(context).cardColor,
@@ -38,10 +39,15 @@ class FeedCard extends StatelessWidget {
                 ),
               ),
               subtitle: Text(feed.feedDate),
+              onTap: () {
+                //TODO: implementera vidarebefordring till company view
+                print('pressed: company on feed card');
+              },
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
                 onPressed: () {
-                  //popup?
+                  //TODO: implementera funktion att dela feed post?
+                  print('pressed: feed share button');
                 },
               ),
             ),

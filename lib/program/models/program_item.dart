@@ -1,17 +1,17 @@
 
 class ProgramItem {
   final String startTime;
-  final String stopTime;
+  final String endTime;
   final String title;
   final String subTitle;
   final String tabTitle;
-  final int numberTab;
+  final int tabNumber;
 
   ProgramItem(
       {this.startTime,
-      this.stopTime,
+        this.endTime,
       this.title,
       this.subTitle,
-      this.numberTab,
+        this.tabNumber,
       this.tabTitle});
 }
