@@ -40,13 +40,13 @@ class FeedCard extends StatelessWidget {
               subtitle: Text(feed.feedDate),
               onTap: () {
                 //TODO: implementera vidarebefordring till company view
-                print('pressed company on feed card');
+                print('pressed: company on feed card');
               },
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
                 onPressed: () {
                   //TODO: implementera funktion att dela feed post?
-                  print('pressed feed share button');
+                  print('pressed: feed share button');
                 },
               ),
             ),

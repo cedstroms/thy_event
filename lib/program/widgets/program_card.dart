@@ -34,17 +34,17 @@ class ProgramCard extends StatelessWidget {
         subtitle: Text(subTitle),
         onTap: () {
           //TODO: implementera program info view
-          print('pressed program card');
+          print('pressed: program card');
         },
         onLongPress: () {
           //TODO: implementera favoritmarkering
-          print('favourited');
+          print('long pressed: mark as favourite');
         },
         trailing: IconButton(
-          icon: Icon(Icons.star),
+          icon: Icon(Icons.star_border),
           onPressed: () {
             //TODO: implementera favoritmarkering
-            print('favourited');
+            print('pressed: mark as favourite');
           },
         ),
       ),

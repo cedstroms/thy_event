@@ -19,7 +19,20 @@ class ProgramScreen extends StatelessWidget {
           appBar: AppBar(
             title: Text('Program'),
             centerTitle: true,
-            leading: Icon(Icons.filter_list),
+            leading: IconButton(
+              icon: Icon(Icons.star_border),
+              onPressed: () {
+                print('pressed: sort by favourites');
+              },
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  print('pressed: search program events');
+                },
+              ),
+            ],
             bottom: TabBar(
               indicatorWeight: 4.0,
               indicatorColor: Colors.white,
