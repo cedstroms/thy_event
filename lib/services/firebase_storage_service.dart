@@ -21,8 +21,11 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
-          companyLogo: doc.data['logo'] ?? '',
-          companyName: doc.data['name'] ?? '',
+          logo: doc.data['logo'] ?? '',
+          name: doc.data['name'] ?? '',
+          content: doc.data['desc'] ?? '',
+          links: doc.data['links'] ?? {},
+          tags: doc.data['tags'] ?? [],
         );
       },
     ).toList();

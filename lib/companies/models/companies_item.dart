@@ -1,6 +1,9 @@
 class CompaniesItem {
-  final String companyLogo;
-  final String companyName;
+  final String logo;
+  final String name;
+  final String content;
+  final Map links;
+  final List tags;
 
-  CompaniesItem({this.companyLogo, this.companyName});
+  CompaniesItem({this.logo, this.name, this.content, this.links, this.tags});
 }

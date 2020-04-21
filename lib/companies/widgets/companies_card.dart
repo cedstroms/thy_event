@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
 
 class CompaniesCard extends StatelessWidget {
-  final String cardLogo;
-  final String cardTitle;
+  final CompaniesItem company;
 
-  CompaniesCard({this.cardLogo, this.cardTitle});
+  CompaniesCard({this.company});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +16,16 @@ class CompaniesCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FlatButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onPressed: () {
               Navigator.push(context,
                   CupertinoPageRoute(
-                      builder: (context) => CompaniesInfoScreen()));
+                      builder: (context) => CompaniesInfoScreen(company)));
             },
             child: CircleAvatar(
               child: Container(
-                child: SvgPicture.network(cardLogo),
+                child: SvgPicture.network(company.logo),
                 margin: EdgeInsets.all(14),
                 color: Colors.transparent,
               ),
@@ -33,7 +35,7 @@ class CompaniesCard extends StatelessWidget {
           ),
           SizedBox(height: 6),
           Text(
-            cardTitle,
+            company.name,
             style: TextStyle(
               fontWeight: FontWeight.w500,
             ),

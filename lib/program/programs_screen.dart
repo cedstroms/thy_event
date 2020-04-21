@@ -13,7 +13,7 @@ class ProgramScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: build program screen
-    List<Widget> programList = [
+    List<Widget> programListArray = [
       ProgramList(),
       //ProgramList(),
     ];

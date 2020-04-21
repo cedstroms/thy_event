@@ -8,16 +8,16 @@ class SettingsSwitch extends StatefulWidget {
 
 class _SettingsSwitchState extends State<SettingsSwitch> {
   //final Function isToggled;
-  bool toggled = false;
+  bool value = false;
 
   @override
   Widget build(BuildContext context) {
     return Switch(
-        value: toggled,
+        value: value,
         activeColor: Colors.lightBlueAccent,
-        onChanged: (newValue){
+        onChanged: (changeValue) {
           setState(() {
-            toggled = newValue;
+            value = changeValue;
           });
         }
     );

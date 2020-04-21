@@ -31,16 +31,15 @@ class FeedScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
               child: IconButton(
-                  icon: Icon(Icons.settings),
-                onPressed: (){
-                    Navigator.push(
-                        context,
-                      CupertinoPageRoute(
-                          builder: (context) => SettingsScreen()),
-                    );
-                }
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(builder: (context) => SettingsScreen()),
+                  );
+                },
               ),
-            )
+            ),
           ],
         ),
         body: FeedList(),

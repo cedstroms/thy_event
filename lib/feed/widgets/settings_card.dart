@@ -15,8 +15,12 @@ class SettingsCardSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(bottom: BorderSide(color: Color(0xffDCDCDC))),
+        color: Theme
+            .of(context)
+            .cardColor,
+        border: Border(bottom: BorderSide(color: Theme
+            .of(context)
+            .dividerColor)),
       ),
       child: ListTile(
         enabled: true,
@@ -46,8 +50,12 @@ class SettingsCardCompact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(bottom: BorderSide(color: Color(0xffDCDCDC))),
+        color: Theme
+            .of(context)
+            .cardColor,
+        border: Border(bottom: BorderSide(color: Theme
+            .of(context)
+            .dividerColor)),
       ),
       child: ListTile(
         enabled: true,
@@ -82,8 +90,12 @@ class SettingsCardCompactSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(bottom: BorderSide(color: Color(0xffDCDCDC))),
+        color: Theme
+            .of(context)
+            .cardColor,
+        border: Border(bottom: BorderSide(color: Theme
+            .of(context)
+            .dividerColor)),
       ),
       child: ListTile(
         enabled: true,
