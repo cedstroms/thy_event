@@ -16,6 +16,14 @@ class CompaniesInfoScreen extends StatelessWidget {
           company.name,
         ),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.star_border),
+            onPressed: () {
+              print('pressed: mark as favourite');
+            },
+          ),
+        ],
       ),
       body: Container(
         child: Column(

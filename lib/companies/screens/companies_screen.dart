@@ -19,7 +19,20 @@ class CompaniesScreen extends StatelessWidget {
             'Companies',
           ),
           centerTitle: true,
-          leading: Icon(Icons.filter_list),
+          leading: IconButton(
+            icon: Icon(Icons.star_border),
+            onPressed: () {
+              print('pressed: sort by favourites');
+            },
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                print('pressed: search companies');
+              },
+            ),
+          ],
         ),
         body: Container(
           margin: EdgeInsets.all(12),

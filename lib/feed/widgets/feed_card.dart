@@ -22,35 +22,33 @@ class FeedCard extends StatelessWidget {
         padding: const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
         child: Column(
           children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.only(right: 10.0),
-              onPressed: (){
-                // TODO länka till company information screen
-                print('hallå där');
+            ListTile(
+              leading: CircleAvatar(
+                child: Container(
+                  child: SvgPicture.network(feed.feedLogo),
+                  margin: EdgeInsets.all(7),
+                  color: Colors.transparent,
+                ),
+                radius: 20,
+                backgroundColor: Colors.white,
+              ),
+              title: Text(
+                feed.feedAuthor,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              subtitle: Text(feed.feedDate),
+              onTap: () {
+                //TODO: implementera vidarebefordring till company view
+                print('pressed: company on feed card');
               },
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: Container(
-                    child: SvgPicture.network(feed.feedLogo),
-                    margin: EdgeInsets.all(7),
-                    color: Colors.transparent,
-                  ),
-                  radius: 20,
-                  backgroundColor: Colors.white,
-                ),
-                title: Text(
-                  feed.feedAuthor,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                subtitle: Text(feed.feedDate),
-                trailing: IconButton(
-                  icon: Icon(Icons.more_horiz),
-                  onPressed: (){
-                    //popup?
-                  },
-                ),
+              trailing: IconButton(
+                icon: Icon(Icons.more_horiz),
+                onPressed: () {
+                  //TODO: implementera funktion att dela feed post?
+                  print('pressed: feed share button');
+                },
               ),
             ),
             Text(
