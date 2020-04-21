@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/common/theme.dart';
-import 'package:provider/provider.dart';
 
 class SettingsSwitch extends StatefulWidget {
 
@@ -14,7 +12,6 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Switch(
         value: value,
         activeColor: Colors.lightBlueAccent,

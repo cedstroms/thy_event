@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thyevent/feed/models/settings_item.dart';
 import 'package:thyevent/feed/widgets/settings_card.dart';
-import 'package:provider/provider.dart';
-import 'package:thyevent/common/theme.dart';
 
 class SettingsList extends StatefulWidget {
   @override
@@ -60,7 +58,6 @@ class _SettingsListState extends State<SettingsList> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return ListView(
       children: <Widget>[
         Column(

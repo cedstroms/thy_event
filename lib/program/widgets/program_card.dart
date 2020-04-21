@@ -7,6 +7,7 @@ class ProgramCard extends StatelessWidget {
   final String subTitle;
 
   ProgramCard({this.startTime, this.stopTime, this.title, this.subTitle});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,12 +24,29 @@ class ProgramCard extends StatelessWidget {
             SizedBox(
               height: 5,
             ),
-            Text(stopTime),
+            Text(
+              stopTime,
+              style: TextStyle(color: Colors.grey),
+            ),
           ],
         ),
         title: Text(title),
         subtitle: Text(subTitle),
-        trailing: Icon(Icons.chevron_right),
+        onTap: () {
+          //TODO: implementera program info view
+          print('pressed program card');
+        },
+        onLongPress: () {
+          //TODO: implementera favoritmarkering
+          print('favourited');
+        },
+        trailing: IconButton(
+          icon: Icon(Icons.star),
+          onPressed: () {
+            //TODO: implementera favoritmarkering
+            print('favourited');
+          },
+        ),
       ),
     );
   }

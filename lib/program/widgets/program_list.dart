@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:thyevent/program/widgets/program_card.dart';
 import 'package:thyevent/program/models/program_item.dart';
 

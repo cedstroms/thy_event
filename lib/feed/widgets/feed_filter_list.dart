@@ -4,8 +4,6 @@ import 'package:thyevent/feed/models/feed_filter_item.dart';
 import 'package:thyevent/feed/widgets/feed_filter_card.dart';
 
 import 'feed_filter_card.dart';
-import 'feed_filter_card.dart';
-import 'feed_filter_card.dart';
 
 class FeedFilterList extends StatefulWidget {
   @override

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 
 import 'package:thyevent/program/models/program_item.dart';
-import 'package:thyevent/program/widgets/program_list.dart';
 import 'package:thyevent/program/screens/programs_first_view.dart';
 import 'package:thyevent/program/screens/programs_second_view.dart';
 import 'package:thyevent/program/screens/programs_third_view.dart';

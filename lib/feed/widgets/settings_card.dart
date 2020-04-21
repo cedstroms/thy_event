@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'settings_switch.dart';
 import 'theme_switch.dart';
-import 'theme_switch.dart';
 
 class SettingsCardSwitch extends StatelessWidget {
   final Icon cardLogo;
