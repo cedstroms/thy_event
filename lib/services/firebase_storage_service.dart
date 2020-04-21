@@ -51,6 +51,24 @@ class DatabaseService {
     ).toList();
   }
 
+  // program list from snapshot
+  List<ProgramItem> _programListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map(
+          (doc) {
+        // returns the data that is in the collection.
+        return ProgramItem(
+          startTime:
+          DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
+          endTime:
+          DateFormat.Hm().format(doc.data['end_time'].toDate()) ?? '',
+          title: doc.data['title'] ?? '',
+          subTitle: doc.data['sub_title'] ?? '',
+          tabNumber: doc.data['tab_number'] ?? 0,
+        );
+      },
+    ).toList();
+  }
+
   // get companies stream
   Stream<List<CompaniesItem>> get companies {
     return companiesCollection.snapshots().map(_companiesListFromSnapshot);
@@ -59,25 +77,6 @@ class DatabaseService {
   // get feed stream
   Stream<List<FeedItem>> get feed {
     return feedCollection.snapshots().map(_feedListFromSnapshot);
-  }
-
-  // Program list from snapshot
-  List<ProgramItem> _programListFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.documents.map(
-      (doc) {
-        // returns the data that is in the collection.
-        return ProgramItem(
-          startTime:
-              DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
-          stopTime:
-              DateFormat.Hm().format(doc.data['stop_time'].toDate()) ?? '',
-          title: doc.data['title'] ?? '',
-          subTitle: doc.data['sub_title'] ?? '',
-          numberTab: doc.data['number_tab'] ?? 0,
-          tabTitle: doc.data['tab_title'] ?? '',
-        );
-      },
-    ).toList();
   }
 
   // get program stream

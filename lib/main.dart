@@ -4,7 +4,7 @@ import 'package:thyevent/feed/screens/feed_screen.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
-import 'package:thyevent/program/programs_screen.dart';
+import 'package:thyevent/program/screens/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
 
 void main() => runApp(MyApp());
