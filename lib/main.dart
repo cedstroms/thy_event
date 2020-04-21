@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed/screens/feed_filter_screen.dart';
 import 'package:thyevent/feed/screens/feed_screen.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/program/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
-import 'package:thyevent/program/widgets/program_data.dart';
+import 'package:thyevent/program/widgets/program_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,6 +15,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         //ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
+        ChangeNotifierProvider<TabNavigationBarProvider>(
+            create: (BuildContext context) => TabNavigationBarProvider()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
       ],
@@ -37,7 +38,7 @@ class NavigationBar extends StatefulWidget {
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-  var currentTab = [
+  var currentBottomTab = [
     FeedScreen(),
     CompaniesScreen(),
     ProgramScreen(),
@@ -48,7 +49,7 @@ class _NavigationBarState extends State<NavigationBar> {
   Widget build(BuildContext context) {
     var provider = Provider.of<BottomNavigationBarProvider>(context);
     return Scaffold(
-      body: currentTab[provider.currentIndex],
+      body: currentBottomTab[provider.currentIndex],
       bottomNavigationBar: NavigationBarBottom(),
     );
   }

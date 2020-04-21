@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:thyevent/program/models/program_item.dart';
 
 class ProgramCard extends StatelessWidget {
-  final String startTime;
-  final String stopTime;
-  final String title;
-  final String subTitle;
-
-  ProgramCard({this.startTime, this.stopTime, this.title, this.subTitle});
+  final ProgramItem program;
+  ProgramCard(this.program);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,17 +13,17 @@ class ProgramCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '$startTime',
+              program.startTime,
               style: TextStyle(color: Colors.black),
             ),
             SizedBox(
               height: 5,
             ),
-            Text(stopTime, style: TextStyle(color: Colors.black45)),
+            Text(program.stopTime, style: TextStyle(color: Colors.black45)),
           ],
         ),
-        title: Text(title),
-        subtitle: Text(subTitle),
+        title: Text(program.title),
+        subtitle: Text(program.subTitle),
         trailing: Icon(Icons.chevron_right),
       ),
     );

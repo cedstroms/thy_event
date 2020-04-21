@@ -3,6 +3,7 @@ import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/program/models/program_item.dart';
 import 'package:intl/intl.dart';
+import 'dart:async';
 
 class DatabaseService {
   // companies and feed join collection
@@ -14,10 +15,6 @@ class DatabaseService {
   // feed collection query
   final Query feedCollection =
       Firestore.instance.collection('feed').orderBy('date', descending: true);
-
-  // Program collection reference, finds the collection in firebase database.
-  final Query programCollection =
-      Firestore.instance.collection('program').orderBy('start_time');
 
   // companies list from snapshot
   List<CompaniesItem> _companiesListFromSnapshot(QuerySnapshot snapshot) {
@@ -58,6 +55,14 @@ class DatabaseService {
     return feedCollection.snapshots().map(_feedListFromSnapshot);
   }
 
+  // Program collection reference, finds the collection in firebase database.
+  final Query programCollection = Firestore.instance
+      .collection('program')
+//      .where(
+//        'number_tab',
+//        isEqualTo: getTabNumber(),
+//      )
+      .orderBy('start_time');
   // Program list from snapshot
   List<ProgramItem> _programListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
@@ -81,4 +86,40 @@ class DatabaseService {
   Stream<List<ProgramItem>> get program {
     return programCollection.snapshots().map(_programListFromSnapshot);
   }
+
+  int get getTabNumber {}
+
+//  int get tabCount {
+//    for (int i = 0; i < ; i++) {
+//      programCollection.where('number_tab', isEqualTo: i);
+//      //tabList.add(program[i].numberTab);
+//    }
+//    return (Set.from(tabList).length);
+//  }
+//
+//  int await(Future<int> program) {
+//    int count= program.length;
+//
+//
+//  }
+
+//  Future<int> get tabCount async{
+//    _Future<int> future=new _Future<int>();
+//    int count =0;
+//    this.program.listen((_){
+//      count++;
+//    },
+//    onError: future._completeError,
+//    onDone: (){
+//      future._complete(count);
+//    },
+//    cancelOnError: true,
+//    );
+//    return future;
+//    List tabList = [];
+//     await for (int i = 0; i < program.length; i++) {
+//      tabList.add(program[i].numberTab);
+//    }
+//    return (Set.from(tabList).length);
+//  }
 }
