@@ -13,5 +13,6 @@ class SettingsItem {
 
 class SettingsItemCompact {
   final String title;
-  SettingsItemCompact({this.title});
+  final bool hasSwitch;
+  SettingsItemCompact({this.title, this.hasSwitch});
 }

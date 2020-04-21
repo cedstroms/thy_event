@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/feed/models/feed_filter_item.dart';
 import 'package:thyevent/feed/widgets/feed_filter_card.dart';
 
+import 'feed_filter_card.dart';
+import 'feed_filter_card.dart';
+import 'feed_filter_card.dart';
+
 class FeedFilterList extends StatefulWidget {
   @override
   _FeedFilterListState createState() => _FeedFilterListState();
 }
+
+List<Widget> filterList;
 
 class _FeedFilterListState extends State<FeedFilterList> {
   List<FeedFilterItem> filters = [
@@ -40,44 +46,49 @@ class _FeedFilterListState extends State<FeedFilterList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    //makes the whole screen scrollable
+    return ListView(
       children: <Widget>[
-        ListView.separated(
-          separatorBuilder: (context, index) => Divider(),
-          shrinkWrap: true,
-          itemCount: filters.length,
-          itemBuilder: (context, index) {
-            return FeedFilterCard(filters[index]);
-          },
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: Theme
-                  .of(context)
-                  .dividerColor),
-              top: BorderSide(color: Theme
-                  .of(context)
-                  .dividerColor),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            ListView.separated(
+              separatorBuilder: (context, index) => Divider(),
+              shrinkWrap: true,
+              itemCount: filters.length,
+              //but this disables scrollability for the separate lists
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return FeedFilterCard(filters[index]);
+              },
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(left: 16.0, top: 4.0, bottom: 4.0),
-            child: Text(
-              'COMPANIES',
-              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(color: Theme.of(context).dividerColor),
+                  top: BorderSide(color: Theme.of(context).dividerColor),
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 15.0, bottom: 4.0),
+                child: Text(
+                  'COMPANIES',
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w400),
+                ),
+              ),
             ),
-          ),
-        ),
-        ListView.separated(
-          separatorBuilder: (context, index) => Divider(),
-          shrinkWrap: true,
-          itemCount: filtersCompact.length,
-          itemBuilder: (context, index) {
-            return FeedFilterCardCompact(filtersCompact[index]);
-          },
-        ),
+            ListView.separated(
+              separatorBuilder: (context, index) => Divider(),
+              shrinkWrap: true,
+              itemCount: filtersCompact.length,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return FeedFilterCardCompact(filtersCompact[index]);
+              },
+            ),
+          ],
+        )
       ],
     );
   }

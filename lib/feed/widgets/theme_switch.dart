@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/common/theme.dart';
 import 'package:provider/provider.dart';
 
-class SettingsSwitch extends StatefulWidget {
+class ThemeSwitch extends StatefulWidget {
 
   @override
-  _SettingsSwitchState createState() => _SettingsSwitchState();
+  _ThemeSwitchState createState() => _ThemeSwitchState();
 }
 
-class _SettingsSwitchState extends State<SettingsSwitch> {
+class _ThemeSwitchState extends State<ThemeSwitch> {
   //final Function isToggled;
-  bool value = true;
+  bool value = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
           print(value);
           setState(() {
             value = changeValue;
+            _themeChanger.setTheme(value);
           });
         }
     );

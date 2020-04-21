@@ -5,6 +5,7 @@ import 'package:thyevent/feed/models/feed_filter_item.dart';
 class FeedFilterCard extends StatelessWidget {
   final FeedFilterItem feedFilter;
 
+
   FeedFilterCard(this.feedFilter);
 
   @override
@@ -42,6 +43,38 @@ class FeedFilterCardCompact extends StatelessWidget {
   final FeedFilterItemCompact feedFilter;
 
   FeedFilterCardCompact(this.feedFilter);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Theme
+          .of(context)
+          .cardColor,
+      child: ListTile(
+        enabled: true,
+        dense: true,
+        title: Text(
+          feedFilter.title,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        trailing: Icon(
+          Icons.star,
+          size: 20,
+          color: Colors.yellow,
+        ),
+      ),
+    );
+  }
+}
+
+class GeneralFeedFilterCard extends StatelessWidget {
+  final FeedFilterItemCompact feedFilter;
+
+  GeneralFeedFilterCard(this.feedFilter);
 
 
   @override

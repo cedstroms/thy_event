@@ -27,126 +27,122 @@ class _SettingsListState extends State<SettingsList> {
   List<SettingsItemCompact> settingsCompactGeneral = [
     SettingsItemCompact(
       title: 'About Us',
+      hasSwitch: false,
     ),
     SettingsItemCompact(
       title: 'Enviromental Policies',
+      hasSwitch: false,
     ),
     SettingsItemCompact(
       title: 'Contact Information',
+      hasSwitch: false,
     ),
     SettingsItemCompact(
       title: 'Location Information',
+      hasSwitch: false,
     ),
   ];
   List<SettingsItemCompact> settingsCompactApplication = [
     SettingsItemCompact(
       title: 'Language',
+      hasSwitch: false,
     ),
     SettingsItemCompact(
       title: 'Light/Dark Theme',
+      hasSwitch: true,
+
     ),
     SettingsItemCompact(
       title: 'Surveys',
+      hasSwitch: false,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return ListView(
       children: <Widget>[
-        Container(
-          color: Theme
-              .of(context)
-              .cardColor,
-          child: FlatButton(
-            child: Text('Dark Theme'),
-            onPressed: () => _themeChanger.setTheme(1),
-          ),
-        ),
-        Container(
-          color: Theme
-              .of(context)
-              .cardColor,
-          child: FlatButton(
-            child: Text('Light Theme'),
-            onPressed: () => _themeChanger.setTheme(0),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(color: Theme
-                    .of(context)
-                    .dividerColor)),
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
-            child: Text(
-              'GENERAL',
-              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(color: Theme.of(context).dividerColor)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
+                child: Text(
+                  'GENERAL',
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w400),
+                ),
+              ),
             ),
-          ),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: settingsCompactGeneral.length,
-          itemBuilder: (context, index) {
-            return SettingsCardCompact(
-              cardTitle: settingsCompactGeneral[index].title,
-            );
-          },
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(color: Theme
-                    .of(context)
-                    .dividerColor)),
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
-            child: Text(
-              'NOTIFICATIONS',
-              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: settingsCompactGeneral.length,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return SettingsCardCompact(
+                  cardTitle: settingsCompactGeneral[index].title,
+                  hasSwitch: settingsCompactGeneral[index].hasSwitch,
+                );
+              },
             ),
-          ),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: filters.length,
-          itemBuilder: (context, index) {
-            return SettingsCardSwitch(
-              cardLogo: filters[index].logo,
-              cardTitle: filters[index].title,
-              cardSubtitle: filters[index].subtitle,
-            );
-          },
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(color: Theme
-                    .of(context)
-                    .dividerColor)),
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
-            child: Text(
-              'APPLICATION',
-              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(color: Theme.of(context).dividerColor)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
+                child: Text(
+                  'NOTIFICATIONS',
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w400),
+                ),
+              ),
             ),
-          ),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: settingsCompactApplication.length,
-          itemBuilder: (context, index) {
-            return SettingsCardCompact(
-              cardTitle: settingsCompactApplication[index].title,
-            );
-          },
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: filters.length,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return SettingsCardSwitch(
+                  cardLogo: filters[index].logo,
+                  cardTitle: filters[index].title,
+                  cardSubtitle: filters[index].subtitle,
+                );
+              },
+            ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(color: Theme.of(context).dividerColor)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
+                child: Text(
+                  'APPLICATION',
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w400),
+                ),
+              ),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: settingsCompactApplication.length,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return SettingsCardCompact(
+                  cardTitle: settingsCompactApplication[index].title,
+                  hasSwitch: settingsCompactApplication[index].hasSwitch,
+                );
+              },
+            ),
+          ],
         ),
       ],
     );

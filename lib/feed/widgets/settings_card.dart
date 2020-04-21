@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'settings_switch.dart';
+import 'theme_switch.dart';
+import 'theme_switch.dart';
 
 class SettingsCardSwitch extends StatelessWidget {
   final Icon cardLogo;
@@ -9,18 +11,20 @@ class SettingsCardSwitch extends StatelessWidget {
   final Function onPressed;
   final Function isToggled;
 
-  SettingsCardSwitch({this.cardLogo, this.cardTitle, this.cardSubtitle, this.onPressed, this.isToggled});
+  SettingsCardSwitch(
+      {this.cardLogo,
+      this.cardTitle,
+      this.cardSubtitle,
+      this.onPressed,
+      this.isToggled});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .cardColor,
-        border: Border(bottom: BorderSide(color: Theme
-            .of(context)
-            .dividerColor)),
+        color: Theme.of(context).cardColor,
+        border:
+            Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: ListTile(
         enabled: true,
@@ -39,23 +43,20 @@ class SettingsCardSwitch extends StatelessWidget {
   }
 }
 
-
 class SettingsCardCompact extends StatelessWidget {
   final String cardTitle;
   final String cardSubtitle;
+  final bool hasSwitch;
 
-  SettingsCardCompact({this.cardTitle, this.cardSubtitle});
+  SettingsCardCompact({this.cardTitle, this.cardSubtitle, this.hasSwitch});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .cardColor,
-        border: Border(bottom: BorderSide(color: Theme
-            .of(context)
-            .dividerColor)),
+        color: Theme.of(context).cardColor,
+        border:
+            Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: ListTile(
         enabled: true,
@@ -67,14 +68,16 @@ class SettingsCardCompact extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
         ),
-        trailing: IconButton(
-          icon: Icon(Icons.arrow_forward_ios),
-          iconSize: 16,
-          color: Colors.grey,
-          onPressed: (){
-            Navigator.pop(context);
-          },
-        ),
+        trailing: hasSwitch
+            ? ThemeSwitch()
+            : IconButton(
+                icon: Icon(Icons.arrow_forward_ios),
+                iconSize: 16,
+                color: Colors.grey,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
       ),
     );
   }
@@ -90,12 +93,9 @@ class SettingsCardCompactSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .cardColor,
-        border: Border(bottom: BorderSide(color: Theme
-            .of(context)
-            .dividerColor)),
+        color: Theme.of(context).cardColor,
+        border:
+            Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: ListTile(
         enabled: true,
@@ -107,10 +107,8 @@ class SettingsCardCompactSwitch extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
         ),
-        trailing: SettingsSwitch(),
+        trailing: ThemeSwitch(),
       ),
     );
   }
 }
-
-

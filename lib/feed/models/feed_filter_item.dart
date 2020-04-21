@@ -6,8 +6,9 @@ class FeedFilterItem {
   final Icon logo;
   final String title;
   final String subtitle;
+  final String size;
 
-  FeedFilterItem({this.logo, this.title, this.subtitle});
+  FeedFilterItem({this.logo, this.title, this.subtitle, this.size});
 }
 
 class FeedFilterItemCompact {
