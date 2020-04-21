@@ -90,7 +90,7 @@ class DatabaseService {
     return programCollection.snapshots().map(_programListFromSnapshot);
   }
 
-  int get getTabNumber {}
+  // int get getTabNumber {}
 
 //  int get tabCount {
 //    for (int i = 0; i < ; i++) {
