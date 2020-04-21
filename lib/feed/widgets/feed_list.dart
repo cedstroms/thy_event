@@ -32,13 +32,6 @@ class _FeedListState extends State<FeedList> {
 class ShowLessShowMore with ChangeNotifier {
   bool feedShowFlag = false;
 
-  //int get descTextShowFlag => descTextShowFlag;
-//
-//  set descTextShowFlag(bool descTextShowFlag) {
-//    _descTextShowFlag = descTextShowFlag;
-//    notifyListeners();
-//  }
-
   void changerLessMore(FeedItem feedItem) {
     feedItem.toggleLessMore();
     notifyListeners();

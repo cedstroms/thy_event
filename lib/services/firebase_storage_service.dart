@@ -40,7 +40,6 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
-          feedCompanyId: doc.data['company_id'] ?? 0,
           feedLogo: doc.data['logo'] ?? '',
           feedAuthor: doc.data['company_name'] ?? '',
           feedContent: doc.data['content'] ?? '',
@@ -56,13 +55,12 @@ class DatabaseService {
   // program list from snapshot
   List<ProgramItem> _programListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
-          (doc) {
+      (doc) {
         // returns the data that is in the collection.
         return ProgramItem(
           startTime:
-          DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
-          endTime:
-          DateFormat.Hm().format(doc.data['end_time'].toDate()) ?? '',
+              DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
+          endTime: DateFormat.Hm().format(doc.data['end_time'].toDate()) ?? '',
           title: doc.data['title'] ?? '',
           subTitle: doc.data['sub_title'] ?? '',
           tabNumber: doc.data['tab_number'] ?? 0,
@@ -86,5 +84,3 @@ class DatabaseService {
     return programCollection.snapshots().map(_programListFromSnapshot);
   }
 }
-
-

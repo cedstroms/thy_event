@@ -14,12 +14,7 @@ class ProgramList extends StatelessWidget {
     return ListView.separated(
       itemCount: program.length,
       itemBuilder: (context, index) {
-        return ProgramCard(
-          startTime: program[index].startTime,
-          stopTime: program[index].endTime,
-          title: program[index].title,
-          subTitle: program[index].subTitle,
-        );
+        return ProgramCard(program[index]);
       },
       separatorBuilder: (context, index) {
         return Divider();

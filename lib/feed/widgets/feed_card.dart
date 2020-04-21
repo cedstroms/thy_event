@@ -2,10 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
-import 'package:thyevent/feed/widgets/feed_list.dart';
-import 'package:provider/provider.dart';
-import 'package:thyevent/companies/screens/companies_info_screen.dart';
-import 'package:thyevent/companies/models/companies_item.dart';
 
 class FeedCard extends StatelessWidget {
   final FeedItem feed;

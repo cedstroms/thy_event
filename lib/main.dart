@@ -4,14 +4,10 @@ import 'package:thyevent/feed/screens/feed_screen.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
 import 'package:provider/provider.dart';
-import 'package:thyevent/program/programs_screen.dart';
+import 'package:thyevent/program/screens/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
-import 'package:thyevent/program/widgets/program_list.dart';
-import 'package:thyevent/feed/widgets/feed_list.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-
-import 'companies/models/companies_item.dart';
-import 'companies/models/companies_item.dart';
+import 'package:thyevent/feed/widgets/feed_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,25 +16,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        //ChangeNotifierProvider(create: (BuildContext context) => ProgramData()),
+        ChangeNotifierProvider(
+            create: (BuildContext context) => ShowLessShowMore()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<CompaniesProvider>(
             create: (BuildContext context) => CompaniesProvider()),
         ChangeNotifierProvider<ThemeChanger>(
-          create: (BuildContext context) =>
-              ThemeChanger(
-                ThemeData.light().copyWith(
-                  primaryColor: Colors.blueAccent,
-                  accentColor: Colors.lightBlueAccent,
-                  scaffoldBackgroundColor: Color(0xffE9E9E9),
-                  dividerTheme: DividerThemeData(
-                    space: 0,
-                    thickness: 1,
-                    color: Color(0xffDCDCDC),
-                  ),
-                ),
+          create: (BuildContext context) => ThemeChanger(
+            ThemeData.light().copyWith(
+              primaryColor: Colors.blueAccent,
+              accentColor: Colors.lightBlueAccent,
+              scaffoldBackgroundColor: Color(0xffE9E9E9),
+              dividerTheme: DividerThemeData(
+                space: 0,
+                thickness: 1,
+                color: Color(0xffDCDCDC),
               ),
+            ),
+          ),
         ),
       ],
       child: MaterialAppWithTheme(),
