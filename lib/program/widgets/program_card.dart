@@ -10,19 +10,20 @@ class ProgramCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme
+          .of(context)
+          .cardColor,
       child: ListTile(
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '$startTime',
-              style: TextStyle(color: Colors.black),
+              startTime,
             ),
             SizedBox(
               height: 5,
             ),
-            Text(stopTime, style: TextStyle(color: Colors.black45)),
+            Text(stopTime),
           ],
         ),
         title: Text(title),
