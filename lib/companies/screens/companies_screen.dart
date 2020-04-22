@@ -25,14 +25,6 @@ class CompaniesScreen extends StatelessWidget {
               print('pressed: sort by favourites');
             },
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                print('pressed: search companies');
-              },
-            ),
-          ],
         ),
         body: Container(
           margin: EdgeInsets.all(12),

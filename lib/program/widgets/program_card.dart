@@ -21,7 +21,6 @@ class ProgramCard extends StatelessWidget {
           children: <Widget>[
             Text(
               program.startTime,
-              style: TextStyle(color: Colors.black),
             ),
             SizedBox(
               height: 5,

@@ -4,9 +4,6 @@ import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
-import '../models/companies_item.dart';
-import '../models/companies_item.dart';
-
 
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
@@ -45,7 +42,9 @@ class CompaniesCard extends StatelessWidget {
                   width: 25.0,
                   child: FloatingActionButton(
                     heroTag: null,
-                    backgroundColor: Colors.white,
+                    backgroundColor: Theme
+                        .of(context)
+                        .cardColor,
                     child: company.isFavourite ?
                     Icon(
                       Icons.star_border,

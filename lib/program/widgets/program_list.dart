@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:thyevent/program/widgets/program_card.dart';
 import 'package:thyevent/program/models/program_item.dart';
 
@@ -10,7 +9,6 @@ class ProgramList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//    final program = Provider.of<List<ProgramItem>>(context) ?? [];
     return ListView.separated(
       itemCount: program.length,
       itemBuilder: (context, index) {
