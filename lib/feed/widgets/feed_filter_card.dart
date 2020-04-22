@@ -4,9 +4,10 @@ import 'package:thyevent/feed/models/feed_filter_item.dart';
 
 class FeedFilterCard extends StatelessWidget {
   final FeedFilterItem feedFilter;
+  final Function onPressed;
 
 
-  FeedFilterCard(this.feedFilter);
+  FeedFilterCard({this.feedFilter, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,11 @@ class FeedFilterCard extends StatelessWidget {
           size: 16,
           color: Colors.grey,
         ),
-        onTap: () {
-          // TODO: Implement the filters, now only pushing to Feed Screen
-          Navigator.pop(context);
-        },
+        onTap: onPressed,
+//    () {
+//          // TODO: Implement the filters, now only pushing to Feed Screen
+//          //Navigator.pop(context);
+//        },
       ),
     );
   }

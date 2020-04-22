@@ -13,6 +13,7 @@ class FeedFilterList extends StatefulWidget {
 List<Widget> filterList;
 
 class _FeedFilterListState extends State<FeedFilterList> {
+
   List<FeedFilterItem> filters = [
     FeedFilterItem(
       logo: Icon(Icons.home, size: 40, color: Colors.blueAccent),
@@ -54,10 +55,15 @@ class _FeedFilterListState extends State<FeedFilterList> {
               separatorBuilder: (context, index) => Divider(),
               shrinkWrap: true,
               itemCount: filters.length,
-              //but this disables scrollability for the separate lists
+              //but this below disables scrollability for the separate lists
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return FeedFilterCard(filters[index]);
+                return FeedFilterCard(
+                    feedFilter: filters[index],
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                );
               },
             ),
             Container(
