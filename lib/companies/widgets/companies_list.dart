@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_card.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:thyevent/services/shared_preferences.dart';
 
 class CompaniesList extends StatefulWidget {
   @override
@@ -10,6 +12,8 @@ class CompaniesList extends StatefulWidget {
 }
 
 class _CompaniesListState extends State<CompaniesList> {
+
+
   @override
   Widget build(BuildContext context) {
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
@@ -22,8 +26,11 @@ class _CompaniesListState extends State<CompaniesList> {
           itemBuilder: (context, index) {
             return CompaniesCard(
                 company: companies[index],
-                favourite: () {
+                favourite: () async {
                   companiesData.updateFavourite(companies[index]);
+                  companies[index].isFavourite
+                      ? await SharedPreferencesHelper.setCompanyNames([companies[index].name])
+                      : await SharedPreferencesHelper.removeCompanyNames([companies[index].name]);
                 });
           },
         );

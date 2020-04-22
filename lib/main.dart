@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/common/theme.dart';
+import 'package:thyevent/common/theme_changer.dart';
 import 'package:thyevent/feed/screens/feed_screen.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:thyevent/program/screens/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:thyevent/feed/widgets/feed_list.dart';
+import 'package:thyevent/common/theme.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 
 void main() => runApp(MyApp());
@@ -23,18 +25,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CompaniesProvider>(
             create: (BuildContext context) => CompaniesProvider()),
         ChangeNotifierProvider<ThemeChanger>(
-          create: (BuildContext context) => ThemeChanger(
-            ThemeData.light().copyWith(
-              primaryColor: Colors.blueAccent,
-              accentColor: Colors.lightBlueAccent,
-              scaffoldBackgroundColor: Color(0xffE9E9E9),
-              dividerTheme: DividerThemeData(
-                space: 0,
-                thickness: 1,
-                color: Color(0xffDCDCDC),
-              ),
-            ),
-          ),
+          create: (BuildContext context) =>
+              ThemeChanger(ThemeSettings().getLightTheme()),
         ),
       ],
       child: MaterialAppWithTheme(),

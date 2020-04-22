@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-
+import 'package:thyevent/services/shared_preferences.dart';
 
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
@@ -11,8 +11,10 @@ class CompaniesCard extends StatelessWidget {
 
   CompaniesCard({this.company, this.favourite});
 
+
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Padding(
       padding: EdgeInsets.all(12),
       child: Column(
@@ -21,7 +23,8 @@ class CompaniesCard extends StatelessWidget {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                  context,
                   CupertinoPageRoute(
                       builder: (context) => CompaniesInfoScreen(company)));
             },
@@ -40,23 +43,23 @@ class CompaniesCard extends StatelessWidget {
                 SizedBox(
                   height: 25.0,
                   width: 25.0,
-                  child: FloatingActionButton(
+                  child: FloatingActionButton (
                     heroTag: null,
                     backgroundColor: Theme
                         .of(context)
                         .cardColor,
-                    child: company.isFavourite ?
-                    Icon(
-                      Icons.star_border,
-                      size: 20.0,
-                      color: Colors.black,)
-                    : Icon(
+                    child: company.isFavourite
+                        ? Icon(
                       Icons.star,
                       size: 20.0,
                       color: Colors.yellow,
+                    )
+                        : Icon(
+                      Icons.star_border,
+                      size: 20.0,
+                      color: Colors.black,
                     ),
                     onPressed: favourite,
-                      // TODO turn the symbol yellow as in marked and
                   ),
                 ),
               ],
@@ -65,9 +68,7 @@ class CompaniesCard extends StatelessWidget {
           SizedBox(height: 6),
           Text(
             company.name,
-            style: TextStyle(
-              fontWeight: FontWeight.w500
-            ),
+            style: TextStyle(fontWeight: FontWeight.w500),
           )
         ],
       ),
