@@ -9,6 +9,7 @@ class FeedCard extends StatelessWidget {
 
   FeedCard({this.feed, this.onPressedCallbackShowMore});
 
+
   @override
   Widget build(BuildContext context) {
     return Container(
