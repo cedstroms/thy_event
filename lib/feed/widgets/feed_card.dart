@@ -2,15 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
+import 'package:thyevent/companies/screens/companies_info_screen.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:provider/provider.dart';
 
 class FeedCard extends StatelessWidget {
   final FeedItem feed;
+  //final CompaniesItem company;
   final Function onPressedCallbackShowMore;
 
   FeedCard({this.feed, this.onPressedCallbackShowMore});
 
   @override
   Widget build(BuildContext context) {
+    final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
+
     return Container(
       margin: EdgeInsets.only(bottom: 16.0),
       color: Theme.of(context).cardColor,
@@ -37,7 +43,19 @@ class FeedCard extends StatelessWidget {
               subtitle: Text(feed.feedDate),
               onTap: () {
                 //TODO: implementera vidarebefordring till company view
-                print('pressed: company on feed card');
+                print('pressed: company on feed card dhsdhs');
+                for (int i = 0; i < companies.length; i++) {
+                  print(i);
+                  print(feed.feedIdAuthor);
+                  if (feed.feedIdAuthor == companies[i].companyId) {
+                    print(i);
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) =>
+                                CompaniesInfoScreen(companies[i])));
+                  }
+                }
               },
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),

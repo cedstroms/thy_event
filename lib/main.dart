@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:thyevent/program/screens/programs_screen.dart';
 import 'package:thyevent/map/map_screen.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/feed/widgets/feed_list.dart';
+import 'package:thyevent/feed/models/feed_item.dart';
 
 void main() => runApp(MyApp());
 

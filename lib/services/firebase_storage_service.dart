@@ -40,6 +40,7 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
+          feedIdAuthor: doc.data['company_id'] ?? '',
           feedLogo: doc.data['logo'] ?? '',
           feedAuthor: doc.data['company_name'] ?? '',
           feedContent: doc.data['content'] ?? '',

@@ -9,19 +9,23 @@ class CompaniesItem {
   final int companyId;
   bool isFavourite;
 
-  CompaniesItem({this.logo, this.name, this.content, this.links, this.tags, this.companyId, this.isFavourite = false});
+  CompaniesItem(
+      {this.logo,
+      this.name,
+      this.content,
+      this.links,
+      this.tags,
+      this.companyId,
+      this.isFavourite = false});
 
-  void toggleFavourite(){
+  void toggleFavourite() {
     isFavourite = !isFavourite;
   }
-
 }
 
 class CompaniesProvider extends ChangeNotifier {
-
-  void updateFavourite(CompaniesItem company){
+  void updateFavourite(CompaniesItem company) {
     company.toggleFavourite();
     notifyListeners();
   }
-
 }
