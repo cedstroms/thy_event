@@ -21,7 +21,7 @@ class FeedCard extends StatelessWidget {
             ListTile(
               leading: CircleAvatar(
                 child: Container(
-                  child: SvgPicture.network(feed.feedLogo),
+                  child: SvgPicture.network(feed.logo),
                   margin: EdgeInsets.all(7),
                   color: Colors.transparent,
                 ),
@@ -29,15 +29,15 @@ class FeedCard extends StatelessWidget {
                 backgroundColor: Colors.white,
               ),
               title: Text(
-                feed.feedAuthor,
+                feed.author,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              subtitle: Text(feed.feedDate),
+              subtitle: Text(feed.date),
               onTap: () {
                 //TODO: implementera vidarebefordring till company view
-                print('pressed: company on feed card');
+                print('${feed.authorID}');
               },
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
@@ -48,14 +48,14 @@ class FeedCard extends StatelessWidget {
               ),
             ),
             Text(
-              feed.feedContent,
+              feed.content,
               maxLines: feed.showMore ? 100 : 3,
               style: TextStyle(
                 fontSize: 14,
                 letterSpacing: 0.25,
               ),
             ),
-            InkWell(
+            feed.content.length < 280 ? Container() : InkWell(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[

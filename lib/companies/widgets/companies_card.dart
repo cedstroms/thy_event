@@ -4,7 +4,6 @@ import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
-
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
   final Function favourite;
@@ -21,7 +20,8 @@ class CompaniesCard extends StatelessWidget {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
-              Navigator.push(context,
+              Navigator.push(
+                  context,
                   CupertinoPageRoute(
                       builder: (context) => CompaniesInfoScreen(company)));
             },
@@ -45,18 +45,18 @@ class CompaniesCard extends StatelessWidget {
                     backgroundColor: Theme
                         .of(context)
                         .cardColor,
-                    child: company.isFavourite ?
-                    Icon(
-                      Icons.star_border,
-                      size: 20.0,
-                      color: Colors.black,)
-                    : Icon(
+                    child: company.isFavourite
+                        ? Icon(
                       Icons.star,
                       size: 20.0,
                       color: Colors.yellow,
+                    )
+                        : Icon(
+                      Icons.star_border,
+                      size: 20.0,
+                      color: Colors.black,
                     ),
                     onPressed: favourite,
-                      // TODO turn the symbol yellow as in marked and
                   ),
                 ),
               ],
@@ -65,9 +65,7 @@ class CompaniesCard extends StatelessWidget {
           SizedBox(height: 6),
           Text(
             company.name,
-            style: TextStyle(
-              fontWeight: FontWeight.w500
-            ),
+            style: TextStyle(fontWeight: FontWeight.w500),
           )
         ],
       ),

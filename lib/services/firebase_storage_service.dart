@@ -29,7 +29,7 @@ class DatabaseService {
           content: doc.data['desc'] ?? '',
           links: doc.data['links'] ?? {},
           tags: doc.data['tags'] ?? [],
-          companyId: doc.data['id'] ?? 0,
+          companyID: doc.data['id'] ?? 0,
         );
       },
     ).toList();
@@ -40,13 +40,14 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
-          feedLogo: doc.data['logo'] ?? '',
-          feedAuthor: doc.data['company_name'] ?? '',
-          feedContent: doc.data['content'] ?? '',
-          feedDate: DateFormat.Hm()
+          logo: doc.data['logo'] ?? '',
+          author: doc.data['company_name'] ?? '',
+          content: doc.data['content'] ?? '',
+          date: DateFormat.Hm()
                   .add_MMMMEEEEd()
                   .format(doc.data['date'].toDate()) ??
               '',
+          authorID: doc.data['company_id'] ?? 0,
         );
       },
     ).toList();

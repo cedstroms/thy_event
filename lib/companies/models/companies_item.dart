@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CompaniesItem {
   final String logo;
@@ -6,10 +6,11 @@ class CompaniesItem {
   final String content;
   final Map links;
   final List tags;
-  final int companyId;
+  final int companyID;
   bool isFavourite;
 
-  CompaniesItem({this.logo, this.name, this.content, this.links, this.tags, this.companyId, this.isFavourite = false});
+  CompaniesItem(
+      {this.logo, this.name, this.content, this.links, this.tags, this.companyID, this.isFavourite = false});
 
   void toggleFavourite(){
     isFavourite = !isFavourite;
@@ -20,6 +21,7 @@ class CompaniesItem {
 class CompaniesProvider extends ChangeNotifier {
 
   void updateFavourite(CompaniesItem company){
+    print('in update favourite');
     company.toggleFavourite();
     notifyListeners();
   }
