@@ -21,15 +21,12 @@ class CompaniesItem {
   void toggleFavourite() {
     isFavourite = !isFavourite;
   }
-
 }
 
 class CompaniesProvider extends ChangeNotifier {
-
-  void updateFavourite(CompaniesItem company){
+  void updateFavourite(CompaniesItem company) {
     print('in update favourite');
     company.toggleFavourite();
     notifyListeners();
   }
-
 }

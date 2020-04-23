@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class FeedItem {
-  final int feedIdAuthor;
   final String logo;
   final String author;
   final String date;
@@ -9,12 +8,13 @@ class FeedItem {
   final int authorID;
   bool showMore;
 
-  FeedItem({this.logo,
-    this.author,
-    this.date,
-    this.content,
-    this.showMore = false,
-    this.authorID});
+  FeedItem(
+      {this.logo,
+      this.author,
+      this.date,
+      this.content,
+      this.showMore = false,
+      this.authorID});
 
   void toggleLessMore() {
     showMore = !showMore;

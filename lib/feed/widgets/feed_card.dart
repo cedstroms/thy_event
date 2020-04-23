@@ -43,6 +43,16 @@ class FeedCard extends StatelessWidget {
               onTap: () {
                 //TODO: implementera vidarebefordring till company view
                 print('${feed.authorID}');
+                for (int i = 0; i < companies.length; i++) {
+                  if (feed.authorID == companies[i].companyId) {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) =>
+                                CompaniesInfoScreen(companies[i])));
+                    print(i);
+                  }
+                }
               },
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
@@ -60,19 +70,21 @@ class FeedCard extends StatelessWidget {
                 letterSpacing: 0.25,
               ),
             ),
-            feed.content.length < 280 ? Container() : InkWell(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  //TODO Om det inte finns möjlighet att visa mer text så ska knappen inte finnas.
-                  Text(
-                    feed.showMore ? "show less" : "show more",
-                    style: new TextStyle(color: Colors.blue),
-                  ),
-                ],
-              ),
-              onTap: onPressedCallbackShowMore,
-            )
+            feed.content.length < 280
+                ? Container()
+                : InkWell(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        //TODO Om det inte finns möjlighet att visa mer text så ska knappen inte finnas.
+                        Text(
+                          feed.showMore ? "show less" : "show more",
+                          style: new TextStyle(color: Colors.blue),
+                        ),
+                      ],
+                    ),
+                    onTap: onPressedCallbackShowMore,
+                  )
           ],
         ),
       ),
