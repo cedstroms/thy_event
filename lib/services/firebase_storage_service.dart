@@ -40,11 +40,11 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return FeedItem(
-          feedIdAuthor: doc.data['company_id'] ?? '',
-          feedLogo: doc.data['logo'] ?? '',
-          feedAuthor: doc.data['company_name'] ?? '',
-          feedContent: doc.data['content'] ?? '',
-          feedDate: DateFormat.Hm()
+          authorID: doc.data['company_id'] ?? '',
+          logo: doc.data['logo'] ?? '',
+          author: doc.data['company_name'] ?? '',
+          content: doc.data['content'] ?? '',
+          date: DateFormat.Hm()
                   .add_MMMMEEEEd()
                   .format(doc.data['date'].toDate()) ??
               '',
