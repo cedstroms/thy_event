@@ -76,7 +76,6 @@ class FeedCard extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        //TODO Om det inte finns möjlighet att visa mer text så ska knappen inte finnas.
                         Text(
                           feed.showMore ? "show less" : "show more",
                           style: new TextStyle(color: Colors.blue),
