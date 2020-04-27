@@ -26,7 +26,6 @@ class CompaniesScreen extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.star_border),
               onPressed: () async {
-                print('pressed: sort by favourites');
                 List<String> selectedCompanies = await SharedPreferencesHelper.getCompanyNames();
                 print(selectedCompanies);
               },
