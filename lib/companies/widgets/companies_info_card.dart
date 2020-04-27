@@ -4,8 +4,6 @@ class CompaniesInfoCard extends StatelessWidget {
   final String header;
   final Object content;
 
-  //final CompaniesItem company;
-
   CompaniesInfoCard({this.header, this.content});
 
   @override
@@ -15,9 +13,7 @@ class CompaniesInfoCard extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           margin: EdgeInsets.symmetric(vertical: 10.0),
-          color: Theme
-              .of(context)
-              .cardColor,
+          color: Theme.of(context).cardColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
