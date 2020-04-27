@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesHelper {
@@ -8,7 +7,7 @@ class SharedPreferencesHelper {
   static Future<List<String>> getCompanyNames() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    return prefs.getStringList(_companyNames) ?? 'nothing to show';
+    return prefs.getStringList(_companyNames) ?? [];
   }
   static Future<bool> setCompanyNames(List<String> value) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -30,7 +29,5 @@ class SharedPreferencesHelper {
 
     return prefs.setStringList("companyNames", newList);
   }
-
-
 
 }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_card.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
 class CompaniesList extends StatefulWidget {

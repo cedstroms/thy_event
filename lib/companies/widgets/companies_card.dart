@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/services/shared_preferences.dart';
-
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
   final Function favourite;
@@ -65,7 +63,7 @@ class CompaniesCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 6),
+          SizedBox(height: 4),
           Text(
             company.name,
             style: TextStyle(fontWeight: FontWeight.w500),
