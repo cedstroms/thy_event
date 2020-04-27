@@ -9,8 +9,7 @@ class SharedPreferencesHelper{
 
     return prefs.getStringList(_companyNames) ?? [];
   }
-
-  static Future<bool> containsCompanyName(String value) async {
+  static Future<bool> setCompanyNames(List<String> value) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getStringList(_companyNames).contains([value]);

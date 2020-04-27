@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:provider/provider.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_info_card.dart';
+import 'package:thyevent/companies/widgets/companies_info_card_feed.dart';
+import 'package:thyevent/feed/models/feed_item.dart';
 
 class CompaniesInfoList extends StatelessWidget {
   final CompaniesItem company;
-
   CompaniesInfoList(this.company);
 
   linksFormatter(Map links) {
@@ -57,8 +58,23 @@ class CompaniesInfoList extends StatelessWidget {
     return FontAwesomeIcons.square;
   }
 
+  getList(List<FeedItem> feed) {
+    List<FeedItem> feedList = [];
+    for (int i = 0; i < feed.length; i++) {
+      if (company.companyId == feed[i].authorID) {
+        feedList.add(feed[i]);
+      }
+    }
+    return feedList;
+//    for (int index = 0; index < feedList.length; index++) {
+//      print(index);
+//      return Text(feedList[index]);
+//    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final feed = Provider.of<List<FeedItem>>(context) ?? [];
     return ListView(
       shrinkWrap: true,
       children: <Widget>[
@@ -77,6 +93,7 @@ class CompaniesInfoList extends StatelessWidget {
           header: 'tags',
           content: Text(company.tags.toString()),
         ),
+        CompaniesInfoCardFeed(header: 'Posts', feed: getList(feed)),
       ],
     );
   }

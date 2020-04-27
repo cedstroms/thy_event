@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/feed/widgets/feed_card.dart';
 import 'package:provider/provider.dart';
-import 'package:thyevent/companies/models/companies_item.dart';
 
 class FeedList extends StatefulWidget {
   @override

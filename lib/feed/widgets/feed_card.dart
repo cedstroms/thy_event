@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 class FeedCard extends StatelessWidget {
   final FeedItem feed;
   final Function onPressedCallbackShowMore;
-
   FeedCard({this.feed, this.onPressedCallbackShowMore});
 
   @override
@@ -42,7 +41,6 @@ class FeedCard extends StatelessWidget {
               subtitle: Text(feed.date),
               onTap: () {
                 //TODO: implementera vidarebefordring till company view
-                print('${feed.authorID}');
                 for (int i = 0; i < companies.length; i++) {
                   if (feed.authorID == companies[i].companyId) {
                     Navigator.push(
@@ -50,7 +48,6 @@ class FeedCard extends StatelessWidget {
                         CupertinoPageRoute(
                             builder: (context) =>
                                 CompaniesInfoScreen(companies[i])));
-                    print(i);
                   }
                 }
               },

@@ -7,6 +7,7 @@ import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
+
 class CompaniesScreen extends StatelessWidget {
   static const String id = 'companies_screen';
 
