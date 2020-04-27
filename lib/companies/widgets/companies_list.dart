@@ -12,30 +12,39 @@ class CompaniesList extends StatefulWidget {
 }
 
 class _CompaniesListState extends State<CompaniesList> {
-
+  List<String> outsideList;
+  void getStringList() async {
+    var tempList = await SharedPreferencesHelper.getCompanyNames();
+    outsideList = tempList;
+  }
 
   @override
   Widget build(BuildContext context) {
+    getStringList();
+    List<String> insideList = outsideList;
+
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
     return Consumer<CompaniesProvider>(
-      builder: (context, companiesData, child) {
-        return GridView.builder(
-          itemCount: companies.length,
-          gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-          itemBuilder: (context, index) {
-            return CompaniesCard(
-                company: companies[index],
-                favourite: () async {
-                  companiesData.updateFavourite(companies[index]);
-                  companies[index].isFavourite
-                      ? await SharedPreferencesHelper.setCompanyNames([companies[index].name])
-                      : await SharedPreferencesHelper.removeCompanyNames([companies[index].name]);
-                });
-          },
-        );
-      }
-    );
-
+        builder: (context, companiesData, child) {
+      return GridView.builder(
+        itemCount: companies.length,
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        itemBuilder: (context, index) {
+          return CompaniesCard(
+              company: companies[index],
+              //Below should be the list with the sharedPreferences
+              favouriteList: insideList, //insideList,
+              favourite: () async {
+                getStringList();
+                companiesData.updateFavourite(companies[index], insideList);
+                //insideList.contains(companies[index].name)
+//                  companies[index].isFavourite
+//                      ? await SharedPreferencesHelper.addCompanyNames([companies[index].name])
+//                      : await SharedPreferencesHelper.removeCompanyNames([companies[index].name]);
+              });
+        },
+      );
+    });
   }
 }

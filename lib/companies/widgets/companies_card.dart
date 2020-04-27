@@ -5,13 +5,24 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
+import '../models/companies_item.dart';
+import '../models/companies_item.dart';
+
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
   final Function favourite;
+  final List<String> favouriteList;
 
-  CompaniesCard({this.company, this.favourite});
+  CompaniesCard({this.company, this.favourite, this.favouriteList});
 
-
+  void setFavourite(CompaniesItem company){
+    if (favouriteList.contains(company.name)){
+      company.isFavourite = true;
+    }
+    else {
+      company.isFavourite = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context){
@@ -48,7 +59,7 @@ class CompaniesCard extends StatelessWidget {
                     backgroundColor: Theme
                         .of(context)
                         .cardColor,
-                    child: company.isFavourite
+                    child: favouriteList.contains(company.name)
                         ? Icon(
                       Icons.star,
                       size: 20.0,
