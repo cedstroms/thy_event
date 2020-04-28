@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/services/shared_preferences.dart';
 
-import '../models/companies_item.dart';
 import '../models/companies_item.dart';
 
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
   final Function favourite;
   final List<String> favouriteList;
+//  final bool showFavourite;
 
   CompaniesCard({this.company, this.favourite, this.favouriteList});
 
