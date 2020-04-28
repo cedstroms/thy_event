@@ -9,9 +9,7 @@ import 'package:thyevent/map/map_screen.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/common/theme.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
-
 import 'companies/screens/companies_screen.dart';
-import 'companies/widgets/companies_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
               ThemeChanger(ThemeSettings().getLightTheme()),
         ),
         ChangeNotifierProvider(
-          create: (BuildContext context) => FavouriteProvider()),
+            create: (BuildContext context) => FavouriteProvider()),
       ],
       child: MaterialAppWithTheme(),
     );

@@ -12,9 +12,8 @@ class CompaniesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var filterShowFavorites = Provider.of<FavouriteProvider>(context);
 
-    //bool showFavourite = false;
-    var filterShowFavorites= Provider.of<FavouriteProvider>(context);
     // TODO: build companies screen
     return StreamProvider<List<FeedItem>>.value(
       value: DatabaseService().feed,
@@ -32,12 +31,9 @@ class CompaniesScreen extends StatelessWidget {
                 // TODO filter the companies to your favourites¨
 //                FavouriteProvider().toggleShowFavouriteFilter();
                 //print(FavouriteProvider().showFavourite);
-             //   print(filterShowFavorites.showFavourites);
+                //   print(filterShowFavorites.showFavourites);
 //                filterShowFavorites.showFavourites = !filterShowFavorites.showFavourites;
                 FavouriteProvider().toggleShowFavouriteFilter();
-
-//                List<String> selectedCompanies = await SharedPreferencesHelper.getCompanyNames();
-//                print(selectedCompanies);
               },
             ),
           ),
@@ -53,7 +49,7 @@ class CompaniesScreen extends StatelessWidget {
 
 class FavouriteProvider with ChangeNotifier {
 //  bool showFavourites = false;
-  void toggleShowFavouriteFilter(){
+  void toggleShowFavouriteFilter() {
     //print('inside toggleShowFavouriteFilter');
 //    print(showFavourites);
 

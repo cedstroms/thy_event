@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesHelper {
@@ -23,7 +22,6 @@ class SharedPreferencesHelper {
         await getCompanyNames(); //get the list so that we can modify it
 
     var newList = [...companies, ...value].toSet().toList();
-    print('adding $value');
     return prefs.setStringList("companyNames", newList);
   }
 
@@ -36,7 +34,6 @@ class SharedPreferencesHelper {
     var newList = [...companies, ...value].toSet().toList();
 
     newList.remove(value[0]);
-    print('removing $value');
     return prefs.setStringList("companyNames", newList);
   }
 }

@@ -25,15 +25,6 @@ class CompaniesInfoCardFeed extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                //
-//                Text(
-//                  header.toUpperCase(),
-//                  textAlign: TextAlign.start,
-//                  style: TextStyle(
-//                    fontSize: 14.0,
-//                    fontWeight: FontWeight.w600,
-//                  ),
-//                ),
                 SizedBox(
                   height: 10.0,
                   child: Divider(),
