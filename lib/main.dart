@@ -59,9 +59,9 @@ class _NavigationBarState extends State<NavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<BottomNavigationBarProvider>(context);
+    var bottomNavProvider = Provider.of<BottomNavigationBarProvider>(context);
     return Scaffold(
-      body: currentBottomTab[provider.currentIndex],
+      body: currentBottomTab[bottomNavProvider.currentIndex],
       bottomNavigationBar: NavigationBarBottom(),
     );
   }

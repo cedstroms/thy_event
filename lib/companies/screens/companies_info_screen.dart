@@ -30,24 +30,23 @@ class CompaniesInfoScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: SvgPicture.network(company.logo),
-                ),
-              ),
-              CompaniesInfoList(company),
-              // make feeds relevant appear
-              //CompaniesInfoCard(header: feed,)
-            ],
-          ),
-        ),
+        body:
+
+            //children: <Widget>[
+//            Padding(
+//              padding: const EdgeInsets.symmetric(vertical: 16.0),
+//              child: SizedBox(
+//                height: 100,
+//                width: 100,
+//                child: SvgPicture.network(company.logo),
+//              ),
+//            ),
+            CompaniesInfoList(company),
+        // make feeds relevant appear
+        //CompaniesInfoCard(header: feed,)
+        //],
       ),
     );
+    //);
   }
 }

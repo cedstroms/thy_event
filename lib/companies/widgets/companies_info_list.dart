@@ -5,6 +5,7 @@ import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_info_card.dart';
 import 'package:thyevent/companies/widgets/companies_info_card_feed.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CompaniesInfoList extends StatelessWidget {
   final CompaniesItem company;
@@ -66,10 +67,6 @@ class CompaniesInfoList extends StatelessWidget {
       }
     }
     return feedList;
-//    for (int index = 0; index < feedList.length; index++) {
-//      print(index);
-//      return Text(feedList[index]);
-//    }
   }
 
   @override
@@ -78,6 +75,14 @@ class CompaniesInfoList extends StatelessWidget {
     return ListView(
       shrinkWrap: true,
       children: <Widget>[
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: SizedBox(
+            height: 100,
+            width: 100,
+            child: SvgPicture.network(company.logo),
+          ),
+        ),
         CompaniesInfoCard(
           header: 'About Us',
           content: Text(
@@ -93,7 +98,7 @@ class CompaniesInfoList extends StatelessWidget {
           header: 'tags',
           content: Text(company.tags.toString()),
         ),
-        CompaniesInfoCardFeed(header: 'Posts', feed: getList(feed)),
+        CompaniesInfoCardFeed(feed: getList(feed)),
       ],
     );
   }

@@ -22,7 +22,7 @@ class FeedItem {
 }
 
 class ShowLessShowMore with ChangeNotifier {
-  bool feedShowFlag = false;
+  //bool feedShowFlag = false;
 
   void changerLessMore(FeedItem feedItem) {
     feedItem.toggleLessMore();

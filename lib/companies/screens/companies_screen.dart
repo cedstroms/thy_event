@@ -7,7 +7,6 @@ import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
-
 class CompaniesScreen extends StatelessWidget {
   static const String id = 'companies_screen';
 
@@ -27,7 +26,8 @@ class CompaniesScreen extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.star_border),
               onPressed: () async {
-                List<String> selectedCompanies = await SharedPreferencesHelper.getCompanyNames();
+                List<String> selectedCompanies =
+                    await SharedPreferencesHelper.getCompanyNames();
                 print(selectedCompanies);
               },
             ),
