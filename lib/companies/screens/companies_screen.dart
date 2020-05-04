@@ -7,14 +7,22 @@ import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
-class CompaniesScreen extends StatelessWidget {
+import '../models/companies_item.dart';
+import '../models/companies_item.dart';
+
+class CompaniesScreen extends StatefulWidget {
   static const String id = 'companies_screen';
 
   @override
-  Widget build(BuildContext context) {
-    var filterShowFavorites = Provider.of<FavouriteProvider>(context);
+  _CompaniesScreenState createState() => _CompaniesScreenState();
+}
 
-    // TODO: build companies screen
+class _CompaniesScreenState extends State<CompaniesScreen> {
+  bool showFavourites = false;
+
+  @override
+  Widget build(BuildContext context) {
+
     return StreamProvider<List<FeedItem>>.value(
       value: DatabaseService().feed,
       child: StreamProvider<List<CompaniesItem>>.value(
@@ -26,14 +34,15 @@ class CompaniesScreen extends StatelessWidget {
             ),
             centerTitle: true,
             leading: IconButton(
-              icon: Icon(Icons.star_border),
-              onPressed: () async {
-                // TODO filter the companies to your favourites¨
-//                FavouriteProvider().toggleShowFavouriteFilter();
-                //print(FavouriteProvider().showFavourite);
-                //   print(filterShowFavorites.showFavourites);
-//                filterShowFavorites.showFavourites = !filterShowFavorites.showFavourites;
-                FavouriteProvider().toggleShowFavouriteFilter();
+              icon: CompaniesProvider().getFavouriteState()
+                  ? Icon(Icons.star_border)
+                  : Icon(Icons.star, color: Colors.yellow),
+              onPressed: () async{ //En async låg här??
+                // TODO filter the companies to your favourites
+                CompaniesProvider().toggleShowFavouriteFilter();
+                setState(() {
+
+                });
               },
             ),
           ),
@@ -44,15 +53,5 @@ class CompaniesScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class FavouriteProvider with ChangeNotifier {
-//  bool showFavourites = false;
-  void toggleShowFavouriteFilter() {
-    //print('inside toggleShowFavouriteFilter');
-//    print(showFavourites);
-
-    notifyListeners();
   }
 }

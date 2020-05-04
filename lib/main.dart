@@ -10,6 +10,10 @@ import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/common/theme.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'companies/screens/companies_screen.dart';
+import 'package:thyevent/companies/widgets/companies_list.dart';
+
+import 'program/models/program_item.dart';
+import 'program/models/program_item.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,8 +32,8 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) =>
               ThemeChanger(ThemeSettings().getLightTheme()),
         ),
-        ChangeNotifierProvider(
-            create: (BuildContext context) => FavouriteProvider()),
+        ChangeNotifierProvider<ProgramProvider>(
+          create: (BuildContext context) => ProgramProvider()),
       ],
       child: MaterialAppWithTheme(),
     );

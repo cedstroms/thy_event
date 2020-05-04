@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_card.dart';
 import 'package:provider/provider.dart';
+import 'package:thyevent/companies/widgets/companies_info_list.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 
+import '../models/companies_item.dart';
+import '../models/companies_item.dart';
 import '../screens/companies_screen.dart';
 
 class CompaniesList extends StatefulWidget {
@@ -14,7 +17,6 @@ class CompaniesList extends StatefulWidget {
 }
 
 class _CompaniesListState extends State<CompaniesList> {
-  //bool showFavourites = false;
   List<String> outsideList;
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getCompanyNames();
@@ -23,8 +25,6 @@ class _CompaniesListState extends State<CompaniesList> {
 
   @override
   Widget build(BuildContext context) {
-    var filterShowFavorites = Provider.of<FavouriteProvider>(context);
-
     getStringList();
     List<CompaniesItem> favouritesList = [];
     List<String> insideList = outsideList;
@@ -38,9 +38,13 @@ class _CompaniesListState extends State<CompaniesList> {
       }
     }
 
-    return !true
-        ? Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
-            return GridView.builder(
+    return Consumer<CompaniesProvider>(
+        builder: (
+            context,
+            companiesData,
+            child) {
+      return !companiesData.getFavouriteState()
+          ? GridView.builder(
               itemCount: favouritesList.length,
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
@@ -55,10 +59,8 @@ class _CompaniesListState extends State<CompaniesList> {
                           favouritesList[index], insideList);
                     });
               },
-            );
-          })
-        : Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
-            return GridView.builder(
+            )
+          : GridView.builder(
               itemCount: companies.length,
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
@@ -74,6 +76,6 @@ class _CompaniesListState extends State<CompaniesList> {
                     });
               },
             );
-          });
+    });
   }
 }

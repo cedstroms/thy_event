@@ -21,6 +21,8 @@ class CompaniesItem {
 }
 
 class CompaniesProvider extends ChangeNotifier {
+  static bool favourite = false;
+
   void updateFavourite(CompaniesItem company, List insideList) {
     if (!insideList.contains(company.name)) {
       companyAdder(company, insideList);
@@ -41,6 +43,16 @@ class CompaniesProvider extends ChangeNotifier {
     SharedPreferencesHelper.removeCompanyNames([company.name]);
     insideList.remove(company.name);
     company.isFavourite = false;
+    notifyListeners();
+  }
+
+  bool getFavouriteState() {
+    return favourite;
+  }
+
+  void toggleShowFavouriteFilter() {
+    favourite = !favourite;
+    print(favourite);
     notifyListeners();
   }
 }

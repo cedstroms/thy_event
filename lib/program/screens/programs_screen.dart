@@ -6,10 +6,31 @@ import 'package:thyevent/program/models/program_item.dart';
 import 'package:thyevent/program/screens/programs_first_view.dart';
 import 'package:thyevent/program/screens/programs_second_view.dart';
 import 'package:thyevent/program/screens/programs_third_view.dart';
+import 'package:thyevent/services/shared_preferences.dart';
 
-class ProgramScreen extends StatelessWidget {
+import '../models/program_item.dart';
+import '../models/program_item.dart';
+
+class ProgramScreen extends StatefulWidget {
+  @override
+  _ProgramScreenState createState() => _ProgramScreenState();
+}
+
+class _ProgramScreenState extends State<ProgramScreen> {
+  List<String> outsideList = [];
+  void getStringList() async {
+    var tempList = await SharedPreferencesHelper.getProgramNames();
+    print(tempList);
+    outsideList = tempList;
+  }
+  bool showFavourites = false;
+
   @override
   Widget build(BuildContext context) {
+    //Get the outsideList and make it usable as a List<String> and not a Future
+    getStringList();
+    List<String> insideList = outsideList;
+
     // TODO: build program screen
     return StreamProvider<List<ProgramItem>>.value(
       value: DatabaseService().program,
@@ -20,9 +41,13 @@ class ProgramScreen extends StatelessWidget {
             title: Text('Program'),
             centerTitle: true,
             leading: IconButton(
-              icon: Icon(Icons.star_border),
+              icon: !ProgramProvider().getFavouriteState()
+                  ? Icon(Icons.star_border)
+                  : Icon(Icons.star, color: Colors.yellow,),
               onPressed: () {
-                print('pressed: sort by favourites');
+                ProgramProvider().toggleShowFavouriteFilter();
+                setState(() {
+                });
               },
             ),
             actions: <Widget>[
@@ -45,9 +70,15 @@ class ProgramScreen extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
-              FirstView(),
-              SecondView(),
-              ThirdView(),
+              FirstView(
+                favouriteList: insideList,
+              ),
+              SecondView(
+                favouriteList: insideList,
+              ),
+              ThirdView(
+                favouriteList: insideList,
+              ),
             ],
           ),
         ),
