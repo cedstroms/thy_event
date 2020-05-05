@@ -5,11 +5,20 @@ import 'package:thyevent/companies/widgets/companies_list.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/services/shared_preferences.dart';
+import 'package:thyevent/feed/screens/settings_screen.dart';
 
+import '../models/companies_item.dart';
+import '../models/companies_item.dart';
 
-class CompaniesScreen extends StatelessWidget {
+class CompaniesScreen extends StatefulWidget {
   static const String id = 'companies_screen';
+
+  @override
+  _CompaniesScreenState createState() => _CompaniesScreenState();
+}
+
+class _CompaniesScreenState extends State<CompaniesScreen> {
+  bool showFavourites = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +34,14 @@ class CompaniesScreen extends StatelessWidget {
             ),
             centerTitle: true,
             leading: IconButton(
-              icon: Icon(Icons.star_border),
+              icon: !CompaniesProvider().getFavouriteState()
+                  ? Icon(Icons.star, color: Colors.yellow)
+                  : Icon(Icons.star_border),
               onPressed: () async {
-                List<String> selectedCompanies = await SharedPreferencesHelper.getCompanyNames();
-                print(selectedCompanies);
+                //En async låg här??
+                // TODO filter the companies to your favourites
+                CompaniesProvider().toggleShowFavouriteFilter();
+                setState(() {});
               },
             ),
           ),

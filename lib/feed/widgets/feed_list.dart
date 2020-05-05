@@ -15,6 +15,7 @@ class _FeedListState extends State<FeedList> {
     final feed = Provider.of<List<FeedItem>>(context) ?? [];
     return Consumer<ShowLessShowMore>(builder: (context, feedData, child) {
       return ListView.builder(
+          shrinkWrap: true,
           itemCount: feed.length,
           itemBuilder: (context, index) {
             return FeedCard(

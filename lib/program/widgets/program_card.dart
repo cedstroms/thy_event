@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:thyevent/program/models/program_item.dart';
+import 'package:thyevent/services/shared_preferences.dart';
+
 
 class ProgramCard extends StatelessWidget {
   final ProgramItem program;
-  ProgramCard(this.program);
-//  final String startTime;
-//  final String stopTime;
-//  final String title;
-//  final String subTitle;
-//
-//  ProgramCard({this.startTime, this.stopTime, this.title, this.subTitle});
+  final Function favourite;
+  final List<String> favouriteList;
+  ProgramCard({this.program, this.favourite, this.favouriteList});
+
+  void setFavourite(ProgramItem company){
+    if (favouriteList.contains(program.title)){
+      program.isFavourite = true;
+    }
+    else {
+      program.isFavourite = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +48,24 @@ class ProgramCard extends StatelessWidget {
           //TODO: implementera favoritmarkering
           print('long pressed: mark as favourite');
         },
-        trailing: IconButton(
-          icon: Icon(Icons.star_border),
-          onPressed: () {
-            //TODO: implementera favoritmarkering
-            print('pressed: mark as favourite');
-          },
-        ),
+        trailing: !favouriteList.contains(program.title)
+            ? IconButton(
+                icon: Icon(Icons.star_border),
+                onPressed: favourite,
+//              () {
+//            //TODO: implementera favoritmarkering
+//            print('pressed: mark as favourite');
+//          },
+              )
+            : IconButton(
+                icon: Icon(Icons.star),
+                color: Colors.yellow,
+                onPressed: favourite,
+//              () {
+//            //TODO: implementera favoritmarkering
+//            print('pressed: mark as favourite');
+//          },
+              ),
       ),
     );
   }

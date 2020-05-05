@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_card.dart';
 import 'package:provider/provider.dart';
+import 'package:thyevent/companies/widgets/companies_info_list.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
 class CompaniesList extends StatefulWidget {
@@ -20,30 +21,58 @@ class _CompaniesListState extends State<CompaniesList> {
   @override
   Widget build(BuildContext context) {
     getStringList();
+    List<CompaniesItem> favouritesList = [];
     List<String> insideList = outsideList;
 
+    //List of companies provided by the database
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
+
+    // Set the list parameter to the SharedPref-list
+    for (var company in companies){
+      company.listOfFavourites = insideList;
+    }
+    //Create a list of CompaniesItem that are marked favourites
+    for (var i = 0; i < companies.length; i++) {
+      if (insideList.contains(companies[i].name)) {
+        favouritesList.add(companies[i]);
+      }
+    }
+
     return Consumer<CompaniesProvider>(
         builder: (context, companiesData, child) {
-      return GridView.builder(
-        itemCount: companies.length,
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-        itemBuilder: (context, index) {
-          return CompaniesCard(
-              company: companies[index],
-              //Below should be the list with the sharedPreferences
-              favouriteList: insideList, //insideList,
-              favourite: () async {
-                getStringList();
-                companiesData.updateFavourite(companies[index], insideList);
-                //insideList.contains(companies[index].name)
-//                  companies[index].isFavourite
-//                      ? await SharedPreferencesHelper.addCompanyNames([companies[index].name])
-//                      : await SharedPreferencesHelper.removeCompanyNames([companies[index].name]);
-              });
-        },
-      );
+      return !companiesData.getFavouriteState()
+          ? GridView.builder(
+              itemCount: favouritesList.length,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+              itemBuilder: (context, index) {
+                return CompaniesCard(
+                    company: favouritesList[index],
+//InsideList below is the updated list of chosen favourites
+                    favouriteList: insideList, //insideList,
+                    favourite: () async {
+                      getStringList();
+                      companiesData.updateFavourite(
+                          favouritesList[index], insideList);
+                    });
+              },
+            )
+          : GridView.builder(
+              itemCount: companies.length,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+              itemBuilder: (context, index) {
+                return CompaniesCard(
+                    company: companies[index],
+//InsideList below is the updated list of chosen favourites
+                    favouriteList: insideList, //insideList,
+                    favourite: () async {
+                      getStringList();
+                      companiesData.updateFavourite(
+                          companies[index], insideList);
+                    });
+              },
+            );
     });
   }
 }

@@ -11,6 +11,8 @@ class FeedCard extends StatelessWidget {
   final Function onPressedCallbackShowMore;
   FeedCard({this.feed, this.onPressedCallbackShowMore});
 
+  List<String> options = ['Settings', 'Share'];
+
   @override
   Widget build(BuildContext context) {
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
@@ -51,13 +53,26 @@ class FeedCard extends StatelessWidget {
                   }
                 }
               },
-              trailing: IconButton(
-                icon: Icon(Icons.more_horiz),
-                onPressed: () {
-                  //TODO: implementera funktion att dela feed post?
-                  print('pressed: feed share button');
+              trailing: PopupMenuButton<String>(
+                onSelected: choiceAction,
+                itemBuilder: (BuildContext context) {
+                  return options.map((String choice) {
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: Text(choice),
+                    );
+                  }).toList();
                 },
               ),
+//              IconButton(
+//                icon: Icon(Icons.more_horiz),
+//
+//                onPressed: () {
+//                  //TODO: implementera funktion att dela feed post? Tycker detta är onödigt//Mandus Ta bort?
+//                  print('pressed: feed share button');
+//
+//                },
+//              ),
             ),
             Text(
               feed.content,
@@ -85,5 +100,9 @@ class FeedCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void choiceAction(String string) {
+    print('hello there');
   }
 }

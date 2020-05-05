@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_info_card.dart';
@@ -7,9 +6,9 @@ import 'package:thyevent/companies/widgets/companies_info_card_feed.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CompaniesInfoList extends StatelessWidget {
+class AboutUsList extends StatelessWidget {
   final CompaniesItem company;
-  CompaniesInfoList(this.company);
+  AboutUsList(this.company);
 
   linksFormatter(Map links) {
     return GridView.builder(
@@ -22,10 +21,10 @@ class CompaniesInfoList extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FaIcon(
-              getIcon('$key'),
-              size: 30,
-            ),
+//            FaIcon(
+//              getIcon('$key'),
+//              size: 30,
+//            ),
             SizedBox(height: 4),
             Text(
               '$key'.toUpperCase(),
@@ -38,25 +37,6 @@ class CompaniesInfoList extends StatelessWidget {
         );
       },
     );
-  }
-
-  getIcon(String serviceType) {
-    if (serviceType == 'facebook') {
-      return FontAwesomeIcons.facebookSquare;
-    }
-    if (serviceType == 'website') {
-      return FontAwesomeIcons.externalLinkSquareAlt;
-    }
-    if (serviceType == 'twitter') {
-      return FontAwesomeIcons.twitterSquare;
-    }
-    if (serviceType == 'instagram') {
-      return FontAwesomeIcons.instagramSquare;
-    }
-    if (serviceType == 'linkedin') {
-      return FontAwesomeIcons.linkedin;
-    }
-    return FontAwesomeIcons.square;
   }
 
   getList(List<FeedItem> feed) {
@@ -91,12 +71,11 @@ class CompaniesInfoList extends StatelessWidget {
           ),
         ),
         CompaniesInfoCard(
-          header: 'links',
-          content: linksFormatter(company.links),
-        ),
-        CompaniesInfoCard(
-          header: 'tags',
-          content: Text(company.tags.toString()),
+          header: 'Contact Information',
+          content: Text(
+            company.contactInfo,
+            textAlign: TextAlign.left,
+          ),
         ),
         CompaniesInfoCardFeed(feed: getList(feed)),
       ],

@@ -9,13 +9,12 @@ class ThemeChanger with ChangeNotifier {
   getTheme() => _themeData;
 
   setTheme(bool themeValue) {
-    if (!themeValue) {
+    if (themeValue) {
       _themeData = ThemeSettings().getDarkTheme();
     }
-    if (themeValue) {
+    if (!themeValue) {
       _themeData = ThemeSettings().getLightTheme();
     }
     notifyListeners();
   }
 }
-
