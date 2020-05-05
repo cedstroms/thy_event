@@ -22,19 +22,27 @@ class _CompaniesListState extends State<CompaniesList> {
   Widget build(BuildContext context) {
     getStringList();
     List<CompaniesItem> favouritesList = [];
+    List<CompaniesItem> companiesList = [];
     List<String> insideList = outsideList;
 
     //List of companies provided by the database
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
+
+    //Checks database list and add all non-hidden companies to new list
+    for (var i = 0; i < companies.length; i++) {
+      if (!companies[i].isHidden) {
+        companiesList.add(companies[i]);
+      }
+    }
 
     // Set the list parameter to the SharedPref-list
     for (var company in companies) {
       company.listOfFavourites = insideList;
     }
     //Create a list of CompaniesItem that are marked favourites
-    for (var i = 0; i < companies.length; i++) {
-      if (insideList.contains(companies[i].name)) {
-        favouritesList.add(companies[i]);
+    for (var i = 0; i < companiesList.length; i++) {
+      if (insideList.contains(companiesList[i].name)) {
+        favouritesList.add(companiesList[i]);
       }
     }
 
@@ -58,18 +66,18 @@ class _CompaniesListState extends State<CompaniesList> {
               },
             )
           : GridView.builder(
-              itemCount: companies.length,
+        itemCount: companiesList.length,
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
               itemBuilder: (context, index) {
                 return CompaniesCard(
-                    company: companies[index],
+                    company: companiesList[index],
                     //InsideList below is the updated list of chosen favourites
                     favouriteList: insideList, //insideList,
                     favourite: () async {
                       getStringList();
                       companiesData.updateFavourite(
-                          companies[index], insideList);
+                          companiesList[index], insideList);
                     });
               },
             );
