@@ -21,6 +21,7 @@ class InformationGeneralScreen extends StatelessWidget {
           centerTitle: true,
           actions: <Widget>[
             IconButton(
+              //TODO Antingen ta bort eller implementera samma lösning som i company info card
               icon: Icon(Icons.star_border),
               onPressed: () {
                 print('pressed: mark as favourite');

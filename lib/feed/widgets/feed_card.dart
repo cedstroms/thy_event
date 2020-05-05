@@ -55,8 +55,8 @@ class FeedCard extends StatelessWidget {
               },
               trailing: PopupMenuButton<String>(
                 onSelected: choiceAction,
-                itemBuilder: (BuildContext context){
-                  return options.map((String choice){
+                itemBuilder: (BuildContext context) {
+                  return options.map((String choice) {
                     return PopupMenuItem<String>(
                       value: choice,
                       child: Text(choice),
@@ -68,7 +68,7 @@ class FeedCard extends StatelessWidget {
 //                icon: Icon(Icons.more_horiz),
 //
 //                onPressed: () {
-//                  //TODO: implementera funktion att dela feed post?
+//                  //TODO: implementera funktion att dela feed post? Tycker detta är onödigt//Mandus Ta bort?
 //                  print('pressed: feed share button');
 //
 //                },
@@ -101,7 +101,8 @@ class FeedCard extends StatelessWidget {
       ),
     );
   }
-  void choiceAction (String string){
+
+  void choiceAction(String string) {
     print('hello there');
   }
 }

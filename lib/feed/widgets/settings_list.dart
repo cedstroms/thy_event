@@ -39,13 +39,10 @@ class _SettingsListState extends State<SettingsList> {
   ];
   List<SettingsItemCompact> settingsCompactApplication = [
     SettingsItemCompact(
-      title: 'Language',
-      hasSwitch: false,
-    ),
-    SettingsItemCompact(
       title: 'Dark Theme',
       hasSwitch: true,
     ),
+    //TODO Kan vara ett kul extra project om man pallar i slutet annars städa bort
     SettingsItemCompact(
       title: 'Surveys',
       hasSwitch: false,
@@ -125,6 +122,7 @@ class _SettingsListState extends State<SettingsList> {
                 ),
               ),
             ),
+            //Application in setting items
             ListView.builder(
               shrinkWrap: true,
               itemCount: settingsCompactApplication.length,
