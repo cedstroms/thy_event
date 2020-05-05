@@ -5,11 +5,7 @@ import 'package:thyevent/companies/widgets/companies_card.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/companies/widgets/companies_info_list.dart';
 import 'package:thyevent/services/shared_preferences.dart';
-import 'package:thyevent/companies/screens/companies_screen.dart';
-
 import '../models/companies_item.dart';
-import '../models/companies_item.dart';
-import '../screens/companies_screen.dart';
 
 class CompaniesList extends StatefulWidget {
   @override

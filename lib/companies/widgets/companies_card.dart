@@ -14,7 +14,6 @@ class CompaniesCard extends StatelessWidget {
 //  final bool showFavourite;
 
   CompaniesCard({this.company, this.favourite, this.favouriteList});
-
   void setFavourite(CompaniesItem company){
     if (favouriteList.contains(company.name)){
       company.isFavourite = true;
@@ -22,11 +21,13 @@ class CompaniesCard extends StatelessWidget {
     else {
       company.isFavourite = false;
     }
+    company.listOfFavourites = favouriteList;
   }
 
 
   @override
   Widget build(BuildContext context){
+    //company.listOfFavourites = favouriteList;
     return Padding(
       padding: EdgeInsets.all(12),
       child: Column(

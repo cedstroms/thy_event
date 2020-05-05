@@ -6,6 +6,8 @@ import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:provider/provider.dart';
 
+import '../../companies/models/companies_item.dart';
+
 class FeedCard extends StatelessWidget {
   final FeedItem feed;
   final Function onPressedCallbackShowMore;
@@ -17,53 +19,59 @@ class FeedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
 
-    return Container(
-      margin: EdgeInsets.only(bottom: 16.0),
-      color: Theme.of(context).cardColor,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              leading: CircleAvatar(
-                child: Container(
-                  child: SvgPicture.network(feed.logo),
-                  margin: EdgeInsets.all(7),
-                  color: Colors.transparent,
+    return Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
+      companiesData.getStringList();
+      print(companiesData.listOfFavourites);
+      return Container(
+        margin: EdgeInsets.only(bottom: 16.0),
+        color: Theme
+            .of(context)
+            .cardColor,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                leading: CircleAvatar(
+                  child: Container(
+                    child: SvgPicture.network(feed.logo),
+                    margin: EdgeInsets.all(7),
+                    color: Colors.transparent,
+                  ),
+                  radius: 20,
+                  backgroundColor: Colors.white,
                 ),
-                radius: 20,
-                backgroundColor: Colors.white,
-              ),
-              title: Text(
-                feed.author,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
+                title: Text(
+                  feed.author,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-              subtitle: Text(feed.date),
-              onTap: () {
-                //TODO: implementera vidarebefordring till company view
-                for (int i = 0; i < companies.length; i++) {
-                  if (feed.authorID == companies[i].companyId) {
-                    Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                            builder: (context) =>
-                                CompaniesInfoScreen(companies[i])));
+                subtitle: Text(feed.date),
+                onTap: () {
+                  print(companiesData.listOfFavourites);
+                  //TODO: implementera vidarebefordring till company view
+                  for (int i = 0; i < companies.length; i++) {
+                    if (feed.authorID == companies[i].companyId) {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) =>
+                                  CompaniesInfoScreen(companies[i])));
+                    }
                   }
-                }
-              },
-              trailing: PopupMenuButton<String>(
-                onSelected: choiceAction,
-                itemBuilder: (BuildContext context){
-                  return options.map((String choice){
-                    return PopupMenuItem<String>(
-                      value: choice,
-                      child: Text(choice),
-                    );
-                  }).toList();
                 },
-              ),
+                trailing: PopupMenuButton<String>(
+                  onSelected: choiceAction,
+                  itemBuilder: (BuildContext context) {
+                    return options.map((String choice) {
+                      return PopupMenuItem<String>(
+                        value: choice,
+                        child: Text(choice),
+                      );
+                    }).toList();
+                  },
+                ),
 //              IconButton(
 //                icon: Icon(Icons.more_horiz),
 //
@@ -73,33 +81,34 @@ class FeedCard extends StatelessWidget {
 //
 //                },
 //              ),
-            ),
-            Text(
-              feed.content,
-              maxLines: feed.showMore ? 100 : 3,
-              style: TextStyle(
-                fontSize: 14,
-                letterSpacing: 0.25,
               ),
-            ),
-            feed.content.length < 280
-                ? Container()
-                : InkWell(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          feed.showMore ? "show less" : "show more",
-                          style: new TextStyle(color: Colors.blue),
-                        ),
-                      ],
+              Text(
+                feed.content,
+                maxLines: feed.showMore ? 100 : 3,
+                style: TextStyle(
+                  fontSize: 14,
+                  letterSpacing: 0.25,
+                ),
+              ),
+              feed.content.length < 280
+                  ? Container()
+                  : InkWell(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Text(
+                      feed.showMore ? "show less" : "show more",
+                      style: new TextStyle(color: Colors.blue),
                     ),
-                    onTap: onPressedCallbackShowMore,
-                  )
-          ],
+                  ],
+                ),
+                onTap: onPressedCallbackShowMore,
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
   void choiceAction (String string){
     print('hello there');

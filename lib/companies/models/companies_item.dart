@@ -10,7 +10,7 @@ class CompaniesItem {
   final int companyId;
   bool isFavourite;
   final String contactInfo;
-  List<String> listOfFavourites;
+  List<String> listOfFavourites; //TODO ta bort detta städa yada
 
   CompaniesItem(
       {this.logo,
@@ -22,20 +22,35 @@ class CompaniesItem {
       this.isFavourite,
       this.contactInfo,
       this.listOfFavourites});
+
+//  List<String> tempList;
+//  void getStringList() async {
+//    tempList = await SharedPreferencesHelper.getCompanyNames();
+//  }
+//  void setFavouriteList () {
+//    listOfFavourites = tempList;
+//  }
 }
 
 class CompaniesProvider extends ChangeNotifier {
   static bool favourite = false;
+  List<String> listOfFavourites;
+
+  void getStringList() async {
+    var tempList = await SharedPreferencesHelper.getCompanyNames();
+    listOfFavourites = tempList;
+  }
 
   void updateFavourite(CompaniesItem company, List insideList) {
-    //company.listOfFavourites.remove('Operning ceremony');
-
+    getStringList();
+    print('$listOfFavourites from provider');
     if (!insideList.contains(company.name)) {
       companyAdder(company, insideList);
+      //companyAdder(company, company.listOfFavourites);
     } else {
       companyRemover(company, insideList);
+      //companyRemover(company, company.listOfFavourites);
     }
-    print(company.listOfFavourites);
     notifyListeners();
   }
 

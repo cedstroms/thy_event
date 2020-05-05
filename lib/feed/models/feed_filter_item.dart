@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+
+import '../../companies/models/companies_item.dart';
+import '../../companies/models/companies_item.dart';
 
 //TODO: kombinera denna med compact-klasesen, typ genom abstract??
 
@@ -14,6 +18,13 @@ class FeedFilterItem {
 
 class FeedFilterItemCompact {
   final String title;
+  final CompaniesItem company;
 
-  FeedFilterItemCompact({this.title});
+  FeedFilterItemCompact({this.title, this.company});
+}
+
+class FeedFilterItemCompactNew {
+  final CompaniesItem company;
+
+  FeedFilterItemCompactNew({this.company});
 }

@@ -31,7 +31,7 @@ class _CompaniesInfoScreenState extends State<CompaniesInfoScreen> {
             centerTitle: true,
             actions: <Widget>[
               IconButton(
-                icon: !widget.company.listOfFavourites.contains(widget.company.name)
+                icon: !companiesData.listOfFavourites.contains(widget.company.name)
                     ? Icon(Icons.star_border)
                     : Icon(
                         Icons.star,

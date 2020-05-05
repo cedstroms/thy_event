@@ -44,7 +44,7 @@ class _ProgramListState extends State<ProgramList> {
     return Consumer<ProgramProvider>(builder: (context, programData, child) {
       return programData.getFavouriteState()
           ? ListView.separated(
-              itemCount: widget.program.length,
+              itemCount: programs.length,
               itemBuilder: (context, index) {
                 return ProgramCard(
                   program: favouritesListPrograms[index],
