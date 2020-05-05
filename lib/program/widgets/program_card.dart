@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:thyevent/program/models/program_item.dart';
-import 'package:thyevent/services/shared_preferences.dart';
-
 
 class ProgramCard extends StatelessWidget {
   final ProgramItem program;
