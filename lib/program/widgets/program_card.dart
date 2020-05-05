@@ -48,7 +48,7 @@ class ProgramCard extends StatelessWidget {
           //TODO: implementera favoritmarkering
           print('long pressed: mark as favourite');
         },
-        trailing: !favouriteList.contains(program.title) ?? false
+        trailing: !favouriteList.contains(program.title)
             ? IconButton(
                 icon: Icon(Icons.star_border),
                 onPressed: favourite,
