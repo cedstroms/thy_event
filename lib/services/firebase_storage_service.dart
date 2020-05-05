@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:thyevent/common/setting_general/general_item.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
+import 'package:thyevent/feed/widgets/setting_general/general_item.dart';
 import 'package:thyevent/program/models/program_item.dart';
 import 'package:intl/intl.dart';
 

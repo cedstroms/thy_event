@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:thyevent/common/setting_general/information_general_screen.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/companies/screens/companies_info_screen.dart';
+import 'package:thyevent/feed/widgets/setting_general/information_general_screen.dart';
 import 'settings_switch.dart';
 import 'theme_switch.dart';
 

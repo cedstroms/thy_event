@@ -5,7 +5,7 @@ import 'package:thyevent/companies/widgets/companies_list.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/common/settings_screen.dart';
+import 'package:thyevent/feed/screens/settings_screen.dart';
 
 import '../models/companies_item.dart';
 import '../models/companies_item.dart';
@@ -22,7 +22,6 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // TODO: build companies screen
     return StreamProvider<List<FeedItem>>.value(
       value: DatabaseService().feed,
@@ -38,12 +37,11 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
               icon: CompaniesProvider().getFavouriteState()
                   ? Icon(Icons.star_border)
                   : Icon(Icons.star, color: Colors.yellow),
-              onPressed: () async{ //En async låg här??
+              onPressed: () async {
+                //En async låg här??
                 // TODO filter the companies to your favourites
                 CompaniesProvider().toggleShowFavouriteFilter();
-                setState(() {
-
-                });
+                setState(() {});
               },
             ),
           ),

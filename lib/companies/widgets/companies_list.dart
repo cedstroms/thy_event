@@ -39,10 +39,7 @@ class _CompaniesListState extends State<CompaniesList> {
     }
 
     return Consumer<CompaniesProvider>(
-        builder: (
-            context,
-            companiesData,
-            child) {
+        builder: (context, companiesData, child) {
       return !companiesData.getFavouriteState()
           ? GridView.builder(
               itemCount: favouritesList.length,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/common/widgets/theme.dart';
+import 'package:thyevent/common/theme.dart';
 
 class ThemeChanger with ChangeNotifier {
   ThemeData _themeData;

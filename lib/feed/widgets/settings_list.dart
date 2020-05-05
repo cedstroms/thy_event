@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/common/widgets/settings_item.dart';
-import 'package:thyevent/common/widgets/settings_card.dart';
+import 'package:thyevent/feed/widgets/settings_item.dart';
+import 'package:thyevent/feed/widgets/settings_card.dart';
 
 class SettingsList extends StatefulWidget {
   @override
