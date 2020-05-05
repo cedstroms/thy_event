@@ -81,7 +81,6 @@ class LocationCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 32),
 //TODO ta bort om vi bangar koordinater
 //            RaisedButton(
 //              onPressed: () => MapsLauncher.launchCoordinates(
