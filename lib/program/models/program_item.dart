@@ -22,11 +22,11 @@ class ProgramItem {
 
 class ProgramProvider extends ChangeNotifier {
   static bool favourite = false;
-  void updateFavourite(ProgramItem program, List insideList) {
-    if (!insideList.contains(program.title)) {
-      programAdder(program, insideList);
+  void updateFavourite(ProgramItem program, List insideListPrograms) {
+    if (!insideListPrograms.contains(program.title)) {
+      programAdder(program, insideListPrograms);
     } else {
-      programRemover(program, insideList);
+      programRemover(program, insideListPrograms);
     }
     notifyListeners();
   }

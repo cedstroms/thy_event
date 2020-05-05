@@ -34,9 +34,9 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
             ),
             centerTitle: true,
             leading: IconButton(
-              icon: CompaniesProvider().getFavouriteState()
-                  ? Icon(Icons.star_border)
-                  : Icon(Icons.star, color: Colors.yellow),
+              icon: !CompaniesProvider().getFavouriteState()
+                  ? Icon(Icons.star, color: Colors.yellow)
+                  : Icon(Icons.star_border),
               onPressed: () async {
                 //En async låg här??
                 // TODO filter the companies to your favourites
