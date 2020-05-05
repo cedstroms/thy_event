@@ -12,6 +12,7 @@ class CompaniesList extends StatefulWidget {
 
 class _CompaniesListState extends State<CompaniesList> {
   List<String> outsideList;
+
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getCompanyNames();
     outsideList = tempList;
@@ -27,7 +28,7 @@ class _CompaniesListState extends State<CompaniesList> {
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
 
     // Set the list parameter to the SharedPref-list
-    for (var company in companies){
+    for (var company in companies) {
       company.listOfFavourites = insideList;
     }
     //Create a list of CompaniesItem that are marked favourites
@@ -47,7 +48,7 @@ class _CompaniesListState extends State<CompaniesList> {
               itemBuilder: (context, index) {
                 return CompaniesCard(
                     company: favouritesList[index],
-//InsideList below is the updated list of chosen favourites
+                    //InsideList below is the updated list of chosen favourites
                     favouriteList: insideList, //insideList,
                     favourite: () async {
                       getStringList();
@@ -63,7 +64,7 @@ class _CompaniesListState extends State<CompaniesList> {
               itemBuilder: (context, index) {
                 return CompaniesCard(
                     company: companies[index],
-//InsideList below is the updated list of chosen favourites
+                    //InsideList below is the updated list of chosen favourites
                     favouriteList: insideList, //insideList,
                     favourite: () async {
                       getStringList();

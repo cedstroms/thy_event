@@ -29,13 +29,15 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
-            logo: doc.data['logo'] ?? '',
-            name: doc.data['name'] ?? '',
-            content: doc.data['desc'] ?? '',
-            links: doc.data['links'] ?? {},
-            tags: doc.data['tags'] ?? [],
-            companyId: doc.data['id'] ?? 0,
-            contactInfo: doc.data['contact_info'] ?? '');
+          logo: doc.data['logo'] ?? '',
+          name: doc.data['name'] ?? '',
+          content: doc.data['desc'] ?? '',
+          links: doc.data['links'] ?? {},
+          tags: doc.data['tags'] ?? [],
+          companyId: doc.data['id'] ?? 0,
+          contactInfo: doc.data['contact_info'] ?? '',
+          isHidden: doc.data['hidden'] ?? true,
+        );
       },
     ).toList();
   }
