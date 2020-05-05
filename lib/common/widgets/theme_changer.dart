@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/common/theme.dart';
+import 'package:thyevent/common/widgets/theme.dart';
 
 class ThemeChanger with ChangeNotifier {
   ThemeData _themeData;
@@ -9,13 +9,12 @@ class ThemeChanger with ChangeNotifier {
   getTheme() => _themeData;
 
   setTheme(bool themeValue) {
-    if (!themeValue) {
+    if (themeValue) {
       _themeData = ThemeSettings().getDarkTheme();
     }
-    if (themeValue) {
+    if (!themeValue) {
       _themeData = ThemeSettings().getLightTheme();
     }
     notifyListeners();
   }
 }
-

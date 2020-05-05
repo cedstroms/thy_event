@@ -5,16 +5,16 @@ import 'package:thyevent/companies/widgets/companies_list.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/services/shared_preferences.dart';
+import 'package:thyevent/common/settings_screen.dart';
 
 class CompaniesScreen extends StatelessWidget {
   static const String id = 'companies_screen';
 
   @override
   Widget build(BuildContext context) {
+    //TODO används denna
     var filterShowFavorites = Provider.of<FavouriteProvider>(context);
 
-    // TODO: build companies screen
     return StreamProvider<List<FeedItem>>.value(
       value: DatabaseService().feed,
       child: StreamProvider<List<CompaniesItem>>.value(
@@ -27,15 +27,22 @@ class CompaniesScreen extends StatelessWidget {
             centerTitle: true,
             leading: IconButton(
               icon: Icon(Icons.star_border),
-              onPressed: () async {
+              onPressed: () {
                 // TODO filter the companies to your favourites¨
-//                FavouriteProvider().toggleShowFavouriteFilter();
-                //print(FavouriteProvider().showFavourite);
-                //   print(filterShowFavorites.showFavourites);
-//                filterShowFavorites.showFavourites = !filterShowFavorites.showFavourites;
                 FavouriteProvider().toggleShowFavouriteFilter();
               },
             ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(builder: (context) => SettingsScreen()),
+                  );
+                },
+              ),
+            ],
           ),
           body: Container(
             margin: EdgeInsets.all(12),
@@ -48,11 +55,16 @@ class CompaniesScreen extends StatelessWidget {
 }
 
 class FavouriteProvider with ChangeNotifier {
-//  bool showFavourites = false;
+  static bool showFavourites = true;
   void toggleShowFavouriteFilter() {
-    //print('inside toggleShowFavouriteFilter');
-//    print(showFavourites);
+    showFavourites = !showFavourites;
+    print(showFavourites);
 
+    print('FavoriteProvider i com_screen $showFavourites');
     notifyListeners();
+  }
+
+  bool returnShowFavouriteFilter() {
+    return showFavourites;
   }
 }

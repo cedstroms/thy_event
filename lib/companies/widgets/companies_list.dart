@@ -23,8 +23,6 @@ class _CompaniesListState extends State<CompaniesList> {
 
   @override
   Widget build(BuildContext context) {
-    var filterShowFavorites = Provider.of<FavouriteProvider>(context);
-
     getStringList();
     List<CompaniesItem> favouritesList = [];
     List<String> insideList = outsideList;
@@ -37,8 +35,17 @@ class _CompaniesListState extends State<CompaniesList> {
         favouritesList.add(companies[i]);
       }
     }
+    // TODO Här ska en boolean in och bestämma vilken consumer som ska visa
+    //Försök med consumer
+//    return Consumer<FavouriteProvider>(
+//        builder: (context, favoFilterBool, child) {
+//      //Variabeln nås vid hot reload men påverkas inte cid enbart klick
+//      print(
+//          'Consumer i com_list+ ${favoFilterBool.returnShowFavouriteFilter()}');
 
-    return !true
+    //som ses funkar provider.of lika dåligt
+
+    return Provider.of<FavouriteProvider>(context).returnShowFavouriteFilter()
         ? Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
             return GridView.builder(
               itemCount: favouritesList.length,
@@ -75,5 +82,6 @@ class _CompaniesListState extends State<CompaniesList> {
               },
             );
           });
+    //});
   }
 }
