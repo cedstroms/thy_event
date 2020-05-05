@@ -8,6 +8,7 @@ class CompaniesItem {
   final Map links;
   final List tags;
   final int companyId;
+  bool isHidden;
   bool isFavourite;
   final String contactInfo;
   List<String> listOfFavourites; //TODO ta bort detta städa yada
@@ -19,6 +20,7 @@ class CompaniesItem {
       this.links,
       this.tags,
       this.companyId,
+        this.isHidden,
       this.isFavourite,
       this.contactInfo,
       this.listOfFavourites});

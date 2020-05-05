@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/widgets/setting_general/information_general_screen.dart';
+import 'package:thyevent/feed/widgets/setting_general/location_general_screen.dart';
 import 'settings_switch.dart';
 import 'theme_switch.dart';
 
@@ -65,14 +66,24 @@ class SettingsCardCompact extends StatelessWidget {
         enabled: true,
         dense: true,
         onTap: () {
-          for (int i = 0; i < companies.length; i++) {
-            if (companies[i].companyId == 0) {
-              Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                      builder: (context) =>
-                          InformationGeneralScreen(companies[i])));
+          print(cardTitle);
+          //TODO Vet att detta är en ful lösning men det får fixas sedan isåfall
+          if (cardTitle == 'About Us') {
+            for (int i = 0; i < companies.length; i++) {
+              if (companies[i].companyId == 0) {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) =>
+                            InformationGeneralScreen(companies[i])));
+              }
             }
+          }
+          if (cardTitle == 'Location Information') {
+            Navigator.push(
+                context,
+                CupertinoPageRoute(
+                    builder: (context) => LocationGeneralScreen()));
           }
         },
         title: Text(
@@ -84,22 +95,7 @@ class SettingsCardCompact extends StatelessWidget {
         ),
         trailing: hasSwitch
             ? ThemeSwitch()
-            : IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                iconSize: 16,
-                color: Colors.grey,
-                onPressed: () {
-                  for (int i = 0; i < companies.length; i++) {
-                    if (companies[i].companyId == 0) {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (context) =>
-                                  InformationGeneralScreen(companies[i])));
-                    }
-                  }
-                },
-              ),
+            : Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
       ),
     );
   }

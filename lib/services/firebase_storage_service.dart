@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
-import 'package:thyevent/feed/widgets/setting_general/general_item.dart';
+import 'package:thyevent/feed/widgets/setting_general/location_item.dart';
 import 'package:thyevent/program/models/program_item.dart';
 import 'package:intl/intl.dart';
 
@@ -21,21 +21,23 @@ class DatabaseService {
       Firestore.instance.collection('program').orderBy('start_time');
 
   // Setting collection reference
-  final CollectionReference settingCollection =
-      Firestore.instance.collection('setting');
+  final CollectionReference locationCollection =
+      Firestore.instance.collection('location');
 
   // companies list from snapshot
   List<CompaniesItem> _companiesListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
-            logo: doc.data['logo'] ?? '',
-            name: doc.data['name'] ?? '',
-            content: doc.data['desc'] ?? '',
-            links: doc.data['links'] ?? {},
-            tags: doc.data['tags'] ?? [],
-            companyId: doc.data['id'] ?? 0,
-            contactInfo: doc.data['contact_info'] ?? '');
+          logo: doc.data['logo'] ?? '',
+          name: doc.data['name'] ?? '',
+          content: doc.data['desc'] ?? '',
+          links: doc.data['links'] ?? {},
+          tags: doc.data['tags'] ?? [],
+          companyId: doc.data['id'] ?? 0,
+          contactInfo: doc.data['contact_info'] ?? '',
+          isHidden: doc.data['hidden'] ?? true,
+        );
       },
     ).toList();
   }
@@ -76,13 +78,13 @@ class DatabaseService {
   }
 
   // Setting list from snapshot
-  List<SettingsDatabaseItem> _settingListFromSnapshot(QuerySnapshot snapshot) {
+  List<LocationItem> _locationListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
       (doc) {
         // returns the data that is in the collection.
-        return SettingsDatabaseItem(
-          title: doc.data['title'] ?? '',
-          information: doc.data['information'] ?? '',
+        return LocationItem(
+          adress: doc.data['adress'] ?? '',
+          information: doc.data['desc'] ?? '',
         );
       },
     ).toList();
@@ -104,7 +106,7 @@ class DatabaseService {
   }
 
   // get setting stream
-  Stream<List<SettingsDatabaseItem>> get setting {
-    return settingCollection.snapshots().map(_settingListFromSnapshot);
+  Stream<List<LocationItem>> get location {
+    return locationCollection.snapshots().map(_locationListFromSnapshot);
   }
 }

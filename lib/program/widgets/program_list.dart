@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/program/screens/programs_screen.dart';
 import 'package:thyevent/program/widgets/program_card.dart';
 import 'package:thyevent/program/models/program_item.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 import 'package:provider/provider.dart';
-
-import '../models/program_item.dart';
-import '../models/program_item.dart';
-import '../models/program_item.dart';
-import '../models/program_item.dart';
-import '../models/program_item.dart';
 
 class ProgramList extends StatefulWidget {
   final List<ProgramItem> program;

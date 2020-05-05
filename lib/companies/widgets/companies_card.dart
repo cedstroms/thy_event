@@ -4,14 +4,10 @@ import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
-import '../models/companies_item.dart';
-import '../models/companies_item.dart';
-
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
   final Function favourite;
   final List<String> favouriteList;
-//  final bool showFavourite;
 
   CompaniesCard({this.company, this.favourite, this.favouriteList});
   void setFavourite(CompaniesItem company){
@@ -23,7 +19,6 @@ class CompaniesCard extends StatelessWidget {
     }
     company.listOfFavourites = favouriteList;
   }
-
 
   @override
   Widget build(BuildContext context){
@@ -78,7 +73,7 @@ class CompaniesCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 6),
+          SizedBox(height: 4),
           Text(
             company.name,
             style: TextStyle(fontWeight: FontWeight.w500),
