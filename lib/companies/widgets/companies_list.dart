@@ -28,9 +28,14 @@ class _CompaniesListState extends State<CompaniesList> {
     getStringList();
     List<CompaniesItem> favouritesList = [];
     List<String> insideList = outsideList;
+
     //List of companies provided by the database
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
 
+    // Set the list parameter to the SharedPref-list
+    for (var company in companies){
+      company.listOfFavourites = insideList;
+    }
     //Create a list of CompaniesItem that are marked favourites
     for (var i = 0; i < companies.length; i++) {
       if (insideList.contains(companies[i].name)) {
