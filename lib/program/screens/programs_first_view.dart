@@ -5,6 +5,10 @@ import 'package:thyevent/program/models/program_item.dart';
 import 'package:thyevent/program/widgets/program_list.dart';
 
 class FirstView extends StatelessWidget {
+  final List<String> favouriteList;
+
+  FirstView({this.favouriteList});
+
   @override
   Widget build(BuildContext context) {
     final program = Provider.of<List<ProgramItem>>(context) ?? [];
@@ -14,6 +18,9 @@ class FirstView extends StatelessWidget {
         programList.add(program[i]);
       }
     }
-    return ProgramList(programList);
+    return ProgramList(
+      program: programList,
+      favouriteList: favouriteList,
+    );
   }
 }

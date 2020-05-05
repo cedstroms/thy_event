@@ -7,14 +7,23 @@ import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/common/settings_screen.dart';
 
-class CompaniesScreen extends StatelessWidget {
+import '../models/companies_item.dart';
+import '../models/companies_item.dart';
+
+class CompaniesScreen extends StatefulWidget {
   static const String id = 'companies_screen';
 
   @override
-  Widget build(BuildContext context) {
-    //TODO används denna
-    var filterShowFavorites = Provider.of<FavouriteProvider>(context);
+  _CompaniesScreenState createState() => _CompaniesScreenState();
+}
 
+class _CompaniesScreenState extends State<CompaniesScreen> {
+  bool showFavourites = false;
+
+  @override
+  Widget build(BuildContext context) {
+
+    // TODO: build companies screen
     return StreamProvider<List<FeedItem>>.value(
       value: DatabaseService().feed,
       child: StreamProvider<List<CompaniesItem>>.value(
@@ -26,23 +35,17 @@ class CompaniesScreen extends StatelessWidget {
             ),
             centerTitle: true,
             leading: IconButton(
-              icon: Icon(Icons.star_border),
-              onPressed: () {
-                // TODO filter the companies to your favourites¨
-                FavouriteProvider().toggleShowFavouriteFilter();
+              icon: CompaniesProvider().getFavouriteState()
+                  ? Icon(Icons.star_border)
+                  : Icon(Icons.star, color: Colors.yellow),
+              onPressed: () async{ //En async låg här??
+                // TODO filter the companies to your favourites
+                CompaniesProvider().toggleShowFavouriteFilter();
+                setState(() {
+
+                });
               },
             ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.settings),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    CupertinoPageRoute(builder: (context) => SettingsScreen()),
-                  );
-                },
-              ),
-            ],
           ),
           body: Container(
             margin: EdgeInsets.all(12),
@@ -51,20 +54,5 @@ class CompaniesScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class FavouriteProvider with ChangeNotifier {
-  static bool showFavourites = true;
-  void toggleShowFavouriteFilter() {
-    showFavourites = !showFavourites;
-    print(showFavourites);
-
-    print('FavoriteProvider i com_screen $showFavourites');
-    notifyListeners();
-  }
-
-  bool returnShowFavouriteFilter() {
-    return showFavourites;
   }
 }
