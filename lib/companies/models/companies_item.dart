@@ -9,6 +9,7 @@ class CompaniesItem {
   final List tags;
   final int companyId;
   bool isFavourite;
+  final String contactInfo;
 
   CompaniesItem(
       {this.logo,
@@ -17,7 +18,8 @@ class CompaniesItem {
       this.links,
       this.tags,
       this.companyId,
-      this.isFavourite});
+      this.isFavourite,
+      this.contactInfo});
 }
 
 class CompaniesProvider extends ChangeNotifier {

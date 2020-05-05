@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
+import 'package:thyevent/feed/widgets/setting_general/general_item.dart';
 import 'package:thyevent/program/models/program_item.dart';
 import 'package:intl/intl.dart';
 
@@ -19,18 +20,22 @@ class DatabaseService {
   final Query programCollection =
       Firestore.instance.collection('program').orderBy('start_time');
 
+  // Setting collection reference
+  final CollectionReference settingCollection =
+      Firestore.instance.collection('setting');
+
   // companies list from snapshot
   List<CompaniesItem> _companiesListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map(
       (doc) {
         return CompaniesItem(
-          logo: doc.data['logo'] ?? '',
-          name: doc.data['name'] ?? '',
-          content: doc.data['desc'] ?? '',
-          links: doc.data['links'] ?? {},
-          tags: doc.data['tags'] ?? [],
-          companyId: doc.data['id'] ?? 0,
-        );
+            logo: doc.data['logo'] ?? '',
+            name: doc.data['name'] ?? '',
+            content: doc.data['desc'] ?? '',
+            links: doc.data['links'] ?? {},
+            tags: doc.data['tags'] ?? [],
+            companyId: doc.data['id'] ?? 0,
+            contactInfo: doc.data['contact_info'] ?? '');
       },
     ).toList();
   }
@@ -70,6 +75,19 @@ class DatabaseService {
     ).toList();
   }
 
+  // Setting list from snapshot
+  List<SettingsDatabaseItem> _settingListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map(
+      (doc) {
+        // returns the data that is in the collection.
+        return SettingsDatabaseItem(
+          title: doc.data['title'] ?? '',
+          information: doc.data['information'] ?? '',
+        );
+      },
+    ).toList();
+  }
+
   // get companies stream
   Stream<List<CompaniesItem>> get companies {
     return companiesCollection.snapshots().map(_companiesListFromSnapshot);
@@ -83,5 +101,10 @@ class DatabaseService {
   // get program stream
   Stream<List<ProgramItem>> get program {
     return programCollection.snapshots().map(_programListFromSnapshot);
+  }
+
+  // get setting stream
+  Stream<List<SettingsDatabaseItem>> get setting {
+    return settingCollection.snapshots().map(_settingListFromSnapshot);
   }
 }

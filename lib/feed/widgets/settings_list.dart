@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed/models/settings_item.dart';
+import 'package:provider/provider.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:thyevent/feed/widgets/settings_item.dart';
 import 'package:thyevent/feed/widgets/settings_card.dart';
 
 class SettingsList extends StatefulWidget {
@@ -9,6 +11,20 @@ class SettingsList extends StatefulWidget {
 }
 
 class _SettingsListState extends State<SettingsList> {
+  List<SettingsItemCompact> settingsCompactGeneral = [
+    SettingsItemCompact(
+      title: 'About Us',
+      hasSwitch: false,
+    ),
+//    SettingsItemCompact(
+//      title: 'Contact Information',
+//      hasSwitch: false,
+//    ),
+    SettingsItemCompact(
+      title: 'Location Information',
+      hasSwitch: false,
+    ),
+  ];
   List<SettingsItem> filters = [
     SettingsItem(
       logo: Icon(Icons.notification_important, size: 40, color: Colors.red),
@@ -21,43 +37,23 @@ class _SettingsListState extends State<SettingsList> {
       subtitle: 'Enable Location Service',
     ),
   ];
-
-  List<SettingsItemCompact> settingsCompactGeneral = [
-    SettingsItemCompact(
-      title: 'About Us',
-      hasSwitch: false,
-    ),
-    SettingsItemCompact(
-      title: 'Enviromental Policies',
-      hasSwitch: false,
-    ),
-    SettingsItemCompact(
-      title: 'Contact Information',
-      hasSwitch: false,
-    ),
-    SettingsItemCompact(
-      title: 'Location Information',
-      hasSwitch: false,
-    ),
-  ];
   List<SettingsItemCompact> settingsCompactApplication = [
     SettingsItemCompact(
       title: 'Language',
       hasSwitch: false,
     ),
     SettingsItemCompact(
-      title: 'Light/Dark Theme',
+      title: 'Dark Theme',
       hasSwitch: true,
-
     ),
     SettingsItemCompact(
       title: 'Surveys',
       hasSwitch: false,
     ),
   ];
-
   @override
   Widget build(BuildContext context) {
+    final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
     return ListView(
       children: <Widget>[
         Column(
@@ -85,6 +81,7 @@ class _SettingsListState extends State<SettingsList> {
                 return SettingsCardCompact(
                   cardTitle: settingsCompactGeneral[index].title,
                   hasSwitch: settingsCompactGeneral[index].hasSwitch,
+                  companies: companies,
                 );
               },
             ),

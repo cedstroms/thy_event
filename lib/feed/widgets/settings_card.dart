@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:thyevent/feed/widgets/setting_general/information_general_screen.dart';
 import 'settings_switch.dart';
 import 'theme_switch.dart';
 
@@ -46,8 +48,10 @@ class SettingsCardCompact extends StatelessWidget {
   final String cardTitle;
   final String cardSubtitle;
   final bool hasSwitch;
+  final List<CompaniesItem> companies;
 
-  SettingsCardCompact({this.cardTitle, this.cardSubtitle, this.hasSwitch});
+  SettingsCardCompact(
+      {this.cardTitle, this.cardSubtitle, this.hasSwitch, this.companies});
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +64,17 @@ class SettingsCardCompact extends StatelessWidget {
       child: ListTile(
         enabled: true,
         dense: true,
+        onTap: () {
+          for (int i = 0; i < companies.length; i++) {
+            if (companies[i].companyId == 0) {
+              Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                      builder: (context) =>
+                          InformationGeneralScreen(companies[i])));
+            }
+          }
+        },
         title: Text(
           cardTitle,
           style: TextStyle(
@@ -74,7 +89,15 @@ class SettingsCardCompact extends StatelessWidget {
                 iconSize: 16,
                 color: Colors.grey,
                 onPressed: () {
-                  Navigator.pop(context);
+                  for (int i = 0; i < companies.length; i++) {
+                    if (companies[i].companyId == 0) {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) =>
+                                  InformationGeneralScreen(companies[i])));
+                    }
+                  }
                 },
               ),
       ),
@@ -97,7 +120,7 @@ class SettingsCardCompactSwitch extends StatelessWidget {
             Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: ListTile(
-        enabled: true,
+        enabled: false,
         dense: true,
         title: Text(
           cardTitle,
