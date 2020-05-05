@@ -8,8 +8,6 @@ import 'package:thyevent/program/screens/programs_second_view.dart';
 import 'package:thyevent/program/screens/programs_third_view.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
-import '../models/program_item.dart';
-import '../models/program_item.dart';
 
 class ProgramScreen extends StatefulWidget {
   @override

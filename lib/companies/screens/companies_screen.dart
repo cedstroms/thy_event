@@ -5,10 +5,6 @@ import 'package:thyevent/companies/widgets/companies_list.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
-import 'package:thyevent/feed/screens/settings_screen.dart';
-
-import '../models/companies_item.dart';
-import '../models/companies_item.dart';
 
 class CompaniesScreen extends StatefulWidget {
   static const String id = 'companies_screen';

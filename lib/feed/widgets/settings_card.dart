@@ -5,7 +5,6 @@ import 'package:thyevent/feed/widgets/setting_general/information_general_screen
 import 'package:thyevent/feed/widgets/setting_general/location_general_screen.dart';
 import 'settings_switch.dart';
 import 'theme_switch.dart';
-import 'package:maps_launcher/maps_launcher.dart';
 
 class SettingsCardSwitch extends StatelessWidget {
   final Icon cardLogo;
