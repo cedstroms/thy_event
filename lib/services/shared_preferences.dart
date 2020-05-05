@@ -9,7 +9,6 @@ class SharedPreferencesHelper {
 
   static Future<List<String>> getCompanyNames() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-
     return prefs.getStringList(_companyNames) ?? [];
   }
 

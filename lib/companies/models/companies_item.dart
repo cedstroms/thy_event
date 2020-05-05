@@ -10,6 +10,7 @@ class CompaniesItem {
   final int companyId;
   bool isFavourite;
   final String contactInfo;
+  List<String> listOfFavourites;
 
   CompaniesItem(
       {this.logo,
@@ -19,18 +20,22 @@ class CompaniesItem {
       this.tags,
       this.companyId,
       this.isFavourite,
-      this.contactInfo});
+      this.contactInfo,
+      this.listOfFavourites});
 }
 
 class CompaniesProvider extends ChangeNotifier {
   static bool favourite = false;
 
   void updateFavourite(CompaniesItem company, List insideList) {
+    //company.listOfFavourites.remove('Operning ceremony');
+
     if (!insideList.contains(company.name)) {
       companyAdder(company, insideList);
     } else {
       companyRemover(company, insideList);
     }
+    print(company.listOfFavourites);
     notifyListeners();
   }
 
@@ -49,7 +54,7 @@ class CompaniesProvider extends ChangeNotifier {
   }
 
   bool getFavouriteState() {
-    return favourite;
+    return !favourite;
   }
 
   void toggleShowFavouriteFilter() {

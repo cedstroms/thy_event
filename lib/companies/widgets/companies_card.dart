@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
 import '../models/companies_item.dart';
+import '../models/companies_item.dart';
 
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
@@ -22,6 +23,7 @@ class CompaniesCard extends StatelessWidget {
       company.isFavourite = false;
     }
   }
+
 
   @override
   Widget build(BuildContext context){
