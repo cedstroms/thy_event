@@ -50,7 +50,6 @@ class ProgramProvider extends ChangeNotifier {
 
   void toggleShowFavouriteFilter() {
     favourite = !favourite;
-    print(favourite);
     notifyListeners();
   }
 }

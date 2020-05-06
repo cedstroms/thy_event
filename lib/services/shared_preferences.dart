@@ -78,5 +78,4 @@ class SharedPreferencesHelper {
     newList.remove(value[0]);
     return prefs.setStringList("programNames", newList);
   }
-
 }

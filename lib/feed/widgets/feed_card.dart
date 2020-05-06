@@ -21,7 +21,6 @@ class FeedCard extends StatelessWidget {
 
     return Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
       companiesData.getStringList();
-      print(companiesData.listOfFavourites);
       return Container(
         margin: EdgeInsets.only(bottom: 16.0),
         color: Theme
@@ -49,7 +48,6 @@ class FeedCard extends StatelessWidget {
                 ),
                 subtitle: Text(feed.date),
                 onTap: () {
-                  print(companiesData.listOfFavourites);
                   //TODO: implementera vidarebefordring till company view
                   for (int i = 0; i < companies.length; i++) {
                     if (feed.authorID == companies[i].companyId) {

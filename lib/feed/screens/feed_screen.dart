@@ -8,8 +8,13 @@ import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
+import '../../common/navigation_bar_bottom.dart';
+
 class FeedScreen extends StatelessWidget {
   static String id = 'feed_screen';
+
+  int filterID;
+  FeedScreen(this.filterID);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +49,7 @@ class FeedScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: FeedList(),
+          body: FeedList(filterID),
         ),
       ),
     );

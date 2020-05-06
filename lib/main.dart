@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (BuildContext context) => ShowLessShowMore()),
+            create: (BuildContext context) => FeedProperties()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<CompaniesProvider>(
@@ -55,7 +55,7 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   var currentBottomTab = [
-    FeedScreen(),
+    FeedScreen(0),
     CompaniesScreen(),
     ProgramScreen(),
     MapScreen(),

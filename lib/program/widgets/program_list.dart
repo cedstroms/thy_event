@@ -60,7 +60,6 @@ class _ProgramListState extends State<ProgramList> {
                 return ProgramCard(
                   program: widget.program[index],
                   favourite: () async {
-                    print(insideListPrograms);
                     getStringListPrograms();
                     List<String> tempList =
                         await SharedPreferencesHelper.getProgramNames();

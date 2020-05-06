@@ -21,7 +21,6 @@ class _ProgramScreenState extends State<ProgramScreen> {
   List<String> outsideList = [];
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getProgramNames();
-    print(tempList);
     outsideList = tempList;
   }
 

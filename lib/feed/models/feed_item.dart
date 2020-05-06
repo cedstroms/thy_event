@@ -21,9 +21,12 @@ class FeedItem {
   }
 }
 
-class ShowLessShowMore with ChangeNotifier {
+class FeedProperties with ChangeNotifier {
+  static int filterID = 0;
+
   void changerLessMore(FeedItem feedItem) {
     feedItem.toggleLessMore();
     notifyListeners();
   }
+
 }
