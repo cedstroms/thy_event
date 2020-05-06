@@ -17,10 +17,12 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
         value: value,
         activeColor: Colors.lightBlueAccent,
         onChanged: (changeValue) {
-          setState(() {
-            value = changeValue;
-            _themeChanger.setTheme(value);
-          });
+          Provider.of<ThemeChanger>(context, listen: false).switchTheme(
+              context);
+//          setState(() {
+//            value = changeValue;
+//            _themeChanger.setTheme(value);
+//          });
         });
   }
 }

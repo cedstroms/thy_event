@@ -13,7 +13,7 @@ class LocationGeneralScreen extends StatelessWidget {
         value: DatabaseService().location,
         child: Scaffold(
             appBar: AppBar(
-              title: Text('Event Location'),
+              title: Text('Location'),
               centerTitle: true,
             ),
             body: LocationCard()));

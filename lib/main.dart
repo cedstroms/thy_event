@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => CompaniesProvider()),
         ChangeNotifierProvider<ThemeChanger>(
           create: (BuildContext context) =>
-              ThemeChanger(ThemeSettings().getLightTheme()),
+              ThemeChanger(),
         ),
         ChangeNotifierProvider<ProgramProvider>(
             create: (BuildContext context) => ProgramProvider()),
@@ -40,9 +40,11 @@ class MyApp extends StatelessWidget {
 class MaterialAppWithTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Provider.of<ThemeChanger>(context);
+    Provider.of<ThemeChanger>(context).loadActiveThemeData(context);
     return MaterialApp(
-      theme: theme.getTheme(),
+      theme: Provider
+          .of<ThemeChanger>(context)
+          .currentThemeData,
       home: NavigationBar(),
     );
   }
