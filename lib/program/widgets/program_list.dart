@@ -11,7 +11,6 @@ class ProgramList extends StatefulWidget {
 
 class _ProgramListState extends State<ProgramList> {
   List<String> outsideListPrograms = [];
-
   void getStringListPrograms() async {
     var tempList = await SharedPreferencesHelper.getProgramNames();
     outsideListPrograms = tempList;

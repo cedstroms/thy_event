@@ -6,6 +6,7 @@ import 'package:thyevent/services/shared_preferences.dart';
 
 import '../models/program_item.dart';
 import '../widgets/program_list.dart';
+import 'package:thyevent/program/widgets/program_list.dart';
 
 class ProgramScreen extends StatefulWidget {
   @override
@@ -19,6 +20,8 @@ class _ProgramScreenState extends State<ProgramScreen> {
     // print('$tempList in getStrinList ProgramScreen');
     outsideList = tempList;
   }
+
+  bool showFavourites = false;
 
   @override
   Widget build(BuildContext context) {

@@ -58,26 +58,26 @@ class _CompaniesListState extends State<CompaniesList> {
                     company: favouritesList[index],
                     //InsideList below is the updated list of chosen favourites
                     favouriteList: insideList, //insideList,
-                    favourite: () async {
-                      getStringList();
-                      companiesData.updateFavourite(
-                          favouritesList[index], insideList);
+                    favourite: () {
+                      print('companies list');
+                      //getStringList();
+                      companiesData.updateFavourite(favouritesList[index]);
                     });
               },
             )
           : GridView.builder(
-        itemCount: companiesList.length,
+              itemCount: companiesList.length,
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
               itemBuilder: (context, index) {
                 return CompaniesCard(
                     company: companiesList[index],
                     //InsideList below is the updated list of chosen favourites
-                    favouriteList: insideList, //insideList,
-                    favourite: () async {
-                      getStringList();
-                      companiesData.updateFavourite(
-                          companiesList[index], insideList);
+                    favouriteList: companiesData.listOfFavourites, //insideList,
+                    favourite: () {
+                      print('companies list');
+                      //getStringList();
+                      companiesData.updateFavourite(companiesList[index]);
                     });
               },
             );

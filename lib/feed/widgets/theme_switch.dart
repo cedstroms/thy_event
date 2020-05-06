@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed/widgets/theme_changer.dart';
+import 'package:thyevent/common/theme_changer.dart';
 import 'package:provider/provider.dart';
 
 class ThemeSwitch extends StatefulWidget {
@@ -17,10 +17,12 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
         value: value,
         activeColor: Colors.lightBlueAccent,
         onChanged: (changeValue) {
-          setState(() {
-            value = changeValue;
-            _themeChanger.setTheme(value);
-          });
+          Provider.of<ThemeChanger>(context, listen: false).switchTheme(
+              context);
+//          setState(() {
+//            value = changeValue;
+//            _themeChanger.setTheme(value);
+//          });
         });
   }
 }

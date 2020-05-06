@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:thyevent/common/theme_changer.dart';
+
+import '../models/companies_item.dart';
 
 class CompaniesCard extends StatelessWidget {
   final CompaniesItem company;
@@ -17,12 +21,14 @@ class CompaniesCard extends StatelessWidget {
     else {
       company.isFavourite = false;
     }
-    company.listOfFavourites = favouriteList;
+    //company.listOfFavourites = favouriteList;
   }
 
   @override
   Widget build(BuildContext context){
     //company.listOfFavourites = favouriteList;
+    return Consumer<CompaniesProvider>(
+        builder: (context, companiesData, child){
     return Padding(
       padding: EdgeInsets.all(12),
       child: Column(
@@ -53,10 +59,8 @@ class CompaniesCard extends StatelessWidget {
                   width: 25.0,
                   child: FloatingActionButton (
                     heroTag: null,
-                    backgroundColor: Theme
-                        .of(context)
-                        .cardColor,
-                    child: favouriteList.contains(company.name)
+                    backgroundColor: Colors.white,
+                    child: companiesData.listOfFavourites.contains(company.name)
                         ? Icon(
                       Icons.star,
                       size: 20.0,
@@ -81,5 +85,6 @@ class CompaniesCard extends StatelessWidget {
         ],
       ),
     );
+        });
   }
 }

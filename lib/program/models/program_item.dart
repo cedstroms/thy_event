@@ -45,14 +45,12 @@ class ProgramProvider extends ChangeNotifier {
     program.isFavourite = false;
     notifyListeners();
   }
-
   bool getFavouriteState() {
     return favourite;
   }
 
   void toggleShowFavouriteFilter() {
     favourite = !favourite;
-    print('$favourite in program_item togglrShowFavoriteFilter');
     notifyListeners();
   }
 }

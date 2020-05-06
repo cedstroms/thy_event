@@ -11,7 +11,7 @@ class LocationCard extends StatelessWidget {
     final location = locationList[0];
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
@@ -22,11 +22,11 @@ class LocationCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Location Description',
+                  'DESCRIPTION',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(
@@ -35,7 +35,7 @@ class LocationCard extends StatelessWidget {
                 ),
                 Text(
                   '${location.information}',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 14),
                 ),
               ],
             ),
@@ -48,11 +48,11 @@ class LocationCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Adress',
+                  'ADDRESS',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(
@@ -61,32 +61,27 @@ class LocationCard extends StatelessWidget {
                 ),
                 Text(
                   '${location.adress}',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 14),
                 ),
               ],
             ),
           ),
-          RaisedButton(
+          FlatButton(
             onPressed: () => MapsLauncher.launchQuery('${location.adress}'),
             child: Column(
               children: <Widget>[
                 FaIcon(
-                  FontAwesomeIcons.map,
+                  FontAwesomeIcons.mapMarkerAlt,
                   size: 30,
                 ),
+                SizedBox(height: 4),
                 Text(
-                  'Get Here',
-                  style: TextStyle(fontSize: 16),
+                  'GET HERE',
+                  style: TextStyle(fontSize: 14),
                 )
               ],
             ),
           ),
-//TODO ta bort om vi bangar koordinater
-//            RaisedButton(
-//              onPressed: () => MapsLauncher.launchCoordinates(
-//                  59.840748, 17.650387, 'Place of the event '),
-//              child: Text('LAUNCH COORDINATES'),
-//            ),
         ],
       ),
     );

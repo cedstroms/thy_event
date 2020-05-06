@@ -7,6 +7,7 @@ import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 
 import '../../companies/models/companies_item.dart';
+import 'package:thyevent/feed/widgets/setting_general/information_general_screen.dart';
 
 class FeedCard extends StatelessWidget {
   final FeedItem feed;
@@ -49,8 +50,10 @@ class FeedCard extends StatelessWidget {
                 ),
                 subtitle: Text(feed.date),
                 onTap: () {
+                  //TODO: implementera vidarebefordring till company view
                   for (int i = 0; i < companies.length; i++) {
-                    if (feed.authorID == companies[i].companyId) {
+                    if (feed.authorID == companies[i].companyId &&
+                        feed.authorID != 0) {
                       Navigator.push(
                           context,
                           CupertinoPageRoute(

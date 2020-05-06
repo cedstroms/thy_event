@@ -29,36 +29,40 @@ class CompaniesItem {
 class CompaniesProvider extends ChangeNotifier {
   static bool favourite = false;
   List<String> listOfFavourites;
+  List<CompaniesItem> listOfFavouriteCompanies;
 
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getCompanyNames();
     listOfFavourites = tempList;
   }
 
-  void updateFavourite(CompaniesItem company, List insideList) {
+  void updateFavourite(CompaniesItem company) {
     getStringList();
-    print('$listOfFavourites ListOfFavorites from provider in companies_item');
-    if (!insideList.contains(company.name)) {
-      companyAdder(company, insideList);
-      //companyAdder(company, company.listOfFavourites);
+    if (!listOfFavourites.contains(company.name)) {
+      companyAdder(company, listOfFavourites);
     } else {
-      companyRemover(company, insideList);
-      //companyRemover(company, company.listOfFavourites);
+      companyRemover(company, listOfFavourites);
     }
-    notifyListeners();
   }
 
-  void companyAdder(CompaniesItem company, List insideList) {
+  void companyAdder(CompaniesItem company, List list) {
+//    getStringList();
     SharedPreferencesHelper.addCompanyNames([company.name]);
-    insideList.add(company.name);
     company.isFavourite = true;
+//    listOfFavourites.add(company.name);
+    print('${company.name} added - in companiesItem');
+    print('$listOfFavourites');
+//    getStringList();
     notifyListeners();
   }
 
-  void companyRemover(CompaniesItem company, List insideList) {
+  void companyRemover(CompaniesItem company, List list) {
+//    getStringList();
     SharedPreferencesHelper.removeCompanyNames([company.name]);
-    insideList.remove(company.name);
     company.isFavourite = false;
+//    listOfFavourites.remove(company.name);
+    print('${company.name} removed - in companiesItem');
+//    getStringList();
     notifyListeners();
   }
 
@@ -68,7 +72,6 @@ class CompaniesProvider extends ChangeNotifier {
 
   void toggleShowFavouriteFilter() {
     favourite = !favourite;
-    print('$favourite favorite in companies_item');
     notifyListeners();
   }
 }

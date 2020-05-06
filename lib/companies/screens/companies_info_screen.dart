@@ -38,9 +38,9 @@ class _CompaniesInfoScreenState extends State<CompaniesInfoScreen> {
                         color: Colors.yellow,
                       ),
                 onPressed: () {
-                  companiesData.updateFavourite(widget.company, widget.company.listOfFavourites);
+                  print(widget.company.name);
+                  companiesData.updateFavourite(widget.company);
                   setState(() {
-
                   });
                   },
               ),

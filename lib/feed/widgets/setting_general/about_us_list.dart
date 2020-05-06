@@ -55,14 +55,6 @@ class AboutUsList extends StatelessWidget {
     return ListView(
       shrinkWrap: true,
       children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
-          child: SizedBox(
-            height: 100,
-            width: 100,
-            child: SvgPicture.network(company.logo),
-          ),
-        ),
         CompaniesInfoCard(
           header: 'About Us',
           content: Text(
@@ -77,7 +69,6 @@ class AboutUsList extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        CompaniesInfoCardFeed(feed: getList(feed)),
       ],
     );
   }

@@ -23,14 +23,9 @@ class _SettingsListState extends State<SettingsList> {
   ];
   List<SettingsItemCompact> settingsCompactApplication = [
     SettingsItemCompact(
-      title: 'Dark Theme',
+      title: 'Switch Theme',
       hasSwitch: true,
     ),
-//    //TODO Kan vara ett kul extra project om man pallar i slutet annars städa bort
-//    SettingsItemCompact(
-//      title: 'Surveys',
-//      hasSwitch: false,
-//    ),
   ];
   @override
   Widget build(BuildContext context) {
