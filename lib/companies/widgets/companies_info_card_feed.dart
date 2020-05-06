@@ -19,8 +19,7 @@ class CompaniesInfoCardFeed extends StatelessWidget {
       itemBuilder: (context, index) {
         return Column(children: <Widget>[
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            margin: EdgeInsets.symmetric(vertical: 10.0),
+            padding: EdgeInsets.all(16),
             color: Theme.of(context).cardColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,39 +29,34 @@ class CompaniesInfoCardFeed extends StatelessWidget {
                   child: Divider(),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 16.0),
                   color: Theme.of(context).cardColor,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 12.0, right: 12.0, bottom: 12.0),
-                    child: Column(children: <Widget>[
-                      ListTile(
-                        leading: CircleAvatar(
-                          child: Container(
-                            child: SvgPicture.network(feed[index].logo),
-                            margin: EdgeInsets.all(7),
-                            color: Colors.transparent,
-                          ),
-                          radius: 20,
-                          backgroundColor: Colors.white,
+                  child: Column(children: <Widget>[
+                    ListTile(
+                      leading: CircleAvatar(
+                        child: Container(
+                          child: SvgPicture.network(feed[index].logo),
+                          margin: EdgeInsets.all(7),
+                          color: Colors.transparent,
                         ),
-                        title: Text(
-                          feed[index].author,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        subtitle: Text(feed[index].date),
+                        radius: 20,
+                        backgroundColor: Colors.white,
                       ),
-                      Text(
-                        feed[index].content,
+                      title: Text(
+                        feed[index].author,
                         style: TextStyle(
-                          fontSize: 14,
-                          letterSpacing: 0.25,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ]),
-                  ),
+                      subtitle: Text(feed[index].date),
+                    ),
+                    Text(
+                      feed[index].content,
+                      style: TextStyle(
+                        fontSize: 14,
+                        letterSpacing: 0.25,
+                      ),
+                    ),
+                  ]),
                 ),
               ],
             ),

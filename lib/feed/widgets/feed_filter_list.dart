@@ -18,6 +18,7 @@ import 'feed_filter_card.dart';
 import 'feed_filter_card.dart';
 import 'feed_filter_card.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
 
 class FeedFilterList extends StatefulWidget {
   @override
