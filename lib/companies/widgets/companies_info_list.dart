@@ -7,57 +7,11 @@ import 'package:thyevent/companies/widgets/companies_info_card_feed.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'companies_info_card_links.dart';
+
 class CompaniesInfoList extends StatelessWidget {
   final CompaniesItem company;
   CompaniesInfoList(this.company);
-
-  linksFormatter(Map links) {
-    return GridView.builder(
-      shrinkWrap: true,
-      itemCount: links.length,
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
-      itemBuilder: (context, index) {
-        String key = links.keys.elementAt(index);
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FaIcon(
-              getIcon('$key'),
-              size: 30,
-            ),
-            SizedBox(height: 4),
-            Text(
-              '$key'.toUpperCase(),
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  getIcon(String serviceType) {
-    if (serviceType == 'facebook') {
-      return FontAwesomeIcons.facebookSquare;
-    }
-    if (serviceType == 'website') {
-      return FontAwesomeIcons.externalLinkSquareAlt;
-    }
-    if (serviceType == 'twitter') {
-      return FontAwesomeIcons.twitterSquare;
-    }
-    if (serviceType == 'instagram') {
-      return FontAwesomeIcons.instagramSquare;
-    }
-    if (serviceType == 'linkedin') {
-      return FontAwesomeIcons.linkedin;
-    }
-    return FontAwesomeIcons.square;
-  }
 
   getList(List<FeedItem> feed) {
     List<FeedItem> feedList = [];
@@ -90,9 +44,9 @@ class CompaniesInfoList extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        CompaniesInfoCard(
+        CompaniesInfoCardLinks(
           header: 'links',
-          content: linksFormatter(company.links),
+          links: company.links,
         ),
         CompaniesInfoCard(
           header: 'tags',
