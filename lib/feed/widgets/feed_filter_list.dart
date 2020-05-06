@@ -3,16 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/feed/models/feed_filter_item.dart';
 import 'package:thyevent/feed/widgets/feed_filter_card.dart';
-import 'package:thyevent/companies/widgets/companies_list.dart';
-
-import '../../companies/models/companies_item.dart';
-import '../../companies/models/companies_item.dart';
-import '../../companies/models/companies_item.dart';
-import '../models/feed_filter_item.dart';
-import '../models/feed_filter_item.dart';
-import 'feed_filter_card.dart';
-import 'feed_filter_card.dart';
-import 'feed_filter_card.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
 
 class FeedFilterList extends StatefulWidget {
   @override

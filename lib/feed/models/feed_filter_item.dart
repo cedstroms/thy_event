@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
-import '../../companies/models/companies_item.dart';
-import '../../companies/models/companies_item.dart';
-
 //TODO: kombinera denna med compact-klasesen, typ genom abstract??
 
 class FeedFilterItem {
