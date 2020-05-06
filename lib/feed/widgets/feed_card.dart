@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:thyevent/feed/models/feed_item.dart';
-import 'package:thyevent/companies/screens/companies_info_screen.dart';
-import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:provider/provider.dart';
+import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:thyevent/companies/screens/companies_info_screen.dart';
+import 'package:thyevent/feed/models/feed_item.dart';
 
 import '../../companies/models/companies_item.dart';
 
@@ -19,9 +19,9 @@ class FeedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final companies = Provider.of<List<CompaniesItem>>(context) ?? [];
 
-    return Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
+    return Consumer<CompaniesProvider>(
+        builder: (context, companiesData, child) {
       companiesData.getStringList();
-      print(companiesData.listOfFavourites);
       return Container(
         margin: EdgeInsets.only(bottom: 16.0),
         color: Theme
@@ -49,8 +49,6 @@ class FeedCard extends StatelessWidget {
                 ),
                 subtitle: Text(feed.date),
                 onTap: () {
-                  print(companiesData.listOfFavourites);
-                  //TODO: implementera vidarebefordring till company view
                   for (int i = 0; i < companies.length; i++) {
                     if (feed.authorID == companies[i].companyId) {
                       Navigator.push(
@@ -62,7 +60,6 @@ class FeedCard extends StatelessWidget {
                   }
                 },
                 trailing: PopupMenuButton<String>(
-                  onSelected: choiceAction,
                   itemBuilder: (BuildContext context) {
                     return options.map((String choice) {
                       return PopupMenuItem<String>(
@@ -109,9 +106,5 @@ class FeedCard extends StatelessWidget {
         ),
       );
     });
-  }
-
-  void choiceAction(String string) {
-    print('hello there');
   }
 }

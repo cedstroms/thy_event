@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
 class ProgramItem {
-  final String startTime;
-  final String endTime;
+  final String startTimeOnlyTime;
+  final String endTimeOnlyTime;
   final String title;
   final String subTitle;
   final String tabTitle;
   final int tabNumber;
   bool isFavourite = false;
+  final String startDay;
 
-  ProgramItem(
-      {this.startTime,
-      this.endTime,
+  ProgramItem({this.startTimeOnlyTime,
+    this.endTimeOnlyTime,
       this.title,
       this.subTitle,
       this.tabNumber,
       this.tabTitle,
-      this.isFavourite});
+    this.isFavourite,
+    this.startDay});
 }
 
 class ProgramProvider extends ChangeNotifier {
@@ -44,13 +45,14 @@ class ProgramProvider extends ChangeNotifier {
     program.isFavourite = false;
     notifyListeners();
   }
+
   bool getFavouriteState() {
     return favourite;
   }
 
   void toggleShowFavouriteFilter() {
     favourite = !favourite;
-    print(favourite);
+    print('$favourite in program_item togglrShowFavoriteFilter');
     notifyListeners();
   }
 }

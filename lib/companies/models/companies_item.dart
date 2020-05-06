@@ -24,14 +24,6 @@ class CompaniesItem {
       this.isFavourite,
       this.contactInfo,
       this.listOfFavourites});
-
-//  List<String> tempList;
-//  void getStringList() async {
-//    tempList = await SharedPreferencesHelper.getCompanyNames();
-//  }
-//  void setFavouriteList () {
-//    listOfFavourites = tempList;
-//  }
 }
 
 class CompaniesProvider extends ChangeNotifier {
@@ -45,7 +37,7 @@ class CompaniesProvider extends ChangeNotifier {
 
   void updateFavourite(CompaniesItem company, List insideList) {
     getStringList();
-    print('$listOfFavourites from provider');
+    print('$listOfFavourites ListOfFavorites from provider in companies_item');
     if (!insideList.contains(company.name)) {
       companyAdder(company, insideList);
       //companyAdder(company, company.listOfFavourites);
@@ -76,7 +68,7 @@ class CompaniesProvider extends ChangeNotifier {
 
   void toggleShowFavouriteFilter() {
     favourite = !favourite;
-    print(favourite);
+    print('$favourite favorite in companies_item');
     notifyListeners();
   }
 }
