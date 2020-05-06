@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/feed/widgets/theme_changer.dart';
+import 'package:thyevent/common/theme_changer.dart';
 import 'package:thyevent/feed/screens/feed_screen.dart';
 import 'package:thyevent/companies/screens/companies_screen.dart';
 import 'package:thyevent/common/navigation_bar_bottom.dart';
@@ -9,7 +9,6 @@ import 'package:thyevent/map/map_screen.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'companies/screens/companies_screen.dart';
-import 'common/theme.dart';
 import 'program/models/program_item.dart';
 
 void main() => runApp(MyApp());

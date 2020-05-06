@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:thyevent/common/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum MyThemes { light, dark }
