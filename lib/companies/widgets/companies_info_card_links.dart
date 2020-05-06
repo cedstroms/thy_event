@@ -109,6 +109,7 @@ class _CompaniesInfoCardLinksState extends State<CompaniesInfoCardLinks> {
                 child: Divider(),
               ),
               linksFormatter(widget.links),
+              FutureBuilder<void>(future: _launched, builder: _launchStatus),
             ],
           ),
         ),
