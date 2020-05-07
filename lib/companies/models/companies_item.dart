@@ -43,7 +43,6 @@ class CompaniesProvider extends ChangeNotifier {
     } else {
       companyRemover(company, listOfFavourites);
     }
-    //notifyListeners();
   }
 
   void companyAdder(CompaniesItem company, List list) {

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:thyevent/services/firebase_storage_service.dart';
-
 import 'package:thyevent/program/models/program_item.dart';
-import 'package:thyevent/program/screens/programs_first_view.dart';
-import 'package:thyevent/program/screens/programs_second_view.dart';
-import 'package:thyevent/program/screens/programs_third_view.dart';
+import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/services/shared_preferences.dart';
+
+import '../models/program_item.dart';
+import '../widgets/program_list.dart';
 import 'package:thyevent/program/widgets/program_list.dart';
 
 class ProgramScreen extends StatefulWidget {
@@ -18,6 +17,7 @@ class _ProgramScreenState extends State<ProgramScreen> {
   List<String> outsideList = [];
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getProgramNames();
+    // print('$tempList in getStrinList ProgramScreen');
     outsideList = tempList;
   }
 
@@ -34,7 +34,7 @@ class _ProgramScreenState extends State<ProgramScreen> {
       value: DatabaseService().program,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Program'),
+          title: Text('Schedule'),
           centerTitle: true,
           leading: IconButton(
             icon: !ProgramProvider().getFavouriteState()

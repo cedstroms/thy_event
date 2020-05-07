@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/main.dart';
 
-//TODO BottomNavigationBarItem kan göras till en metod som man skickar in i, istället för att repetera kod
-
 class NavigationBarBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

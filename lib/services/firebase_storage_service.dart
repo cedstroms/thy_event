@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/feed/widgets/setting_general/location_item.dart';
 import 'package:thyevent/program/models/program_item.dart';
-import 'package:intl/intl.dart';
 
 class DatabaseService {
   // companies and feed join collection
@@ -66,12 +66,15 @@ class DatabaseService {
       (doc) {
         // returns the data that is in the collection.
         return ProgramItem(
-          startTime:
+          startTimeOnlyTime:
               DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
-          endTime: DateFormat.Hm().format(doc.data['end_time'].toDate()) ?? '',
+          endTimeOnlyTime:
+          DateFormat.Hm().format(doc.data['end_time'].toDate()) ?? '',
           title: doc.data['title'] ?? '',
           subTitle: doc.data['sub_title'] ?? '',
           tabNumber: doc.data['tab_number'] ?? 0,
+          startDay:
+          DateFormat.EEEE().format(doc.data['start_time'].toDate()) ?? '',
         );
       },
     ).toList();

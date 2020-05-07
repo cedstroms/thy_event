@@ -7,17 +7,19 @@ class ProgramCard extends StatelessWidget {
   final List<String> favouriteList;
   ProgramCard({this.program, this.favourite, this.favouriteList});
 
-  void setFavourite(ProgramItem company){
-    if (favouriteList.contains(program.title)){
+  void setFavourite(ProgramItem company) {
+    if (favouriteList.contains(program.title)) {
       program.isFavourite = true;
-    }
-    else {
+    } else {
       program.isFavourite = false;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+//    return FutureBuilder<List<String>>(
+//        future: favourite,
+//        builder: (context, snapshot) {
     return Container(
       color: Theme.of(context).cardColor,
       child: ListTile(
@@ -25,13 +27,13 @@ class ProgramCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              program.startTime,
+              program.startTimeOnlyTime,
             ),
             SizedBox(
               height: 5,
             ),
             Text(
-              program.endTime,
+              program.endTimeOnlyTime,
               style: TextStyle(color: Colors.grey),
             ),
           ],
@@ -41,6 +43,7 @@ class ProgramCard extends StatelessWidget {
         onTap: () {
           //TODO: implementera program info view
           print('pressed: program card');
+          print(favourite.runtimeType);
         },
         onLongPress: () {
           //TODO: implementera favoritmarkering
@@ -50,21 +53,15 @@ class ProgramCard extends StatelessWidget {
             ? IconButton(
                 icon: Icon(Icons.star_border),
                 onPressed: favourite,
-//              () {
-//            //TODO: implementera favoritmarkering
-//            print('pressed: mark as favourite');
-//          },
               )
             : IconButton(
                 icon: Icon(Icons.star),
                 color: Colors.yellow,
                 onPressed: favourite,
-//              () {
-//            //TODO: implementera favoritmarkering
-//            print('pressed: mark as favourite');
-//          },
               ),
       ),
     );
   }
+//);
 }
+//}
