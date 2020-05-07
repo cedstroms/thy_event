@@ -36,11 +36,10 @@ class _FeedListState extends State<FeedList> {
         List<FeedItem> favouriteFeedList = [];
         // This creates a list with all posts coming from a favourite marked author
         for (var f in feed) {
-//          if (companiesData.listOfFavourites.contains(f.author)){
+          if (companiesData.listOfFavourites.contains(f.author)){
 //            //TODO en bugg här som är knäpp
-//            print('in feed list');
-//            //favouriteFeedList.add(f);
-//          }
+            favouriteFeedList.add(f);
+          }
         }
         return FeedProperties.filterID == 0
             ? ListView.builder(

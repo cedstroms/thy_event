@@ -125,13 +125,18 @@ class _FeedFilterListState extends State<FeedFilterList> {
                     ListView.separated(
                       separatorBuilder: (context, index) => Divider(),
                       shrinkWrap: true,
-                      itemCount: companiesData.listOfFavourites.length,
+                      itemCount: favouritesList.length,//companiesData.listOfFavourites.length,
                       physics: NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         return FeedFilterCardCompactNew(
                           company: favouritesList[index],
                           favourite: () {
-                            //TODO push to relevant companypage
+                            //push to the relevant companies info screen
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) =>
+                                        CompaniesInfoScreen(favouritesList[index])));
                           },
                         );
                       },
