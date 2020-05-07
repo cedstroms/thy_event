@@ -9,6 +9,8 @@ import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 
 import '../../common/navigation_bar_bottom.dart';
+import '../models/feed_item.dart';
+import '../models/feed_item.dart';
 
 class FeedScreen extends StatelessWidget {
   static String id = 'feed_screen';
@@ -18,40 +20,51 @@ class FeedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<List<CompaniesItem>>.value(
-      value: DatabaseService().companies,
-      child: StreamProvider<List<FeedItem>>.value(
-        value: DatabaseService().feed,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'Feed',
-            ),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(Icons.filter_list),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                        builder: (context) => FeedFilterScreen()));
-              },
-            ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.settings),
+    return Consumer<FeedProperties>(builder: (context, feedData, child) {
+      return StreamProvider<List<CompaniesItem>>.value(
+        value: DatabaseService().companies,
+        child: StreamProvider<List<FeedItem>>.value(
+          value: DatabaseService().feed,
+          child: Scaffold(
+            appBar: AppBar(
+              title: FeedProperties.filterID == 0
+                  ? Text(
+                'Feed',
+              )
+                  : FeedProperties.filterID == 1
+                  ? Text(
+                'Official Statements',
+              )
+                  : Text(
+                'Posts from Favourites',
+              ),
+              centerTitle: true,
+              leading: IconButton(
+                icon: Icon(Icons.filter_list),
                 onPressed: () {
                   Navigator.push(
-                    context,
-                    CupertinoPageRoute(builder: (context) => SettingsScreen()),
-                  );
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => FeedFilterScreen()));
                 },
               ),
-            ],
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(builder: (context) =>
+                          SettingsScreen()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            body: FeedList(filterID),
           ),
-          body: FeedList(filterID),
         ),
-      ),
-    );
+      );
+    });
   }
 }
