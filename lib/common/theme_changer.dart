@@ -62,21 +62,3 @@ class ThemeChanger with ChangeNotifier {
 
   get currentThemeData => _currentThemeData;
 }
-
-//class ThemeChanger with ChangeNotifier {
-//  ThemeData _themeData;
-//
-//  ThemeChanger(this._themeData);
-//
-//  getTheme() => _themeData;
-//
-//  setTheme(bool themeValue) {
-//    if (themeValue) {
-//      _themeData = ThemeSettings().getDarkTheme();
-//    }
-//    if (!themeValue) {
-//      _themeData = ThemeSettings().getLightTheme();
-//    }
-//    notifyListeners();
-//  }
-//}

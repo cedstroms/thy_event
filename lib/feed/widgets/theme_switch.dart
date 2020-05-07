@@ -8,6 +8,8 @@ class ThemeSwitch extends StatefulWidget {
 }
 
 class _ThemeSwitchState extends State<ThemeSwitch> {
+  //TODO: just nu laddas ej temat till switchen för saved prefs
+//  bool value = ThemeChanger().currentTheme == MyThemes.light;
   bool value = false;
 
   @override
@@ -19,10 +21,9 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
         onChanged: (changeValue) {
           Provider.of<ThemeChanger>(context, listen: false).switchTheme(
               context);
-//          setState(() {
-//            value = changeValue;
-//            _themeChanger.setTheme(value);
-//          });
+          setState(() {
+            value = changeValue;
+          });
         });
   }
 }
