@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/feed/widgets/feed_card.dart';
 import 'package:provider/provider.dart';
-
 import '../../companies/models/companies_item.dart';
 import '../models/feed_item.dart';
 import '../models/feed_item.dart';
@@ -22,7 +21,7 @@ class _FeedListState extends State<FeedList> {
   Widget build(BuildContext context) {
     final feed = Provider.of<List<FeedItem>>(context) ?? [];
 
-    // This creates a list containg all posts from the arrangers ergo authorID = 0
+    // This creates a list containing all posts from the arrangers ergo authorID = 0
     List<FeedItem> officialFeedList = [];
     for (var f in feed) {
       if (f.authorID == 0) {
@@ -32,7 +31,7 @@ class _FeedListState extends State<FeedList> {
 
 
     return Consumer<CompaniesProvider>(builder: (context, companiesData, child) {
-      return Consumer<FeedProperties>(builder: (context, feedData, child) {
+      return Consumer<ShowLessShowMore>(builder: (context, feedData, child) {
         List<FeedItem> favouriteFeedList = [];
         // This creates a list with all posts coming from a favourite marked author
         for (var f in feed) {

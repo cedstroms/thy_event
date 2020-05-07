@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
             create: (BuildContext context) => FeedProperties()),
+        ChangeNotifierProvider(
+            create: (BuildContext context) => ShowLessShowMore()),
         ChangeNotifierProvider<BottomNavigationBarProvider>(
             create: (BuildContext context) => BottomNavigationBarProvider()),
         ChangeNotifierProvider<CompaniesProvider>(

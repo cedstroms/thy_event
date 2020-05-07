@@ -28,7 +28,7 @@ class CompaniesItem {
 
 class CompaniesProvider extends ChangeNotifier {
   static bool favourite = false;
-  List<String> listOfFavourites;
+  List<String> listOfFavourites = [];
   List<CompaniesItem> listOfFavouriteCompanies;
 
   void getStringList() async {
