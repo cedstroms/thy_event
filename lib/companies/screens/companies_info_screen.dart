@@ -31,18 +31,20 @@ class _CompaniesInfoScreenState extends State<CompaniesInfoScreen> {
             centerTitle: true,
             actions: <Widget>[
               IconButton(
-                icon: !companiesData.listOfFavourites.contains(widget.company.name)
+                icon: !companiesData.listOfFavourites
+                    .contains(widget.company.name)
                     ? Icon(Icons.star_border)
                     : Icon(
                         Icons.star,
                         color: Colors.yellow,
                       ),
                 onPressed: () {
-                  print(widget.company.name);
+                  print(
+                      '${widget.company
+                          .name} = company.name in companies_info_screen');
                   companiesData.updateFavourite(widget.company);
-                  setState(() {
-                  });
-                  },
+                  setState(() {});
+                },
               ),
             ],
           ),

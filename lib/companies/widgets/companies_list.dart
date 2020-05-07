@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/companies/widgets/companies_card.dart';
-import 'package:provider/provider.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
 class CompaniesList extends StatefulWidget {
@@ -59,8 +59,6 @@ class _CompaniesListState extends State<CompaniesList> {
                     //InsideList below is the updated list of chosen favourites
                     favouriteList: insideList, //insideList,
                     favourite: () {
-                      print('companies list');
-                      //getStringList();
                       companiesData.updateFavourite(favouritesList[index]);
                     });
               },
@@ -75,8 +73,6 @@ class _CompaniesListState extends State<CompaniesList> {
                     //InsideList below is the updated list of chosen favourites
                     favouriteList: companiesData.listOfFavourites, //insideList,
                     favourite: () {
-                      print('companies list');
-                      //getStringList();
                       companiesData.updateFavourite(companiesList[index]);
                     });
               },

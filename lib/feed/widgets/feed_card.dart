@@ -7,7 +7,6 @@ import 'package:thyevent/companies/screens/companies_info_screen.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 
 import '../../companies/models/companies_item.dart';
-import 'package:thyevent/feed/widgets/setting_general/information_general_screen.dart';
 
 class FeedCard extends StatelessWidget {
   final FeedItem feed;

@@ -45,6 +45,7 @@ class ProgramProvider extends ChangeNotifier {
     program.isFavourite = false;
     notifyListeners();
   }
+
   bool getFavouriteState() {
     return favourite;
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thyevent/program/models/program_item.dart';
+import 'package:thyevent/program/widgets/program_list.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/services/shared_preferences.dart';
 
 import '../models/program_item.dart';
 import '../widgets/program_list.dart';
-import 'package:thyevent/program/widgets/program_list.dart';
 
 class ProgramScreen extends StatefulWidget {
   @override
@@ -59,56 +59,6 @@ class _ProgramScreenState extends State<ProgramScreen> {
         ),
         body: ProgramList(),
       ),
-
-//      child: DefaultTabController(
-//        length: 3,
-//        child: Scaffold(
-//          appBar: AppBar(
-//            title: Text('Program'),
-//            centerTitle: true,
-//            leading: IconButton(
-//              icon: !ProgramProvider().getFavouriteState()
-//                  ? Icon(Icons.star_border)
-//                  : Icon(Icons.star, color: Colors.yellow,),
-//              onPressed: () {
-//                ProgramProvider().toggleShowFavouriteFilter();
-//                setState(() {
-//                });
-//              },
-//            ),
-//            actions: <Widget>[
-//              IconButton(
-//                icon: Icon(Icons.search),
-//                onPressed: () {
-//                  print('pressed: search program events');
-//                },
-//              ),
-//            ],
-//            bottom: TabBar(
-//              indicatorWeight: 4.0,
-//              indicatorColor: Colors.white,
-//              tabs: [
-//                Tab(text: 'Thursday'),
-//                Tab(text: 'Friday'),
-//                Tab(text: 'Saturday'),
-//              ],
-//            ),
-//          ),
-//          body: TabBarView(
-//            children: <Widget>[
-//              FirstView(
-//                favouriteList: insideList,
-//              ),
-//              SecondView(
-//                favouriteList: insideList,
-//              ),
-//              ThirdView(
-//                favouriteList: insideList,
-//              ),
-//            ],
-//          ),
-//        ),
-//      ),
     );
   }
 }
