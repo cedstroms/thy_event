@@ -48,14 +48,15 @@ class _ProgramScreenState extends State<ProgramScreen> {
               setState(() {});
             },
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                print('pressed: search program events');
-              },
-            ),
-          ],
+          //TODO: implementera sök-funktion
+//          actions: <Widget>[
+//            IconButton(
+//              icon: Icon(Icons.search),
+//              onPressed: () {
+//                print('pressed: search program events');
+//              },
+//            ),
+//          ],
         ),
         body: ProgramList(),
       ),
