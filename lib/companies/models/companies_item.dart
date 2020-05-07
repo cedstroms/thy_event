@@ -51,7 +51,7 @@ class CompaniesProvider extends ChangeNotifier {
     company.isFavourite = true;
 //    listOfFavourites.add(company.name);
     print('${company.name} added - in companiesItem');
-    print('$listOfFavourites');
+    print('$listOfFavourites listOfFavourites in companies Item ');
 //    getStringList();
     notifyListeners();
   }
@@ -62,6 +62,7 @@ class CompaniesProvider extends ChangeNotifier {
     company.isFavourite = false;
 //    listOfFavourites.remove(company.name);
     print('${company.name} removed - in companiesItem');
+    print('$listOfFavourites listOfFavourites in companies Item ');
 //    getStringList();
     notifyListeners();
   }
