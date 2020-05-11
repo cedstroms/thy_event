@@ -39,9 +39,6 @@ class _CompaniesInfoScreenState extends State<CompaniesInfoScreen> {
                         color: Colors.yellow,
                       ),
                 onPressed: () {
-                  print(
-                      '${widget.company
-                          .name} = company.name in companies_info_screen');
                   companiesData.updateFavourite(widget.company);
                   setState(() {});
                 },

@@ -34,10 +34,11 @@ class CompaniesProvider extends ChangeNotifier {
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getCompanyNames();
     listOfFavourites = tempList;
+    print('get string list');
   }
 
   void updateFavourite(CompaniesItem company) {
-    getStringList();
+    //getStringList(); eventuellt behövs den här ändå
     if (!listOfFavourites.contains(company.name)) {
       companyAdder(company, listOfFavourites);
     } else {
@@ -46,24 +47,18 @@ class CompaniesProvider extends ChangeNotifier {
   }
 
   void companyAdder(CompaniesItem company, List list) {
-//    getStringList();
     SharedPreferencesHelper.addCompanyNames([company.name]);
     company.isFavourite = true;
-//    listOfFavourites.add(company.name);
+    listOfFavourites.add(company.name);
     print('${company.name} added - in companiesItem');
-    print('$listOfFavourites listOfFavourites in companies Item ');
-//    getStringList();
     notifyListeners();
   }
 
   void companyRemover(CompaniesItem company, List list) {
-//    getStringList();
     SharedPreferencesHelper.removeCompanyNames([company.name]);
     company.isFavourite = false;
-//    listOfFavourites.remove(company.name);
-    print('${company.name} removed - in companiesItem');
-    print('$listOfFavourites listOfFavourites in companies Item ');
-//    getStringList();
+
+    listOfFavourites.remove(company.name);
     notifyListeners();
   }
 

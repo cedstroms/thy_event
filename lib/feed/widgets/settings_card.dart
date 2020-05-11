@@ -79,11 +79,14 @@ class SettingsCardCompact extends StatelessWidget {
               }
             }
           }
-          if (cardTitle == 'Location Information') {
+          else if (cardTitle == 'Location Information') {
             Navigator.push(
                 context,
                 CupertinoPageRoute(
                     builder: (context) => LocationGeneralScreen()));
+          }
+          else if (cardTitle == 'Administration Login') {
+            
           }
         },
         title: Text(

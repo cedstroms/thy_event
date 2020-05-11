@@ -21,6 +21,12 @@ class _SettingsListState extends State<SettingsList> {
       hasSwitch: false,
     ),
   ];
+  List<SettingsItemCompact> settingsCompactAdmin = [
+    SettingsItemCompact(
+      title: 'Administration Login',
+      hasSwitch: false,
+    )
+  ];
   List<SettingsItemCompact> settingsCompactApplication = [
     SettingsItemCompact(
       title: 'Switch Theme',
@@ -84,6 +90,31 @@ class _SettingsListState extends State<SettingsList> {
                 return SettingsCardCompact(
                   cardTitle: settingsCompactApplication[index].title,
                   hasSwitch: settingsCompactApplication[index].hasSwitch,
+                );
+              },
+            ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(color: Theme.of(context).dividerColor)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 10.0, bottom: 4.0),
+                child: Text(
+                  'ADMINISTRATION',
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w400),
+                ),
+              ),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: settingsCompactAdmin.length,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return SettingsCardCompact(
+                  cardTitle: settingsCompactAdmin[index].title,
+                  hasSwitch: settingsCompactAdmin[index].hasSwitch,
                 );
               },
             ),
