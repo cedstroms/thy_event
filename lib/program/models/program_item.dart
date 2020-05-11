@@ -23,31 +23,40 @@ class ProgramItem {
 
 class ProgramProvider extends ChangeNotifier {
   static bool favourite = false;
-  void updateFavourite(ProgramItem program, List insideListPrograms) {
-    if (!insideListPrograms.contains(program.title)) {
-      programAdder(program, insideListPrograms);
+  List<String> listOfFavouriteP = [];
+
+  void getStringList() async {
+    var tempList = await SharedPreferencesHelper.getCompanyNames();
+    listOfFavouriteP = tempList;
+    print('am i called');
+  }
+
+  void updateFavourite(ProgramItem program) {
+    if (!listOfFavouriteP.contains(program.title)) {
+      programAdder(program, listOfFavouriteP);
     } else {
-      programRemover(program, insideListPrograms);
+      programRemover(program, listOfFavouriteP);
     }
-    notifyListeners();
+    print('$listOfFavouriteP in programItem');
+//    notifyListeners();
   }
 
-  void programAdder(ProgramItem program, List insideList) {
+  void programAdder(ProgramItem program, List list) {
     SharedPreferencesHelper.addProgramNames([program.title]);
-    insideList.add(program.title);
     program.isFavourite = true;
+    listOfFavouriteP.add(program.title);
     notifyListeners();
   }
 
-  void programRemover(ProgramItem program, List insideList) {
+  void programRemover(ProgramItem program, List list) {
     SharedPreferencesHelper.removeProgramNames([program.title]);
-    insideList.remove(program.title);
     program.isFavourite = false;
+    listOfFavouriteP.remove(program.title);
     notifyListeners();
   }
 
   bool getFavouriteState() {
-    return favourite;
+    return !favourite;
   }
 
   void toggleShowFavouriteFilter() {

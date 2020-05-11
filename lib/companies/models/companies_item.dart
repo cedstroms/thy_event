@@ -34,7 +34,6 @@ class CompaniesProvider extends ChangeNotifier {
   void getStringList() async {
     var tempList = await SharedPreferencesHelper.getCompanyNames();
     listOfFavourites = tempList;
-    print('get string list');
   }
 
   void updateFavourite(CompaniesItem company) {
@@ -50,14 +49,12 @@ class CompaniesProvider extends ChangeNotifier {
     SharedPreferencesHelper.addCompanyNames([company.name]);
     company.isFavourite = true;
     listOfFavourites.add(company.name);
-    print('${company.name} added - in companiesItem');
     notifyListeners();
   }
 
   void companyRemover(CompaniesItem company, List list) {
     SharedPreferencesHelper.removeCompanyNames([company.name]);
     company.isFavourite = false;
-
     listOfFavourites.remove(company.name);
     notifyListeners();
   }

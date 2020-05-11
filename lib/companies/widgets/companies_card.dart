@@ -20,7 +20,6 @@ class CompaniesCard extends StatelessWidget {
     } else {
       company.isFavourite = false;
     }
-    //company.listOfFavourites = favouriteList;
   }
 
   @override

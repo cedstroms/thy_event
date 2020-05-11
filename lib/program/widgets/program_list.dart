@@ -56,7 +56,7 @@ class _ProgramListState extends State<ProgramList> {
 
     return Consumer<ProgramProvider>(builder: (context, programData, child) {
       return programData.getFavouriteState()
-          //Check if we want to build the list with favorites or se every item in the Schedule
+          //Check if we want to build the list with favorites or see every item in the Schedule
           // Favorites list
           ? ListView.separated(
               itemCount: favouritesListPrograms.length,
@@ -67,11 +67,12 @@ class _ProgramListState extends State<ProgramList> {
                     buildDayBanner(index, favouritesListPrograms),
                     ProgramCard(
                       program: favouritesListPrograms[index],
-                      favourite: () async {
-                        setState(() {});
-                        getStringListPrograms();
+                      favourite: () {
+
+                        //getStringListPrograms();
                         programData.updateFavourite(
-                            favouritesListPrograms[index], insideListPrograms);
+                            favouritesListPrograms[index]);
+                        setState(() {});
                       },
                       favouriteList: insideListPrograms,
                     ),
@@ -92,14 +93,9 @@ class _ProgramListState extends State<ProgramList> {
                     buildDayBanner(index, programs),
                     ProgramCard(
                       program: programs[index],
-                      favourite: () async {
+                      favourite: () {
+                        programData.updateFavourite(programs[index]);
                         setState(() {});
-                        getStringListPrograms();
-                        List<String> tempList =
-                            await SharedPreferencesHelper.getProgramNames();
-                        programData.updateFavourite(
-                            programs[index], insideListPrograms);
-                        //print(SharedPreferencesHelper.getProgramNames().runtimeType);
                       },
                       favouriteList: insideListPrograms,
                     ),
