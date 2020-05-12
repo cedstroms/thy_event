@@ -21,12 +21,6 @@ class _SettingsListState extends State<SettingsList> {
       hasSwitch: false,
     ),
   ];
-  List<SettingsItemCompact> settingsCompactAdmin = [
-    SettingsItemCompact(
-      title: 'Administration Login',
-      hasSwitch: false,
-    )
-  ];
   List<SettingsItemCompact> settingsCompactApplication = [
     SettingsItemCompact(
       title: 'Switch Theme',

@@ -69,7 +69,7 @@ class _ProgramListState extends State<ProgramList> {
                       program: favouritesListPrograms[index],
                       favourite: () {
 
-                        //getStringListPrograms();
+                        getStringListPrograms();
                         programData.updateFavourite(
                             favouritesListPrograms[index]);
                         setState(() {});

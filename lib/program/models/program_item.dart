@@ -25,13 +25,13 @@ class ProgramProvider extends ChangeNotifier {
   static bool favourite = false;
   List<String> listOfFavouriteP = [];
 
-  void getStringList() async {
-    var tempList = await SharedPreferencesHelper.getCompanyNames();
+  void getStringListPrograms() async {
+    var tempList = await SharedPreferencesHelper.getProgramNames();
     listOfFavouriteP = tempList;
-    print('am i called');
   }
 
   void updateFavourite(ProgramItem program) {
+    //getStringListPrograms();
     if (!listOfFavouriteP.contains(program.title)) {
       programAdder(program, listOfFavouriteP);
     } else {
@@ -56,7 +56,7 @@ class ProgramProvider extends ChangeNotifier {
   }
 
   bool getFavouriteState() {
-    return !favourite;
+    return favourite;
   }
 
   void toggleShowFavouriteFilter() {

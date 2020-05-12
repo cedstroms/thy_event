@@ -10,6 +10,7 @@ import 'package:thyevent/companies/models/companies_item.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'companies/screens/companies_screen.dart';
 import 'program/models/program_item.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,7 +39,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MaterialAppWithTheme extends StatelessWidget {
+class MaterialAppWithTheme extends StatefulWidget {
+  @override
+  _MaterialAppWithThemeState createState() => _MaterialAppWithThemeState();
+}
+
+class _MaterialAppWithThemeState extends State<MaterialAppWithTheme> {
   @override
   Widget build(BuildContext context) {
     Provider.of<ThemeChanger>(context).loadActiveThemeData(context);
@@ -46,10 +52,25 @@ class MaterialAppWithTheme extends StatelessWidget {
       theme: Provider
           .of<ThemeChanger>(context)
           .currentThemeData,
-      home: NavigationBar(),
+      home: SplashScreen(
+          seconds: 1,
+          navigateAfterSeconds: new NavigationBar(),
+          title: new Text('Powered by thyEvent',
+            style: new TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0
+            ),),
+          backgroundColor: Colors.blueAccent,
+          styleTextUnderTheLoader: new TextStyle(),
+          onClick: ()=>print("Flutter Egypt"),
+         // loaderColor: Colors.red
+      ),
+      //NavigationBar(),
     );
   }
 }
+
+
 
 class NavigationBar extends StatefulWidget {
   @override
