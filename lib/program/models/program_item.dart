@@ -8,17 +8,22 @@ class ProgramItem {
   final String subTitle;
   final String tabTitle;
   final int tabNumber;
+  final String desc;
   bool isFavourite = false;
   final String startDay;
+  List<String> favouritePrograms;
 
-  ProgramItem({this.startTimeOnlyTime,
-    this.endTimeOnlyTime,
+  ProgramItem(
+      {this.startTimeOnlyTime,
+      this.endTimeOnlyTime,
       this.title,
       this.subTitle,
       this.tabNumber,
       this.tabTitle,
-    this.isFavourite,
-    this.startDay});
+      this.desc,
+      this.isFavourite,
+      this.startDay,
+      this.favouritePrograms});
 }
 
 class ProgramProvider extends ChangeNotifier {
@@ -38,6 +43,7 @@ class ProgramProvider extends ChangeNotifier {
       programRemover(program, listOfFavouriteP);
     }
     print('$listOfFavouriteP in programItem');
+
 //    notifyListeners();
   }
 

@@ -73,8 +73,10 @@ class DatabaseService {
           title: doc.data['title'] ?? '',
           subTitle: doc.data['sub_title'] ?? '',
           tabNumber: doc.data['tab_number'] ?? 0,
+          desc: doc.data['desc'] ?? '',
           startDay:
           DateFormat.EEEE().format(doc.data['start_time'].toDate()) ?? '',
+
         );
       },
     ).toList();

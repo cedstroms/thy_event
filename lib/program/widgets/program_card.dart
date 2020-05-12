@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thyevent/program/models/program_item.dart';
 import 'package:provider/provider.dart';
+import 'package:thyevent/program/screens/program_info_screen.dart';
 
 class ProgramCard extends StatelessWidget {
   final ProgramItem program;
@@ -46,10 +48,9 @@ class ProgramCard extends StatelessWidget {
               ),
               title: Text(program.title),
               subtitle: Text(program.subTitle),
-              onTap: () {
-                //TODO: implementera program info view
-                print('pressed: program card');
-                print(favourite.runtimeType);
+              onTap: (){
+                Navigator.push(context, CupertinoPageRoute(
+                  builder: (context) => ProgramInfoScreen(program)));
               },
               onLongPress: () {
                 //TODO: implementera favoritmarkering

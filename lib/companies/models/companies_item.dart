@@ -11,7 +11,7 @@ class CompaniesItem {
   bool isHidden;
   bool isFavourite;
   final String contactInfo;
-  List<String> listOfFavourites; //TODO ta bort detta städa yada
+  List<String> listOfFavourites;
 
   CompaniesItem(
       {this.logo,

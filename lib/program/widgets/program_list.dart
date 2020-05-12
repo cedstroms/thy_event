@@ -11,6 +11,7 @@ class ProgramList extends StatefulWidget {
 
 class _ProgramListState extends State<ProgramList> {
   List<String> outsideListPrograms = [];
+
   void getStringListPrograms() async {
     var tempList = await SharedPreferencesHelper.getProgramNames();
     outsideListPrograms = tempList;
@@ -18,12 +19,18 @@ class _ProgramListState extends State<ProgramList> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> dayList = [];
     getStringListPrograms();
+    List<String> dayList = [];
     List<ProgramItem> favouritesListPrograms = [];
     List<String> insideListPrograms = outsideListPrograms;
+
     //List of companies provided by the database
     final programs = Provider.of<List<ProgramItem>>(context) ?? [];
+
+    // Set the list parameter to the SharedPref-list
+    for (var program in programs) {
+      program.favouritePrograms = insideListPrograms;
+    }
 
     //Create a list of ProgramItems that are marked favourites
     for (var i = 0; i < programs.length; i++) {
@@ -31,6 +38,7 @@ class _ProgramListState extends State<ProgramList> {
         favouritesListPrograms.add(programs[i]);
       }
     }
+    // Create a list of programs separated by date
     Widget buildDayBanner(i, varProgram) {
       if (!dayList.contains(varProgram[i].startDay)) {
         dayList.add(varProgram[i].startDay);
@@ -68,8 +76,7 @@ class _ProgramListState extends State<ProgramList> {
                     ProgramCard(
                       program: favouritesListPrograms[index],
                       favourite: () {
-
-                        getStringListPrograms();
+//                        getStringListPrograms();
                         programData.updateFavourite(
                             favouritesListPrograms[index]);
                         setState(() {});

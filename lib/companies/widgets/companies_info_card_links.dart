@@ -35,6 +35,7 @@ class _CompaniesInfoCardLinksState extends State<CompaniesInfoCardLinks> {
     return GridView.builder(
       shrinkWrap: true,
       itemCount: links.length,
+      physics: NeverScrollableScrollPhysics(),
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
       itemBuilder: (context, index) {
