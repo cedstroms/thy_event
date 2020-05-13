@@ -17,9 +17,7 @@ class FeedItem {
       this.authorID});
 
   void toggleLessMore() {
-    print('$showMore in toggleLessMore in FeedItem - övre');
     showMore = !showMore;
-    print('$showMore in toggleLessMore in FeedItem - undre');
   }
 }
 
@@ -32,7 +30,6 @@ class ShowLessShowMore with ChangeNotifier {
   void changerLessMore(FeedItem feedItem) {
     print('${feedItem.showMore} in feeed_item');
     feedItem.toggleLessMore();
-    print('${feedItem.showMore} in feedItem ChangerLessMore');
     notifyListeners();
   }
 }

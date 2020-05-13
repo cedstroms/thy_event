@@ -36,14 +36,11 @@ class ProgramProvider extends ChangeNotifier {
   }
 
   void updateFavourite(ProgramItem program) {
-    //getStringListPrograms();
     if (!listOfFavouriteP.contains(program.title)) {
       programAdder(program, listOfFavouriteP);
     } else {
       programRemover(program, listOfFavouriteP);
     }
-    print('$listOfFavouriteP in programItem');
-
 //    notifyListeners();
   }
 

@@ -10,7 +10,7 @@ class ProgramList extends StatefulWidget {
 }
 
 class _ProgramListState extends State<ProgramList> {
-  List<String> outsideListPrograms = [];
+  List<String> outsideListPrograms;
 
   void getStringListPrograms() async {
     var tempList = await SharedPreferencesHelper.getProgramNames();
@@ -76,7 +76,6 @@ class _ProgramListState extends State<ProgramList> {
                     ProgramCard(
                       program: favouritesListPrograms[index],
                       favourite: () {
-//                        getStringListPrograms();
                         programData.updateFavourite(
                             favouritesListPrograms[index]);
                         setState(() {});

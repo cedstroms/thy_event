@@ -7,6 +7,7 @@ import 'package:thyevent/feed/widgets/feed_list.dart';
 import 'package:thyevent/services/firebase_storage_service.dart';
 import 'package:thyevent/feed/models/feed_item.dart';
 import 'package:thyevent/companies/models/companies_item.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../common/navigation_bar_bottom.dart';
 import '../models/feed_item.dart';
@@ -40,7 +41,7 @@ class FeedScreen extends StatelessWidget {
               ),
               centerTitle: true,
               leading: IconButton(
-                icon: Icon(Icons.filter_list),
+                icon: Icon(FontAwesomeIcons.filter, size: 18,),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -50,7 +51,7 @@ class FeedScreen extends StatelessWidget {
               ),
               actions: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.settings),
+                  icon: Icon(Icons.settings,),
                   onPressed: () {
                     Navigator.push(
                       context,
