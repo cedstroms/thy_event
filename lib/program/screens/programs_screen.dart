@@ -15,18 +15,17 @@ class ProgramScreen extends StatefulWidget {
 
 class _ProgramScreenState extends State<ProgramScreen> {
   List<String> outsideList = [];
-  void getStringList() async {
-    var tempList = await SharedPreferencesHelper.getProgramNames();
-    // print('$tempList in getStrinList ProgramScreen');
-    outsideList = tempList;
-  }
+//  void getStringList() async {
+//    var tempList = await SharedPreferencesHelper.getProgramNames();
+//    // print('$tempList in getStrinList ProgramScreen');
+//    outsideList = tempList;
+//  }
 
   bool showFavourites = false;
 
   @override
   Widget build(BuildContext context) {
     //Get the outsideList and make it usable as a List<String> and not a Future
-    getStringList();
     List<String> insideList = outsideList;
 
     // TODO: build program screen

@@ -20,7 +20,7 @@ class CompaniesItem {
       this.links,
       this.tags,
       this.companyId,
-        this.isHidden,
+      this.isHidden,
       this.isFavourite,
       this.contactInfo,
       this.listOfFavourites});

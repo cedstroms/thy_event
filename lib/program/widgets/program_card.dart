@@ -26,6 +26,7 @@ class ProgramCard extends StatelessWidget {
 //        builder: (context, snapshot) {
     return Consumer<ProgramProvider>(
         builder: (context, programData, child) {
+          programData.getStringListPrograms();
           return Container(
             color: Theme
                 .of(context)

@@ -17,8 +17,9 @@ class MapScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        child: Text('Hello'),
         onPressed: (){
-          print('hej');
+          print('Hello there');
         },
       ),
     );
