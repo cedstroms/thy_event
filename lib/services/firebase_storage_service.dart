@@ -53,7 +53,7 @@ class DatabaseService {
           content: doc.data['content'] ?? '',
           date: DateFormat.Hm()
                   .add_MMMMEEEEd()
-                  .format(doc.data['date'].toDate()) ??
+              .format(DateTime.parse(doc.data['date'])) ??
               '',
         );
       },
@@ -65,18 +65,25 @@ class DatabaseService {
     return snapshot.documents.map(
       (doc) {
         // returns the data that is in the collection.
+        print((doc.data['start_time']));
+//        print(DateFormat.d()
+//            .format(doc.data['start_time'])
+//            .toString()
+//            .runtimeType);
         return ProgramItem(
           startTimeOnlyTime:
-              DateFormat.Hm().format(doc.data['start_time'].toDate()) ?? '',
+          DateFormat.Hm().format(DateTime.parse(doc.data['start_time'])) ??
+              '',
           endTimeOnlyTime:
-          DateFormat.Hm().format(doc.data['end_time'].toDate()) ?? '',
+          DateFormat.Hm().format(DateTime.parse((doc.data['end_time']))) ??
+              '',
           title: doc.data['title'] ?? '',
           subTitle: doc.data['sub_title'] ?? '',
           tabNumber: doc.data['tab_number'] ?? 0,
           desc: doc.data['desc'] ?? '',
-          startDay:
-          DateFormat.EEEE().format(doc.data['start_time'].toDate()) ?? '',
-
+          startDay: DateFormat.EEEE()
+              .format(DateTime.parse(doc.data['start_time'])) ??
+              '',
         );
       },
     ).toList();
