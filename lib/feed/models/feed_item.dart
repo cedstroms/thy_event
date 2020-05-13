@@ -30,6 +30,7 @@ class FeedProperties with ChangeNotifier {
 
 class ShowLessShowMore with ChangeNotifier {
   void changerLessMore(FeedItem feedItem) {
+    print('${feedItem.showMore} in feeed_item');
     feedItem.toggleLessMore();
     print('${feedItem.showMore} in feedItem ChangerLessMore');
     notifyListeners();
