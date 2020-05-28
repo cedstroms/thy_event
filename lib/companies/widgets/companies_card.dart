@@ -28,7 +28,7 @@ class CompaniesCard extends StatelessWidget {
     return Consumer<CompaniesProvider>(
         builder: (context, companiesData, child) {
           return Padding(
-            padding: EdgeInsets.all(12),
+            padding: EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
                 FlatButton(
@@ -83,7 +83,7 @@ class CompaniesCard extends StatelessWidget {
                     company.name,
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
-                )
+                ),
               ],
             ),
           );
